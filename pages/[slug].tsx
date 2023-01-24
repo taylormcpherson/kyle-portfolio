@@ -14,7 +14,6 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project }) => {
-  console.log(project.body);
   return (
     <Layout>
       <Helmet
