@@ -7,11 +7,14 @@ import { ProjectPreview } from "@/lib/sanity/queries";
 
 export const Card: FC<Readonly<ProjectPreview>> = ({ title, subtitle, slug, imageUrl, imageAlt }) => (
   <li className={styles.card}>
+    <NextLink className={styles.linkOverlay} href={slug}>
+      View project
+    </NextLink>
     <h3 className={styles.title}>{title}</h3>
     <p className={styles.description}>{subtitle}</p>
-    <NextLink className={styles.link} href={slug} target="_blank" rel="noopener noreferrer">
+    <p className={styles.link}>
       View project →
-    </NextLink>
+    </p>
     <div className={styles.imageContainer}>
       <NextImage className={styles.image} src={imageUrl} alt={imageAlt ?? title} fill />
     </div>

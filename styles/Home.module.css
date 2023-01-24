@@ -7,7 +7,7 @@
   width: 100%;
   min-height: calc(75vh);
   margin-bottom: 6rem;
-  border-bottom: 1px solid #212121;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
 .container:before {
@@ -49,9 +49,9 @@
   width: 12px;
   height: 12px;
   padding: 16px;
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(0, 0, 0, 0.1);
   border-radius: 100%;
-  color: white;
+  color: rgb(13, 13, 13);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -69,7 +69,7 @@
 } 
 
 .button:hover {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(0, 0, 0, 0.2);
   color: rgb(13, 13, 13);
 }
 

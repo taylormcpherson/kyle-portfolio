@@ -104,8 +104,6 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
   )
 }
 
-export default Home;
-
 export async function getStaticProps() {
   const projects = await getAllProjects();
   const page = await getPage("/");
@@ -114,6 +112,9 @@ export async function getStaticProps() {
     props: {
       projects,
       page,
-    }
+    },
+    revalidate: 60,
   };
 }
+
+export default Home;

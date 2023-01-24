@@ -6,39 +6,37 @@ import styles from '../styles/About.module.css';
 import textStyles from "../styles/Typography.module.css";
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
-    return (
-      <Layout>
-        <Helmet
-          title={`${page.metaTitle} | Kyle Zweng`}
-          meta={[ 
-            {
-              property: "og:title",
-              content: page.metaTitle + " | Kyle Zweng"
-            },
-            {
-              property: "og:description",
-              content: page.metaDescription,
-            },
-          ]}
-        />
-        <section className={styles.container}>
-          <h1 className={textStyles.title}
-              data-sal="slide-up"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="ease-in-out"
-          > 
-            {page.title}
-          </h1>
-          <p className={textStyles.paragraph}>
-            {page.subtitle}
-          </p>
-        </section>
-      </Layout>
-    )
-  }
-
-  export default About;
+  return (
+    <Layout>
+      <Helmet
+        title={`${page.metaTitle} | Kyle Zweng`}
+        meta={[ 
+          {
+            property: "og:title",
+            content: page.metaTitle + " | Kyle Zweng"
+          },
+          {
+            property: "og:description",
+            content: page.metaDescription,
+          },
+        ]}
+      />
+      <section className={styles.container}>
+        <h1 className={textStyles.title}
+            data-sal="slide-up"
+            data-sal-duration="500"
+            data-sal-delay="300"
+            data-sal-easing="ease-in-out"
+        > 
+          {page.title}
+        </h1>
+        <p className={textStyles.paragraph}>
+          {page.subtitle}
+        </p>
+      </section>
+    </Layout>
+  )
+}
 
 
 export async function getStaticProps() {
@@ -47,6 +45,9 @@ export async function getStaticProps() {
   return {
     props: {
       page,
-    }
+    },
+    revalidate: 60,
   };
 }
+
+export default About;

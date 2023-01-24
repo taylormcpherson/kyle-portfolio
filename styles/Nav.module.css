@@ -31,29 +31,10 @@
     transition: all .25s ease-in-out;
 }
 
-.link:before {
-    content: '';
-    position: absolute;
-    width: 1.5em;
-    height: 1.5em;
-    left: 1em;
-    bottom: 0;
-    border-radius: 100%;
-    background: linear-gradient(to right, rgb(0, 162, 255), rgb(0, 255, 255));
-    opacity: 0.3;
-    z-index: -1;
-    transition: all .25s ease-in-out;
-}
-
 .link:hover {
     background: linear-gradient(to right, rgb(0, 162, 255), rgb(0, 255, 255));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.link:hover:before {
-    left: 60%;
-    opacity: 0;
 }
 
 .button {

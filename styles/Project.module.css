@@ -1,0 +1,35 @@
+
+.heroContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 90vh;
+  gap: 4em;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.image {
+    object-fit: contain;
+    object-position: left top;
+}
+
+.bodyContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1em;
+}
+
+@media (min-width: 1100px) {
+  .heroContainer {
+    max-width: 80vw;
+    margin: auto;
+  }
+  .bodyContainer {
+      max-width: 60vw;
+      margin: auto;
+  }
+}

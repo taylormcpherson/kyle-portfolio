@@ -14,7 +14,7 @@ export interface Project {
 
 export const getProject = async ( slug: string ): Promise<Project> => {
   const query = `
-    *[_type == "project" && slug == "${slug}"] {
+    *[_type == "project" && slug.current == "${slug}"] {
       'slug': slug.current,
       title,
       subtitle,
@@ -54,6 +54,17 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
 
   const allProjects = await client.fetch(query);
   return allProjects;
+};
+
+export const getProjectSlugs = async (): Promise<{slug: string}[]> => {
+  const query = `
+    *[_type == "project"] {
+      'slug': slug.current,
+    }
+  `;
+
+  const allProjectSlugs = await client.fetch(query);
+  return allProjectSlugs;
 };
 
 export interface Page {
