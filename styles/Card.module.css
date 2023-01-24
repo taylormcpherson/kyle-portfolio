@@ -1,0 +1,142 @@
+.cardsList {
+    transition: all .25s ease-in-out;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    position: relative;
+    padding: 3rem 0;
+    border-top: 1px solid #212121;
+    transition: all .25s ease-in-out;
+}
+
+.description {
+    font-size: 1.15em;
+    font-style: italic;
+    opacity: 0;
+    transition: all .25s ease-in-out;
+}
+
+.title {
+    font-size: 4em;
+    font-weight: 300;
+    transition: all .25s ease-in-out;
+}
+
+.ctaContainer {
+    display: flex;
+    gap: 2rem;
+}
+
+.link {
+    position: relative;
+    opacity: 0;
+    font-size: 1.5em;
+    transition: all .25s ease-in-out;
+}
+
+.link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1.25em;
+    height: 1.25em;
+    background: rgb(255, 255, 255);
+    opacity: 0;
+    border-radius: 100%;
+    z-index:1;
+    transition: left .45s ease-in-out, opacity .1s ease-in-out;
+}
+
+.imageContainer {
+    position: absolute;
+    width: 500px;
+    height: 300px;
+    top: -1rem;
+    right: 3rem;
+    opacity: 0;
+    z-index: 1;
+    transition: all .25s ease-in-out;
+}
+
+.image {
+    object-fit: contain;
+}
+
+.cardsList:hover .title {
+    opacity: 0.2;
+}
+
+.card:hover .description,
+.card:hover .title,
+.card:hover .link,
+.card:hover .imageContainer,
+.link:focus {
+    opacity: 1;
+}
+
+.link:hover::before {
+    opacity: 0.3;
+    left: calc(100% - 27px);
+}
+
+@media (min-width: 1100px) {
+    .title {
+        max-width: 75vw;
+    }
+}
+
+@media (max-width: 1100px) {
+
+    .cardsList:hover .title {
+        opacity: 1;
+    }
+
+    .title {
+        font-size: 3em;
+        order: 1;
+        opacity: 1;
+    }
+
+    .imageContainer {
+        order: 2;
+        opacity: 1;
+        position: relative;
+        top: auto;
+        right: auto;
+        width: 300px;
+        height: 200px; 
+    }
+
+    .description {
+        order: 3;
+        opacity: 1;
+    }
+
+    .ctaContainer { 
+        order: 4;
+    }
+
+    .link {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2em;
+    }
+
+    .link {
+        font-size: 1.25em;
+    }
+
+    .ctaContainer {
+        flex-direction: column;
+    }
+}
+  
