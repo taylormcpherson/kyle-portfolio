@@ -48,7 +48,6 @@ export default defineType({
         Rule.max(50).error('Too long. Google requires the title to be under 50 characters.')
       ],
     }),
-
     defineField({
       name: 'metaDescription',
       title: 'Meta description',

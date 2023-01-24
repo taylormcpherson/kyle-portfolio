@@ -14,13 +14,8 @@ export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>
   <div className={styles.container}>
     <Helmet 
       htmlAttributes={{ lang: "en-US" }}
-      title="Taylor McPherson"
+      title="Kyle Zweng"
     > 
-      <meta
-        name="description"
-        content="Frontend software engineer specializing in accessible, responsive, performant, and delightful user-first web applications."
-        key="desc"
-      />
       <meta charSet="utf-8" />
       <link
         rel="icon" 
@@ -38,7 +33,12 @@ export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>
     </main>
 
     <footer className={styles.footer}>
-      <p>© {new Date().getFullYear()} Taylor McPherson. Built with 🤍 + ☕ in Newport Beach, California.</p>
+      <p>
+        © {new Date().getFullYear()} Kyle Zweng. Built by{" "}
+        <Link className={styles.link} href="https://taylormcpherson.dev">
+          Taylor McPherson
+        </Link>
+      </p>
 
       <ul className={styles.list}>
         <li>
@@ -54,7 +54,7 @@ export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>
         <li>
           <Link 
               className={styles.link}
-              href="https://www.linkedin.com/in/taylor-mcpherson/" 
+              href="https://www.linkedin.com/in/kyle-zweng-1b9333150/" 
               rel="noreferrer"
               target="_blank"
               aria-label="LinkedIn.">

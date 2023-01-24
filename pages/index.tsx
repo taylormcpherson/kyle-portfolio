@@ -11,6 +11,8 @@ import HightouchImage from "../public/images/hightouch.png";
 import styles from "../styles/Home.module.css";
 import textStyles from "../styles/Typography.module.css";
 import cardStyles from "../styles/Card.module.css";
+import { getAllProjects, getPage, Page as SanityPage, Project, ProjectPreview } from "@/lib/sanity/queries";
+import { NextPage } from "next";
 
 
 const projects = [
@@ -23,35 +25,36 @@ const projects = [
   },
 ];
 
-export default function Home() {
+interface PageProps {
+  page: SanityPage;
+  projects: ProjectPreview[];
+}
+
+const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
   const [isPaused, setPausedState] = useState<boolean>(false);
 
   return (
     <Layout>
       <Helmet
-        title="Projects | Kyle Zweng"
+        title={`${page.metaTitle} | Kyle Zweng`}
         meta={[ 
           {
             property: "og:title",
-            content: "About | Kyle Zweng"
+            content: page.metaTitle + " | Kyle Zweng"
           },
           {
             property: "og:description",
-            content: "Frontend software engineer specializing in accessible, responsive, performant, and delightful user-first web applications."
-          },
-          {
-            property: "og:image",
-            content: "https://taylormcpherson.dev/meta.png"
+            content: page.metaDescription
           }
         ]}
       />
       
       <section className={`${styles.container} ${isPaused ? styles.isPaused : ''}`}>
         <h1 className={textStyles.title}>
-          Frontend software engineer at Hightouch
+          {page.title}
         </h1>
         <h2 className={textStyles.description}>
-          building accessible, performant, and delightful tools for us humans on the internet.
+          {page.subtitle}
         </h2>
         <div className={styles.buttonContainer}>
           <button
@@ -92,11 +95,25 @@ export default function Home() {
           selected works
         </h2>
         <ul className={cardStyles.cardsList}>
-          {projects.map((card) => (
-            <Card key={card.title} {...card} />
+          {projects.map((project) => (
+            <Card key={project.slug} {...project} />
           ))}
         </ul>
       </section>
     </Layout>
   )
+}
+
+export default Home;
+
+export async function getStaticProps() {
+  const projects = await getAllProjects();
+  const page = await getPage("/");
+
+  return {
+    props: {
+      projects,
+      page,
+    }
+  };
 }

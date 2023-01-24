@@ -8,7 +8,6 @@ import { media } from 'sanity-plugin-media'
 export default defineConfig({
   name: 'default',
   title: 'kyle-portfolio',
-
   projectId: '38t6rk2v',
   dataset: 'production',
 
