@@ -76,8 +76,8 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
             className={styles.image}
             src={project.imageUrl}
             alt={project.imageAlt ?? project.title}
-            width={400}
-            height={400}
+            width={300}
+            height={500}
           />
         </div>
       </section>
