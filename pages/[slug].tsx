@@ -6,14 +6,41 @@ import ReactMarkdown from "react-markdown";
 import { Layout } from "../components/layout";
 import styles from '../styles/Project.module.css';
 import textStyles from "../styles/Typography.module.css";
-import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import SyntaxHighlighter from 'react-syntax-highlighter';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
+import GithubSlugger from "github-slugger";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import { visit } from "unist-util-visit";
+
+import { useState } from "react";
+import { components } from "@/components/markdown";
+
+interface Heading {
+  title: string;
+  href: string;
+}
 
 interface PageProps {
   project: Project;
+  mdx: MDXRemoteSerializeResult;
+  headings: Heading[];
 }
 
-const ProjectPage: NextPage<Readonly<PageProps>> = ({ project }) => {
+const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) => {
+  const [mdxSource, setMDXSource] = useState<MDXRemoteSerializeResult>(mdx);
+
+  const serializeMDX = async (content: string) => {
+    const newMDX = await serializeArticle(content);
+    setMDXSource(newMDX);
+  };
+  
   return (
     <Layout>
       <Helmet
@@ -56,32 +83,51 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project }) => {
       </section>
 
       <section className={styles.bodyContainer}>
-      <ReactMarkdown
-        // components={{
-        //   code({node, inline, className, children, ...props}) {
-        //     const match = /language-(\w+)/.exec(className || '')
-        //     return !inline && match ? (
-        //       <SyntaxHighlighter
-        //         style={dark}
-        //         language="sql"
-        //         PreTag="div"
-        //         {...props}
-        //       >
-        //         {String(children).replace(/\n$/, '')}
-        //       </SyntaxHighlighter>
-        //     ) : (
-        //       <code className={className} {...props}>
-        //         {children}
-        //       </code>
-        //     )
-        //   }
-        // }}
-      >
-        {project.body}
-      </ReactMarkdown>
+        <ReactMarkdown components={components()}>
+          {project.body}
+        </ReactMarkdown>
       </section>
     </Layout>
   )
+};
+
+const serializeArticle = async (content: string) => {
+  const mdx = await serialize(content, {
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug, rehypeHighlight],
+      remarkPlugins: [remarkGfm],
+      format: "mdx",
+    },
+  });
+
+  return mdx;
+};
+
+interface Heading {
+  title: string;
+  href: string;
+}
+
+const getArticleHeadings = (blogContent: string): Heading[] => {
+  const slugger = new GithubSlugger();
+  const tree = unified().use(remarkParse).parse(blogContent);
+  const headings: Heading[] = [];
+
+  visit(tree, "heading", (node) => {
+    if (node.depth === 2) {
+      const title = blogContent
+        .slice(node.position?.start.offset ?? 0, node.position?.end.offset ?? 0)
+        .replace(/^#+/g, "")
+        .trim();
+
+      headings.push({
+        title,
+        href: `#${slugger.slug(title)}`,
+      });
+    }
+  });
+
+  return headings;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
@@ -96,7 +142,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const slug = String(params?.slug) ?? "";
   const project = await getProject(slug);
-
+  const mdx = await serializeArticle(project.body);
+  
   if (!project) {
     return {
       notFound: true,
@@ -105,7 +152,9 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
 
   return {
     props: {
-      project
+      project,
+      mdx,
+      headings: getArticleHeadings(project.body),
     },
     revalidate: 60,
   };

@@ -20,7 +20,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1em;
 }
 
 @media (min-width: 1100px) {
@@ -29,7 +28,7 @@
     margin: auto;
   }
   .bodyContainer {
-      max-width: 60vw;
+      max-width: 62vw;
       margin: auto;
   }
 }
