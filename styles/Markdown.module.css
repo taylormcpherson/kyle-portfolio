@@ -5,6 +5,14 @@
   text-align: justify;
 }
 
+.bold {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
+
 .list {
   list-style: disc;
   padding-left: 1em;

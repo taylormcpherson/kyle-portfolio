@@ -7,6 +7,16 @@ export const components = (): MDXRemoteProps["components"] => ({
       {children}
     </p>
   ),
+  strong: ({ children}) => (
+    <strong className={styles.bold}>
+      {children}
+    </strong>
+  ),
+  em: ({ children}) => (
+    <em className={styles.italic}>
+      {children}
+    </em>
+  ),
   ul: ({ children}) => (
     <ul className={styles.list}>
       {children}
