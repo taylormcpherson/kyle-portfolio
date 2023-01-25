@@ -27,9 +27,17 @@
   font-size: 0.9em;
   padding: 1em;
   margin: 1em 0;
-
 }
 
 .code {
+  font-family: monospace;
+  color: #10162F;
+}
 
+p .code {
+  white-space: pre-wrap;
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.125rem;
+  background-color: #F3F3F5;
+  font-size: 0.9em;
 }
