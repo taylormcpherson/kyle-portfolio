@@ -3,24 +3,20 @@ import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import NextImage from "next/image";
 import { Helmet } from "react-helmet";
 import ReactMarkdown from "react-markdown";
-import { Layout } from "../components/layout";
-import styles from '../styles/Project.module.css';
-import textStyles from "../styles/Typography.module.css";
-import { dark } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
-import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
 import GithubSlugger from "github-slugger";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import { visit } from "unist-util-visit";
-
-import { useState } from "react";
 import { components } from "@/components/markdown";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { serialize } from "next-mdx-remote/serialize";
+
+import { Layout } from "../components/layout";
+import styles from '../styles/Project.module.css';
+import textStyles from "../styles/Typography.module.css";
 
 interface Heading {
   title: string;
@@ -34,13 +30,7 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) => {
-  const [mdxSource, setMDXSource] = useState<MDXRemoteSerializeResult>(mdx);
-
-  const serializeMDX = async (content: string) => {
-    const newMDX = await serializeArticle(content);
-    setMDXSource(newMDX);
-  };
-  
+  console.log({ headings });
   return (
     <Layout>
       <Helmet
@@ -56,15 +46,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
           },
         ]}
       />
+
       <section className={styles.heroContainer}>
- 
         <div>
-          <h1 className={textStyles.title}
-              data-sal="slide-up"
-              data-sal-duration="500"
-              data-sal-delay="300"
-              data-sal-easing="ease-in-out"
-          > 
+          <h1 className={textStyles.title}> 
             {project.title}
           </h1>
           <p className={textStyles.paragraph}>
@@ -83,9 +68,29 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
       </section>
 
       <section className={styles.bodyContainer}>
-        <ReactMarkdown components={components()}>
-          {project.body}
-        </ReactMarkdown>
+        <aside className={styles.aside}>
+          <nav aria-label="Table of Contents" className={styles.tocNav}>
+            <h2 className={styles.tocH2}>Table of contents</h2>
+              <div className={styles.tocFlex}>
+                {headings.map(({ title, href }) => (
+                  <a key={href} href={href} className={styles.tocLink}>
+                    {title}
+                  </a>
+                ))}
+              </div>
+          </nav>
+        </aside>
+        <div className={styles.markdownContainer}>
+          <ReactMarkdown
+            components={components()}       
+            rehypePlugins={[rehypeRaw, rehypeSlug]}
+            remarkPlugins={[remarkGfm]}
+            linkTarget='_blank'
+          >
+            {project.body}
+          </ReactMarkdown>
+        </div>
+        
       </section>
     </Layout>
   )
@@ -94,7 +99,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
 const serializeArticle = async (content: string) => {
   const mdx = await serialize(content, {
     mdxOptions: {
-      rehypePlugins: [rehypeSlug, rehypeHighlight],
+      rehypePlugins: [rehypeSlug],
       remarkPlugins: [remarkGfm],
       format: "mdx",
     },
@@ -142,7 +147,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const slug = String(params?.slug) ?? "";
   const project = await getProject(slug);
-  const mdx = await serializeArticle(project.body);
+  const mdx = await serializeArticle(project?.body ?? "");
   
   if (!project) {
     return {

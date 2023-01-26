@@ -1,7 +1,13 @@
 import { MDXRemoteProps } from "next-mdx-remote";
 import styles from '../styles/Markdown.module.css';
+import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+
+import { a11yDark, nightOwl, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 export const components = (): MDXRemoteProps["components"] => ({
+  h2: ({ children, ...props }) => (
+    <h2 className={styles.h2} {...props}>{children}</h2>
+  ),
   p: ({ children}) => (
     <p className={styles.paragraph}>
       {children}
@@ -38,9 +44,22 @@ export const components = (): MDXRemoteProps["components"] => ({
       {children}
     </pre>
   ),
-  code: ({ children }) => (
-    <code className={styles.code}>
-      {children}
-    </code>
-  )
+  code: ({ className, children, ...props }) => {
+    return !props.inline ? (
+      <SyntaxHighlighter
+        style={base16AteliersulphurpoolLight}
+        language="sql"
+        PreTag="div"
+        showLineNumbers
+        wrapLongLines
+        {...props}
+      >
+        {String(children).replace(/\n$/, '')}
+      </SyntaxHighlighter>
+    ) : (
+      <code className={styles.inlineCode} {...props}>
+          {children}
+      </code>
+    )
+  },
 });
