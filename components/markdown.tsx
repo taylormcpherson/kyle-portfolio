@@ -44,8 +44,8 @@ export const components = (): MDXRemoteProps["components"] => ({
       {children}
     </pre>
   ),
-  code: ({ children, ...props }) => {
-    return !props?.inline ? (
+  code: ({ inline, children, ...props }) => {
+    return !inline ? (
       <SyntaxHighlighter
         style={base16AteliersulphurpoolLight}
         language="sql"
