@@ -57,7 +57,9 @@ export const components = (): MDXRemoteProps["components"] => ({
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <code className={styles.inlineCode} {...props} />
+      <code className={styles.inlineCode} {...props}>
+        {children}
+      </code>
     )
   },
 });
