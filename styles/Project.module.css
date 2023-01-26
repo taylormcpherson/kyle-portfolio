@@ -30,15 +30,15 @@
   position: absolute;
   top: 7em;
   bottom: 0;
-  right: 2em;
+  left: 2em;
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
   gap: 2em;
   font-size: 0.9em;
   min-height: 80vh;
-  padding-left: 3em;
-  border-left: 1px solid rgba(0,0,0,0.2);
+  padding-right: 3em;
+  border-right: 1px solid rgba(0,0,0,0.2);
 }
 
 .tocH2 {
