@@ -1,57 +1,41 @@
-import { MDXRemoteProps } from "next-mdx-remote";
 import styles from '../styles/Markdown.module.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { CodeProps } from "react-markdown/lib/ast-to-react";
 
-import { a11yDark, nightOwl, base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/cjs/styles/prism';
-
-export const components = (): MDXRemoteProps["components"] => ({
-  h2: ({ children, ...props }) => (
-    <h2 className={styles.h2} {...props}>{children}</h2>
+export const components = () => ({
+  h2: ({ ...props }) => (
+    <h2 className={styles.h2} {...props} />
   ),
-  p: ({ children}) => (
-    <p className={styles.paragraph}>
-      {children}
-    </p>
+  p: ({ ...props }) => (
+    <p className={styles.paragraph} {...props} />
   ),
-  strong: ({ children}) => (
-    <strong className={styles.bold}>
-      {children}
-    </strong>
+  strong: ({ ...props }) => (
+    <strong className={styles.bold} {...props} />
   ),
-  em: ({ children}) => (
-    <em className={styles.italic}>
-      {children}
-    </em>
+  em: ({ ...props }) => (
+    <em className={styles.italic} />
   ),
-  ul: ({ children}) => (
-    <ul className={styles.list}>
-      {children}
-    </ul>
+  ul: ({ ...props}) => (
+    <ul className={styles.list} {...props} />
   ),
-  ol: ({ children}) => (
-    <ol className={styles.orderedList}>
-      {children}
-    </ol>
+  ol: ({ ...props}) => (
+    <ol className={styles.orderedList} {...props} />
   ),
-  li: ({ children}) => (
-    <li className={styles.listItem}>
-      {children}
-    </li>
+  li: ({ ...props}) => (
+    <li className={styles.listItem} {...props} />
   ),
-  pre: ({ children }) => (
-    <pre className={styles.pre}
-    >
-      {children}
-    </pre>
+  pre: ({ ...props }) => (
+    <pre className={styles.pre} {...props} />
   ),
-  code: ({ className, children, ...props }) => {
+  code: ({node, inline, className, children, style, ...props} : CodeProps) => {
     return className ? (
       <SyntaxHighlighter
-        style={base16AteliersulphurpoolLight}
         language="sql"
         PreTag="div"
         showLineNumbers
         wrapLongLines
+        style={base16AteliersulphurpoolLight}
         {...props}
       >
         {String(children).replace(/\n$/, '')}
