@@ -44,8 +44,8 @@ export const components = (): MDXRemoteProps["components"] => ({
       {children}
     </pre>
   ),
-  code: ({ className, children, ...props }) => {
-    return !props.inline ? (
+  code: ({ children, ...props }) => {
+    return !props?.inline ? (
       <SyntaxHighlighter
         style={base16AteliersulphurpoolLight}
         language="sql"
@@ -57,9 +57,7 @@ export const components = (): MDXRemoteProps["components"] => ({
         {String(children).replace(/\n$/, '')}
       </SyntaxHighlighter>
     ) : (
-      <code className={styles.inlineCode} {...props}>
-          {children}
-      </code>
+      <code className={styles.inlineCode} {...props} />
     )
   },
 });

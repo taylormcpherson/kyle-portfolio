@@ -10,11 +10,10 @@ import GithubSlugger from "github-slugger";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import { visit } from "unist-util-visit";
-import { components } from "@/components/markdown";
 import { MDXRemoteSerializeResult } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
-
 import { Layout } from "../components/layout";
+import { components } from "../components/markdown";
 import styles from '../styles/Project.module.css';
 import textStyles from "../styles/Typography.module.css";
 
@@ -30,7 +29,6 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) => {
-  console.log({ headings });
   return (
     <Layout>
       <Helmet
