@@ -41,7 +41,7 @@
   border-right: 1px solid var(--black-transparent);
 }
 
-.tocH2 {
+.body h2 {
   font-size: 1.2em;
 }
 

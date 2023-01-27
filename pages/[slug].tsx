@@ -68,7 +68,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
       <section className={styles.body}>
         <aside>
           <nav aria-label="Table of Contents">
-            <h2 className={styles.tocH2}>Table of contents</h2>
+            <h2>Table of contents</h2>
               <div className={styles.tocFlex}>
                 {headings.map(({ title, href }) => (
                   <a key={href} href={href} className={styles.tocLink}>
