@@ -1,6 +1,3 @@
-.container {
-    color: rgba(0, 0, 0, 0.95);
-}
 
 .footer {
     display: flex;
@@ -8,10 +5,10 @@
     gap: 1em;
     font-size: .88em;
     padding: 6rem 3rem 2rem 3rem;
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    border-top: 1px solid var(--black-transparent);
 }
 
-.list {
+.footer ul {
     display: flex;
     gap: 2em;
 }
@@ -29,7 +26,7 @@
     height: 1em;
     transform: translate(-50%, -50%);
     border-radius: 100%;
-    background: linear-gradient(to right, rgb(0, 162, 255), rgb(0, 255, 255));
+    background: var(--gradient-blue);
     opacity: 0;
     transition: all .25s ease-in-out;
 }

@@ -10,11 +10,11 @@
     align-items: flex-start;
     position: relative;
     padding: 3rem 0;
-    border-top: 1px solid rgba(0,0,0,0.3);
+    border-top: 1px solid var(--black-transparent);
     transition: all .25s ease-in-out;
 }
 
-.linkOverlay {
+.card a {
     position: absolute;
     top: 0;
     right: 0;
@@ -24,6 +24,12 @@
     opacity: 0;
 }
 
+.card h3 {
+    font-size: 4em;
+    font-weight: 300;
+    transition: all .25s ease-in-out;
+}
+
 .description {
     font-size: 1.15em;
     font-style: italic;
@@ -31,18 +37,7 @@
     transition: all .25s ease-in-out;
 }
 
-.title {
-    font-size: 4em;
-    font-weight: 300;
-    transition: all .25s ease-in-out;
-}
-
-.ctaContainer {
-    display: flex;
-    gap: 2rem;
-}
-
-.link {
+.cta {
     position: relative;
     opacity: 0;
     font-size: 1.5em;
@@ -64,31 +59,31 @@
     object-fit: contain;
 }
 
-.cardsList:hover .title {
+.cardsList:hover h3 {
     opacity: 0.2;
 }
 
 .card:hover .description,
-.card:hover .title,
-.card:hover .link,
+.card:hover h3,
+.card:hover .cta,
 .card:hover .imageContainer,
-.link:focus {
+.cta:focus {
     opacity: 1;
 }
 
 @media (min-width: 1100px) {
-    .title {
+    .card h3 {
         max-width: 75vw;
     }
 }
 
 @media (max-width: 1100px) {
 
-    .cardsList:hover .title {
+    .cardsList:hover h3 {
         opacity: 1;
     }
 
-    .title {
+    .card h3 {
         font-size: 3em;
         order: 1;
         opacity: 1;
@@ -109,21 +104,18 @@
         opacity: 1;
     }
 
-    .ctaContainer { 
+    .cta {
         order: 4;
-    }
-
-    .link {
         opacity: 1;
     }
 }
 
 @media (max-width: 600px) {
-    .title {
+    .card h3 {
         font-size: 2em;
     }
 
-    .link {
+    .cta {
         font-size: 1.25em;
     }
 

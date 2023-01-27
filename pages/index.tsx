@@ -56,38 +56,6 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         <h2 className={textStyles.description}>
           {page.subtitle}
         </h2>
-        <div className={styles.buttonContainer}>
-          <button
-            aria-labelledby="pause-label"
-            className={`${styles.button} ${!isPaused ? styles.isVisible : ''}`}
-            data-state="pause"
-            onClick={()=>setPausedState(true)}
-          >
-            <FontAwesomeIcon className={styles.icon} icon={faPause} />
-          </button>
-          <p
-            id="pause-label"
-            className={`${styles.buttonLabel} ${!isPaused ? styles.isVisible : ''}`}
-          >
-            pause animation
-          </p>
-        </div>
-        <div className={styles.buttonContainer}>
-          <button
-            aria-labelledby="play-label"
-            className={`${styles.button} ${isPaused ? styles.isVisible : ''}`}
-            data-state="play"
-            onClick={()=>setPausedState(false)}
-          >
-            <FontAwesomeIcon className={styles.icon} icon={faPlay} />
-          </button>
-          <p
-            id="play-label"
-            className={`${styles.buttonLabel} ${isPaused ? styles.isVisible : ''}`}
-          >
-            play animation
-          </p>
-        </div>
       </section>
 
       <section>

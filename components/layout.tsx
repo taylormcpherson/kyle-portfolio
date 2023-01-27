@@ -11,7 +11,7 @@ import styles from "../styles/Layout.module.css";
 
 export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>  
 (
-  <div className={styles.container}>
+  <>
     <Helmet 
       htmlAttributes={{ lang: "en-US" }}
       title="Kyle Zweng"
@@ -40,7 +40,7 @@ export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>
         </Link>
       </p>
 
-      <ul className={styles.list}>
+      <ul>
         <li>
           <Link 
             className={styles.link}
@@ -73,5 +73,5 @@ export const Layout: FC<Readonly<{children: ReactNode}>> = ({children}) =>
         </li>
       </ul>
     </footer>
-  </div>
+  </>
 );

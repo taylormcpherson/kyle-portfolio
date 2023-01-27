@@ -33,18 +33,17 @@
 
 .pre {
   border-radius: 4px;
+  font-family: var(--font-mono);
   margin: 1em 0;
-  font-family: ui-monospace, monospace, serif;
 }
-
 
 .inlineCode {
   font-size: .9em;
-  font-family: ui-monospace, monospace, serif;
-  word-break: keep-all;
-  /* background-color: #eff2ff; */
-  background: rgb(245, 247, 255);
-  color: rgb(62, 67, 89);
-  padding: 4px 8px;
+  font-family: var(--font-mono);
+  font-weight: 500;
+  background: var(--off-white-blue);
+  color: var(--grey);
   border-radius: 4px;
+  padding: 4px 8px;
+  word-break: keep-all;
 }

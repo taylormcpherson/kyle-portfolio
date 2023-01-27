@@ -1,6 +1,6 @@
 import styles from '../styles/Markdown.module.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { base16AteliersulphurpoolLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { base16AteliersulphurpoolLight, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 
 export const components = () => ({

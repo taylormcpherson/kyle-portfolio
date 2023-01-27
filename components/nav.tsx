@@ -7,8 +7,8 @@ import styles from "../styles/Nav.module.css";
 export const NavBar = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   return (
-    <header className={styles.container}>
-      <p className={styles.name}>kyle zweng</p>
+    <header className={styles.header}>
+      <p>kyle zweng</p>
 
       <nav aria-label="Primary">
         <ul className={styles.list}>

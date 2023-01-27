@@ -45,7 +45,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
         ]}
       />
 
-      <section className={styles.heroContainer}>
+      <section className={styles.hero}>
         <div>
           <h1 className={textStyles.title}> 
             {project.title}
@@ -65,9 +65,9 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
         </div>
       </section>
 
-      <section className={styles.bodyContainer}>
-        <aside className={styles.aside}>
-          <nav aria-label="Table of Contents" className={styles.tocNav}>
+      <section className={styles.body}>
+        <aside>
+          <nav aria-label="Table of Contents">
             <h2 className={styles.tocH2}>Table of contents</h2>
               <div className={styles.tocFlex}>
                 {headings.map(({ title, href }) => (
@@ -88,7 +88,6 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
             {project.body}
           </ReactMarkdown>
         </div>
-        
       </section>
     </Layout>
   )

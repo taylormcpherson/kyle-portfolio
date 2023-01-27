@@ -1,5 +1,5 @@
 
-.heroContainer {
+.hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -15,18 +15,18 @@
     object-fit: contain;
 }
 
-.bodyContainer {
+.body {
   position: relative;
   padding-top: 0;
 }
 
-.aside {
+.body aside {
   display: none;
   position: sticky;
   top: 0;
 }
 
-.tocNav {
+.body nav {
   position: absolute;
   top: 8em;
   bottom: 0;
@@ -38,7 +38,7 @@
   font-size: 0.9em;
   min-height: 60vh;
   padding-right: 5em;
-  border-right: 1px solid rgba(0,0,0,0.2);
+  border-right: 1px solid var(--black-transparent);
 }
 
 .tocH2 {
@@ -52,10 +52,6 @@
   gap: 1em;
 }
 
-.tocLink {
-
-}
-
 .markdownContainer {
   display: flex;
   flex-direction: column;
@@ -65,7 +61,7 @@
 }
 
 @media (max-width: 800px) {
-  .heroContainer {
+  .hero {
     flex-direction: column;
     align-items: flex-start;
     justify-content: flex-start;
@@ -77,12 +73,12 @@
 }
 
 @media (min-width: 1200px) {
-  .heroContainer {
+  .hero {
     max-width: 62vw;
     margin: auto;
   }
 
-  .aside {
+  .body aside {
     display: flex;
   }
 

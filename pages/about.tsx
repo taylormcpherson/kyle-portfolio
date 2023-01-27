@@ -22,12 +22,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
         ]}
       />
       <section className={styles.container}>
-        <h1 className={textStyles.title}
-            data-sal="slide-up"
-            data-sal-duration="500"
-            data-sal-delay="300"
-            data-sal-easing="ease-in-out"
-        > 
+        <h1 className={textStyles.title}> 
           {page.title}
         </h1>
         <p className={textStyles.paragraph}>
