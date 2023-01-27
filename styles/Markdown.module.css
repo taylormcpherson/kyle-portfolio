@@ -32,7 +32,9 @@
 }
 
 .pre {
+  background: var(--off-white-blue);
   border-radius: 4px;
+  box-shadow: 2px 2px 15px rgba(0,0,0,0.02);
   font-family: var(--font-mono);
   margin: 1em 0;
 }

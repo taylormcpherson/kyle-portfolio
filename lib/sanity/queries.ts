@@ -49,7 +49,8 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       publishedAt,
-    }
+      _updatedAt
+    } | order(_updatedAt desc)
   `;
 
   const allProjects = await client.fetch(query);

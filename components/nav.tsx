@@ -8,7 +8,7 @@ export const NavBar = () => {
   const [isOpen, setOpen] = useState<boolean>(false);
   return (
     <header className={styles.header}>
-      <p>kyle zweng</p>
+      <NextLink href="/" className={styles.link}>kyle zweng</NextLink>
 
       <nav aria-label="Primary">
         <ul className={styles.list}>
