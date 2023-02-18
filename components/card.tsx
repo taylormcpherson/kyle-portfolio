@@ -1,5 +1,5 @@
 import { FC } from "react";
-import NextImage from "next/image";
+import Image from "next/image";
 import NextLink from "next/link";
 
 import styles from "../styles/Card.module.css";
@@ -16,7 +16,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({ title, subtitle, slug, imag
       View project →
     </p>
     <div className={styles.imageContainer}>
-      <NextImage className={styles.image} src={imageUrl} alt={imageAlt ?? title} fill />
+      <Image className={styles.image} src={imageUrl} alt={imageAlt ?? title} fill />
     </div>
   </li>
 )
