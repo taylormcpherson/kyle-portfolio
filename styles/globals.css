@@ -17,6 +17,10 @@
   --gradient-blue: linear-gradient(to right, var(--blue), var(--teal));
 
   --section-padding: 2rem 3rem;
+  --section-padding-y: 2rem;
+  --section-padding-x: 3rem;
+  --section-padding-negative-y: -2rem;
+  --section-padding-negative-x: -3rem;
 }
 
 @media (max-width: 600px) {

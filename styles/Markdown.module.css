@@ -39,6 +39,10 @@
   margin: 1.5em 0;
 }
 
+.code {
+  margin: 0 !important;
+}
+
 .inlineCode {
   font-size: .9em;
   font-family: var(--font-mono);
