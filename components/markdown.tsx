@@ -1,6 +1,6 @@
 import styles from '../styles/Markdown.module.css';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { base16AteliersulphurpoolLight, oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { base16AteliersulphurpoolLight, nord } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import { CodeProps } from "react-markdown/lib/ast-to-react";
 
 export const components = () => ({
@@ -29,17 +29,21 @@ export const components = () => ({
     <pre className={styles.pre} {...props} />
   ),
   code: ({node, inline, className, children, style, ...props} : CodeProps) => {
-    return className ? (
-      <SyntaxHighlighter
-        language="sql"
-        PreTag="div"
-        showLineNumbers
-        wrapLongLines
-        style={base16AteliersulphurpoolLight}
-        {...props}
-      >
-        {String(children).replace(/\n$/, '')}
-      </SyntaxHighlighter>
+    // multi-line code blocks
+    return node.position && node.position.start.line !== node.position.end.line ? (
+      <div className={styles.codeContainer}>
+        <SyntaxHighlighter
+          className={styles.code}
+          language="sql"
+          PreTag="div"
+          showLineNumbers
+          wrapLongLines
+          style={base16AteliersulphurpoolLight}
+          {...props}
+        >
+          {String(children).replace(/\n$/, '')}
+        </SyntaxHighlighter>
+      </div>
     ) : (
       <code className={styles.inlineCode} {...props}>
         {children}
