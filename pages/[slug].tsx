@@ -66,18 +66,22 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, mdx, headings }) 
       </section>
 
       <section className={styles.body}>
-        <aside>
-          <nav aria-label="Table of Contents">
-            <h2>Table of contents</h2>
-              <div className={styles.tocFlex}>
-                {headings.map(({ title, href }) => (
-                  <a key={href} href={href} className={styles.tocLink}>
-                    {title}
-                  </a>
-                ))}
-              </div>
-          </nav>
-        </aside>
+        {headings.length > 0 && (
+          <aside>
+            <nav aria-label="Table of Contents">
+              <h2>Table of contents</h2>
+                <div className={styles.tocFlex}>
+                  {headings.map(({ title, href }) => (
+                    <a key={href} href={href} className={styles.tocLink}>
+                      {title}
+                    </a>
+                  ))}
+                </div>
+            </nav>
+          </aside>
+
+        )}
+        
         <div className={styles.markdownContainer}>
           <ReactMarkdown
             components={components()}       
