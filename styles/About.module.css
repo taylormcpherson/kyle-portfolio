@@ -1,14 +1,13 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 90vh;
 }
 
-
 @media (min-width: 1100px) {
-    .container {
-        max-width: 60vw;
-        margin: auto;
-    }
+  .container {
+    max-width: 60vw;
+    margin: auto;
+  }
 }

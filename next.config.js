@@ -4,7 +4,7 @@ const nextConfig = {
   transpilePackages: ["react-syntax-highlighter"],
   images: {
     domains: ["cdn.sanity.io"],
-  }
+  },
 }
 
 module.exports = nextConfig

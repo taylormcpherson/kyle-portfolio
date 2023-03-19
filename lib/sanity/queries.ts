@@ -1,18 +1,18 @@
-import { client } from "./sanity";
+import { client } from "./sanity"
 
 export interface Project {
-  slug: string;
-  title: string;
-  subtitle: string;
-  imageUrl: string;
-  imageAlt?: string;
-  publishedAt?: string;
-  body: string;
-  metaTitle: string;
-  metaDescription: string;
+  slug: string
+  title: string
+  subtitle: string
+  imageUrl: string
+  imageAlt?: string
+  publishedAt?: string
+  body: string
+  metaTitle: string
+  metaDescription: string
 }
 
-export const getProject = async ( slug: string ): Promise<Project> => {
+export const getProject = async (slug: string): Promise<Project> => {
   const query = `
     *[_type == "project" && slug.current == "${slug}"] {
       'slug': slug.current,
@@ -25,19 +25,19 @@ export const getProject = async ( slug: string ): Promise<Project> => {
       metaTitle,
       metaDescription,
     }
-  `;
+  `
 
-  const project = await client.fetch(query);
-  return project[0];
-};
+  const project = await client.fetch(query)
+  return project[0]
+}
 
 export interface ProjectPreview {
-  slug: string;
-  title: string;
-  subtitle: string;
-  imageUrl: string;
-  imageAlt?: string;
-  publishedAt?: string;
+  slug: string
+  title: string
+  subtitle: string
+  imageUrl: string
+  imageAlt?: string
+  publishedAt?: string
 }
 
 export const getAllProjects = async (): Promise<ProjectPreview[]> => {
@@ -51,32 +51,32 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
       publishedAt,
       _updatedAt
     } | order(_updatedAt desc)
-  `;
+  `
 
-  const allProjects = await client.fetch(query);
-  return allProjects;
-};
+  const allProjects = await client.fetch(query)
+  return allProjects
+}
 
-export const getProjectSlugs = async (): Promise<{slug: string}[]> => {
+export const getProjectSlugs = async (): Promise<{ slug: string }[]> => {
   const query = `
     *[_type == "project"] {
       'slug': slug.current,
     }
-  `;
+  `
 
-  const allProjectSlugs = await client.fetch(query);
-  return allProjectSlugs;
-};
-
-export interface Page {
-  slug: string;
-  title: string;
-  subtitle: string;
-  metaTitle: string;
-  metaDescription: string;
+  const allProjectSlugs = await client.fetch(query)
+  return allProjectSlugs
 }
 
-export const getPage = async ( slug: string ): Promise<Page> => {
+export interface Page {
+  slug: string
+  title: string
+  subtitle: string
+  metaTitle: string
+  metaDescription: string
+}
+
+export const getPage = async (slug: string): Promise<Page> => {
   const query = `
     *[_type == "page" && slug == "${slug}"] {
       slug,
@@ -85,8 +85,8 @@ export const getPage = async ( slug: string ): Promise<Page> => {
       metaTitle,
       metaDescription,
     }
-  `;
+  `
 
-  const page = await client.fetch(query);
-  return page[0];
-};
+  const page = await client.fetch(query)
+  return page[0]
+}
