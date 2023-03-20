@@ -18,12 +18,12 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
     borderTop="1px solid"
     borderTopColor="gray.300"
   >
-    <Link variant="overlay" href={slug}>
+    <Link aria-label={title} variant="overlay" href={slug}>
       View project
     </Link>
 
     <Flex
-      gap={12}
+      gap={{ base: 8, md: 20 }}
       align={{ base: "start", md: "center" }}
       direction={{ base: "column", md: "row" }}
     >
@@ -42,7 +42,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         </Text>
         <Text
           mt={6}
-          fontSize="lg"
+          fontSize={{ base: "base", md: "lg" }}
           fontWeight="400"
           opacity={{ base: 1, md: 0 }}
           color={{ base: "green.500", md: "inherit" }}
