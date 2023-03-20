@@ -3,6 +3,7 @@ import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm
 import { CodeProps } from "react-markdown/lib/ast-to-react"
 import { Text, List, OrderedList, ListItem, Box } from "@chakra-ui/react"
 import Link from "./link"
+import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
 
 export const components = () => ({
   h2: ({ ...props }) => <Text as="h2" textStyle="h3" pt={20} {...props} />,
