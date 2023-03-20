@@ -22,15 +22,19 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
       View project
     </Link>
 
-    <Flex gap={12} align="center">
-      <Box flex={2}>
-        <Text as="h3" textStyle="h2">
+    <Flex
+      gap={12}
+      align={{ base: "start", md: "center" }}
+      direction={{ base: "column", md: "row" }}
+    >
+      <Box flex={{ base: 1, md: 2 }}>
+        <Text as="h3" textStyle={{ base: "h3", md: "h2" }}>
           {title}
         </Text>
         <Text
           mt={6}
-          fontSize="lg"
-          opacity={0}
+          fontSize={{ base: "base", md: "lg" }}
+          opacity={{ base: 1, md: 0 }}
           transition=".25s opacity ease-in-out"
           _groupHover={{ opacity: 1 }}
         >
@@ -40,7 +44,8 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
           mt={6}
           fontSize="lg"
           fontWeight="400"
-          opacity={0}
+          opacity={{ base: 1, md: 0 }}
+          color={{ base: "green.500", md: "inherit" }}
           transition=".25s all ease-in-out"
           _groupHover={{ color: "green.500", opacity: 1 }}
         >
@@ -53,7 +58,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         flex={1}
         borderRadius="md"
         overflow="hidden"
-        opacity={0}
+        opacity={{ base: 1, md: 0 }}
         transition=".25s opacity ease-in-out"
         _groupHover={{ opacity: 1 }}
       >
