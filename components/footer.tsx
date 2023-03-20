@@ -21,17 +21,15 @@ const Footer: FC = () => (
         <Link href="https://taylormcpherson.dev">Taylor McPherson</Link>
       </Text>
 
-      <Flex as="ul" flex={1} justify={{ base: "start", md: "end " }} gap={4}>
-        <List>
-          <Link
-            href="https://www.linkedin.com/in/kyle-zweng-1b9333150/"
-            rel="noreferrer"
-            target="_blank"
-            aria-label="LinkedIn."
-          >
-            <FontAwesomeIcon icon={faLinkedinIn} />
-          </Link>
-        </List>
+      <Flex flex={1} justify={{ base: "start", md: "end " }} gap={4}>
+        <Link
+          href="https://www.linkedin.com/in/kyle-zweng-1b9333150/"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="LinkedIn."
+        >
+          <FontAwesomeIcon icon={faLinkedinIn} />
+        </Link>
       </Flex>
     </Section>
   </Box>
