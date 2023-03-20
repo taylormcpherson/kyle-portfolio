@@ -1,3 +1,4 @@
+import { Box } from "@chakra-ui/react"
 import { FC, ReactNode } from "react"
 import { Helmet } from "react-helmet"
 import Nav from "../components/nav"
@@ -17,10 +18,10 @@ export const Layout: FC<Readonly<{ children: ReactNode }>> = ({ children }) => (
       />
     </Helmet>
 
-    <main>
+    <Box as="main" bg="gray.50">
       <Nav />
       {children}
-    </main>
+    </Box>
 
     <Footer />
   </>

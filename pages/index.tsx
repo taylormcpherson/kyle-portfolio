@@ -11,7 +11,7 @@ import {
   ProjectPreview,
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"
-import { Heading, Text } from "@chakra-ui/react"
+import { Heading, List, Text } from "@chakra-ui/react"
 import Section from "@/components/section"
 
 interface PageProps {
@@ -40,7 +40,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         <Text as="h1" textStyle="h1">
           {page.title}
         </Text>
-        <Text as="h2" textStyle="h3" mt={8}>
+        <Text as="h2" textStyle="h4" mt={8}>
           {page.subtitle}
         </Text>
       </Section>
@@ -49,11 +49,11 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         <Text as="h2" textStyle="uppercase" mb={2}>
           selected works
         </Text>
-        <ul className={cardStyles.cardsList}>
+        <List>
           {projects.map((project) => (
             <Card key={project.slug} {...project} />
           ))}
-        </ul>
+        </List>
       </Section>
     </Layout>
   )

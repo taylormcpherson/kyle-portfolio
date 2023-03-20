@@ -5,10 +5,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 
-import { Box, Flex, Text } from "@chakra-ui/react"
+import { Box, Flex, List, Text } from "@chakra-ui/react"
 
 const Footer: FC = () => (
-  <Box as="footer" borderTop="1px solid">
+  <Box as="footer" bg="gray.50" borderTop="1px solid" borderColor="gray.300">
     <Section
       as="div"
       flexDirection={{ base: "column-reverse", md: "row" }}
@@ -22,7 +22,7 @@ const Footer: FC = () => (
       </Text>
 
       <Flex as="ul" flex={1} justify="end" gap={4}>
-        <li>
+        <List>
           <Link
             href="https://www.linkedin.com/in/kyle-zweng-1b9333150/"
             rel="noreferrer"
@@ -31,7 +31,7 @@ const Footer: FC = () => (
           >
             <FontAwesomeIcon icon={faLinkedinIn} />
           </Link>
-        </li>
+        </List>
       </Flex>
     </Section>
   </Box>

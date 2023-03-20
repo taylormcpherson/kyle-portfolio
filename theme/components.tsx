@@ -48,6 +48,15 @@ const Link: ComponentStyleConfig = {
         textDecoration: "none",
       },
     },
+    overlay: {
+      position: "absolute",
+      inset: 0,
+      textDecoration: "none",
+      fontWeight: "base",
+      fontSize: "base",
+      opacity: 0,
+      zIndex: 2,
+    },
   },
   defaultProps: {
     variant: "default",
@@ -58,7 +67,7 @@ const Link: ComponentStyleConfig = {
 const List: ComponentStyleConfig = {
   baseStyle: {
     container: {
-      padding: "0 0 0 1em",
+      padding: "0 0 0 0",
     },
   },
   variants: {

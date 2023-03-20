@@ -1,9 +1,4 @@
 import { FC, useState } from "react"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faClose } from "@fortawesome/free-solid-svg-icons"
-import styles from "../styles/Nav.module.css"
-import Link from "./link"
 import {
   Box,
   Button,
@@ -12,6 +7,9 @@ import {
   List,
   ListItem,
 } from "@chakra-ui/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faBars, faClose } from "@fortawesome/free-solid-svg-icons"
+import Link from "./link"
 import Section from "./section"
 
 const Nav: FC = () => {
@@ -23,7 +21,7 @@ const Nav: FC = () => {
       pos="sticky"
       top={0}
       py={4}
-      bg="white"
+      bg="gray.50"
       borderBottom="1px solid"
       borderBottomColor="gray.300"
       zIndex={10}
@@ -63,15 +61,17 @@ const Nav: FC = () => {
             display={isOpen ? "none" : "flex"}
             onClick={() => setOpen(true)}
           >
-            <FontAwesomeIcon className={styles.icon} icon={faBars} />
+            <FontAwesomeIcon icon={faBars} />
           </MobileToggle>
+
           <MobileToggle
             aria-label="Close navigation menu"
             display={isOpen ? "flex" : "none"}
             onClick={() => setOpen(false)}
           >
-            <FontAwesomeIcon className={styles.icon} icon={faClose} />
+            <FontAwesomeIcon icon={faClose} />
           </MobileToggle>
+
           <List
             display={isOpen ? "flex" : "none"}
             flexDirection="column"
@@ -79,17 +79,11 @@ const Nav: FC = () => {
             zIndex={20}
           >
             <ListItem>
-              <Link className={`${styles.link} ${styles.mobileLink}`} href="/">
-                projects
-              </Link>
+              <Link href="/">projects</Link>
             </ListItem>
+
             <ListItem>
-              <Link
-                className={`${styles.link} ${styles.mobileLink}`}
-                href="/about/"
-              >
-                about
-              </Link>
+              <Link href="/about/">about</Link>
             </ListItem>
           </List>
         </Flex>

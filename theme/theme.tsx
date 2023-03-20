@@ -16,6 +16,9 @@ const styles = {
     },
   },
 }
+const colors = {
+  offWhite: "rgb(245, 247, 255)",
+}
 
 const fonts = {
   heading: `'Sharp Sans Display No 1', sans-serif`,
@@ -96,6 +99,7 @@ const textStyles = {
 
 export const theme = extendTheme({
   styles,
+  colors,
   fontSizes,
   sizes,
   fonts,

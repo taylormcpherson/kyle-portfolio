@@ -43,31 +43,3 @@ body {
   font-size: 16px;
   scroll-behavior: smooth;
 }
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
-}
-
-main {
-  position: relative;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-section {
-  padding: var(--section-padding);
-}
-
-button {
-  border: none;
-  padding: 0;
-  background: none;
-}
-
-ul {
-  list-style: none;
-}
