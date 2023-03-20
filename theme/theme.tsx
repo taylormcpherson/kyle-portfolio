@@ -90,8 +90,16 @@ const textStyles = {
   p: {
     marginBottom: 4,
   },
+  article: {
+    p: {
+      marginTop: 8,
+      marginBottom: 4,
+      textAlign: "justify",
+      lineHeight: 1.5,
+    },
+  },
   uppercase: {
-    fontWeight: "semibold",
+    fontWeight: "md",
     textTransform: "uppercase",
     letterSpacing: 1,
   },

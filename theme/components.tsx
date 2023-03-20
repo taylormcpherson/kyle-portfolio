@@ -23,7 +23,9 @@ const Link: ComponentStyleConfig = {
   variants: {
     default: {
       color: "inherit",
-      fontWeight: "semibold",
+      fontSize: "inherit",
+      fontWeight: "400",
+      scrollBehavior: "smooth",
       _hover: {
         textDecoration: "none",
         color: "blue.500",
@@ -31,21 +33,13 @@ const Link: ComponentStyleConfig = {
     },
     inline: {
       color: "inherit",
-      fontSize: "inherit",
-      fontWeight: "inherit",
       fontFamily: "inherit",
+      fontSize: "inherit",
+      scrollBehavior: "smooth",
       textDecoration: "underline",
       textUnderlineOffset: 3,
       _hover: {
-        color: "blue.400",
-      },
-    },
-    unstyled: {
-      textDecoration: "none",
-      fontWeight: "base",
-      fontSize: "base",
-      ":hover": {
-        textDecoration: "none",
+        color: "green.500",
       },
     },
     overlay: {
@@ -57,6 +51,14 @@ const Link: ComponentStyleConfig = {
       opacity: 0,
       zIndex: 2,
     },
+    unstyled: {
+      textDecoration: "none",
+      fontWeight: "base",
+      fontSize: "base",
+      ":hover": {
+        textDecoration: "none",
+      },
+    },
   },
   defaultProps: {
     variant: "default",
@@ -65,21 +67,16 @@ const Link: ComponentStyleConfig = {
 }
 
 const List: ComponentStyleConfig = {
-  baseStyle: {
-    container: {
-      padding: "0 0 0 0",
-    },
-  },
   variants: {
-    primary: {},
     unstyled: {
       container: {
+        listStyle: "none",
         padding: "0",
       },
     },
   },
   defaultProps: {
-    variant: "primary",
+    variant: "unstyled",
   },
 }
 

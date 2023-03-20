@@ -15,7 +15,6 @@ const Footer: FC = () => (
       gap={8}
       pt={8}
       pb={4}
-      ml={0}
     >
       <Text flex={1} fontSize="sm">
         © {new Date().getFullYear()} Kyle Zweng. Built by{" "}

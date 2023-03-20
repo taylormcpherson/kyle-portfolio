@@ -2,15 +2,17 @@ import { Link as ChakraLink, LinkProps } from "@chakra-ui/react"
 import NextLink from "next/link"
 import { FC } from "react"
 
-const Link: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
+const Link: FC<Readonly<LinkProps>> = ({
+  href,
+  variant = "default",
+  children,
+  ...props
+}) => (
   <ChakraLink
     as={NextLink}
     href={href}
-    fontWeight="base"
-    color="inherit"
-    fontSize="inherit"
-    _hover={{ color: "blue.500" }}
-    scrollBehavior="smooth"
+    variant={variant}
+    fontWeight="400"
     {...props}
   >
     {children}

@@ -89,7 +89,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
         flexDirection="row"
         alignItems="start"
         gap={12}
-        pb={32}
+        pb={40}
       >
         {headings.length > 0 && (
           <Box
@@ -99,8 +99,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
             top={20}
             pos="sticky"
           >
-            <Box as="nav" aria-label="Table of Contents">
-              <Text fontSize="md">Table of contents</Text>
+            <Box as="nav" aria-label="Table of Contents" fontWeight="base">
+              <Text fontSize="md" fontWeight="400">
+                Table of contents
+              </Text>
 
               <Flex direction="column" mt={4} gap={3}>
                 {headings.map(({ title, href }) => (
@@ -108,6 +110,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
                     key={href}
                     href={href}
                     fontSize="sm"
+                    fontWeight="base"
                     _hover={{ color: "green.500" }}
                   >
                     {title}

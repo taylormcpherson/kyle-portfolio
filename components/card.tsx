@@ -39,6 +39,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         <Text
           mt={6}
           fontSize="lg"
+          fontWeight="400"
           opacity={0}
           transition=".25s all ease-in-out"
           _groupHover={{ color: "green.500", opacity: 1 }}

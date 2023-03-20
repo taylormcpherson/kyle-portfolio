@@ -94,7 +94,7 @@ const Nav: FC = () => {
 }
 
 const MobileToggle: FC<Readonly<ButtonProps>> = ({ children, ...props }) => (
-  <Button pos="absolute" top={-2} right={2} p={2} {...props}>
+  <Button pos="absolute" top={2} right={2} p={2} {...props}>
     {children}
   </Button>
 )

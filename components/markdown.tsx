@@ -1,29 +1,41 @@
-import styles from "../styles/Markdown.module.css"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import {
-  base16AteliersulphurpoolLight,
-  nord,
-} from "react-syntax-highlighter/dist/esm/styles/prism"
+import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism"
 import { CodeProps } from "react-markdown/lib/ast-to-react"
+import { Text, List, OrderedList, ListItem, Box } from "@chakra-ui/react"
+import Link from "./link"
 
 export const components = () => ({
-  h2: ({ ...props }) => <h2 className={styles.h2} {...props} />,
-  p: ({ ...props }) => <p className={styles.paragraph} {...props} />,
-  strong: ({ ...props }) => <strong className={styles.bold} {...props} />,
-  em: ({ ...props }) => <em className={styles.italic} />,
-  ul: ({ ...props }) => <ul className={styles.list} {...props} />,
-  ol: ({ ...props }) => <ol className={styles.orderedList} {...props} />,
-  li: ({ ...props }) => <li className={styles.listItem} {...props} />,
-  pre: ({ ...props }) => <pre className={styles.pre} {...props} />,
+  h2: ({ ...props }) => <Text as="h2" textStyle="h3" pt={20} {...props} />,
+  p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
+  strong: ({ ...props }) => (
+    <Text as="strong" fontWeight="semibold" {...props} />
+  ),
+  em: ({ ...props }) => <Text as="em" {...props} fontStyle="italic" />,
+  a: ({ ...props }) => <Link variant="inline" {...props} />,
+  ul: ({ ...props }) => <List listStyleType="disc" pl={4} {...props} />,
+  ol: ({ ...props }) => (
+    <List as="ol" listStyleType="decimal" pl={4} {...props} />
+  ),
+  li: ({ ...props }) => <ListItem mb={2} {...props} />,
+  pre: ({ ...props }) => (
+    <Box
+      as="pre"
+      borderRadius="md"
+      bg="offWhite"
+      border="1px solid"
+      borderColor="gray.200"
+      fontFamily="mono"
+      my={8}
+      {...props}
+    />
+  ),
   code: ({ node, inline, className, children, style, ...props }: CodeProps) => {
     // multi-line code blocks
     return node.position &&
       node.position.start.line !== node.position.end.line ? (
-      <div className={styles.codeContainer}>
+      <Box as="code" m={0}>
         <SyntaxHighlighter
-          className={styles.code}
           language="sql"
-          PreTag="div"
           showLineNumbers
           wrapLongLines
           style={base16AteliersulphurpoolLight}
@@ -31,11 +43,23 @@ export const components = () => ({
         >
           {String(children).replace(/\n$/, "")}
         </SyntaxHighlighter>
-      </div>
+      </Box>
     ) : (
-      <code className={styles.inlineCode} {...props}>
+      <Box
+        as="code"
+        fontFamily="mono"
+        fontWeight="semibold"
+        bg="offWhite"
+        color="gray.700"
+        border="1px solid"
+        borderColor="gray.100"
+        py={1}
+        px={2}
+        wordBreak="keep-all"
+        {...props}
+      >
         {children}
-      </code>
+      </Box>
     )
   },
 })
