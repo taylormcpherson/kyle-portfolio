@@ -122,31 +122,36 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
         )}
 
         <Box flex={1} maxW="100%">
-          <ReactMarkdown
-            components={{
-              p: ({ ...props }) => (
-                <Text
-                  textStyle="article.p"
-                  fontSize="lg"
-                  mt={0}
-                  borderRadius="md"
-                  p={6}
-                  border="1px solid"
-                  borderColor="gray.300"
-                  {...props}
-                />
-              ),
-              strong: ({ ...props }) => (
-                <Text as="strong" fontWeight="semibold" {...props} />
-              ),
-              em: ({ ...props }) => (
-                <Text as="em" {...props} fontStyle="italic" />
-              ),
-              a: ({ ...props }) => <Link variant="inline" {...props} />,
-            }}
+          <Box
+            borderRadius="md"
+            p={6}
+            border="1px solid"
+            borderColor="gray.300"
           >
-            {project.intro}
-          </ReactMarkdown>
+            <ReactMarkdown
+              components={{
+                p: ({ ...props }) => (
+                  <Text
+                    textStyle="article.p"
+                    fontSize="lg"
+                    mt={0}
+                    mb={8}
+                    _last={{ mb: 0 }}
+                    {...props}
+                  />
+                ),
+                strong: ({ ...props }) => (
+                  <Text as="strong" fontWeight="semibold" {...props} />
+                ),
+                em: ({ ...props }) => (
+                  <Text as="em" {...props} fontStyle="italic" />
+                ),
+                a: ({ ...props }) => <Link variant="inline" {...props} />,
+              }}
+            >
+              {project.intro}
+            </ReactMarkdown>
+          </Box>
 
           <ReactMarkdown
             components={components()}
