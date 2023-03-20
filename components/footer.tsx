@@ -15,13 +15,14 @@ const Footer: FC = () => (
       gap={8}
       pt={8}
       pb={4}
+      ml={0}
     >
       <Text flex={1} fontSize="sm">
         © {new Date().getFullYear()} Kyle Zweng. Built by{" "}
         <Link href="https://taylormcpherson.dev">Taylor McPherson</Link>
       </Text>
 
-      <Flex as="ul" flex={1} justify="end" gap={4}>
+      <Flex as="ul" flex={1} justify={{ base: "start", md: "end " }} gap={4}>
         <List>
           <Link
             href="https://www.linkedin.com/in/kyle-zweng-1b9333150/"

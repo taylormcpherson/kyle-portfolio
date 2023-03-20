@@ -1,6 +1,6 @@
 import { getProject, getProjectSlugs, Project } from "@/lib/sanity/queries"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import NextImage from "next/image"
+import Image from "next/image"
 import { Helmet } from "react-helmet"
 import ReactMarkdown from "react-markdown"
 import rehypeSlug from "rehype-slug"
@@ -14,8 +14,9 @@ import { MDXRemoteSerializeResult } from "next-mdx-remote"
 import { serialize } from "next-mdx-remote/serialize"
 import { Layout } from "../components/layout"
 import { components } from "../components/markdown"
-import styles from "../styles/Project.module.css"
-import { Text } from "@chakra-ui/react"
+import { Text, Box, Flex } from "@chakra-ui/react"
+import Section from "@/components/section"
+import Link from "@/components/link"
 
 interface Heading {
   title: string
@@ -49,41 +50,75 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
         ]}
       />
 
-      <section className={styles.hero}>
-        <div>
+      <Section
+        flexDirection={{ base: "column", md: "row" }}
+        minHeight="70vh"
+        alignItems="center"
+        gap={8}
+      >
+        <Box flex={2}>
           <Text as="h1" textStyle="h1">
             {project.title}
           </Text>
-          <Text mt={4}>{project.subtitle}</Text>
-        </div>
-        <div className={styles.imageContainer}>
-          <NextImage
-            className={styles.image}
+
+          <Text mt={4} fontSize="xl">
+            {project.subtitle}
+          </Text>
+        </Box>
+
+        <Box pos="relative" flex={1} borderRadius="md" overflow="hidden">
+          <Image
             src={project.imageUrl}
             alt={project.imageAlt ?? project.title}
-            width={300}
-            height={500}
+            sizes="100%"
+            width={1}
+            height={1}
+            style={{
+              objectFit: "cover",
+              width: "100%",
+              height: "auto",
+              maxWidth: "400px",
+              maxHeight: "300px",
+            }}
           />
-        </div>
-      </section>
+        </Box>
+      </Section>
 
-      <section className={styles.body}>
+      <Section
+        pos="relative"
+        flexDirection="row"
+        alignItems="start"
+        gap={12}
+        pb={32}
+      >
         {headings.length > 0 && (
-          <aside>
-            <nav aria-label="Table of Contents">
-              <h2>Table of contents</h2>
-              <div className={styles.tocFlex}>
+          <Box
+            as="aside"
+            display={{ base: "none", md: "block" }}
+            flex={0.25}
+            top={20}
+            pos="sticky"
+          >
+            <Box as="nav" aria-label="Table of Contents">
+              <Text fontSize="md">Table of contents</Text>
+
+              <Flex direction="column" mt={4} gap={3}>
                 {headings.map(({ title, href }) => (
-                  <a key={href} href={href} className={styles.tocLink}>
+                  <Link
+                    key={href}
+                    href={href}
+                    fontSize="sm"
+                    _hover={{ color: "green.500" }}
+                  >
                     {title}
-                  </a>
+                  </Link>
                 ))}
-              </div>
-            </nav>
-          </aside>
+              </Flex>
+            </Box>
+          </Box>
         )}
 
-        <div className={styles.markdownContainer}>
+        <Box flex={1} maxW="100%">
           <ReactMarkdown
             components={components()}
             rehypePlugins={[rehypeRaw, rehypeSlug]}
@@ -92,8 +127,8 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
           >
             {project.body}
           </ReactMarkdown>
-        </div>
-      </section>
+        </Box>
+      </Section>
     </Layout>
   )
 }

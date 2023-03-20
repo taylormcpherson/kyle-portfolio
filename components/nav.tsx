@@ -20,7 +20,7 @@ const Nav: FC = () => {
       as="header"
       pos="sticky"
       top={0}
-      py={4}
+      maxW="100%"
       bg="gray.50"
       borderBottom="1px solid"
       borderBottomColor="gray.300"
@@ -34,6 +34,7 @@ const Nav: FC = () => {
         gap={12}
         justifyContent="space-between"
         alignItems="center"
+        py={4}
       >
         <Link href="/">kyle zweng</Link>
 

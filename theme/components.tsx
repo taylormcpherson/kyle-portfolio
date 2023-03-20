@@ -26,7 +26,7 @@ const Link: ComponentStyleConfig = {
       fontWeight: "semibold",
       _hover: {
         textDecoration: "none",
-        color: "blue.400",
+        color: "blue.500",
       },
     },
     inline: {

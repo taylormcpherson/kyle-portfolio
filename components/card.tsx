@@ -1,7 +1,5 @@
 import { FC } from "react"
 import Image from "next/image"
-
-import styles from "../styles/Card.module.css"
 import { ProjectPreview } from "@/lib/sanity/queries"
 import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
 import Link from "./link"
@@ -59,7 +57,6 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         _groupHover={{ opacity: 1 }}
       >
         <Image
-          className={styles.image}
           src={imageUrl}
           alt={imageAlt ?? title}
           sizes="100%"

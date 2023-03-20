@@ -7,7 +7,8 @@ const Section: FC<Readonly<ContainerProps>> = ({ children, ...props }) => (
     maxW="container.section"
     display="flex"
     flexDirection="column"
-    mx={{ base: 2, md: 6, lg: "auto" }}
+    px={{ base: 4, md: 6, lg: "auto" }}
+    py={{ base: 8, md: 12 }}
     {...props}
   >
     {children}

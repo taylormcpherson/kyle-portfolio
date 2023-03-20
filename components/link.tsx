@@ -10,6 +10,7 @@ const Link: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
     color="inherit"
     fontSize="inherit"
     _hover={{ color: "blue.500" }}
+    scrollBehavior="smooth"
     {...props}
   >
     {children}
