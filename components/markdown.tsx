@@ -1,10 +1,13 @@
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism"
-import { CodeProps } from "react-markdown/lib/ast-to-react"
+import {
+  CodeProps,
+  OrderedListProps,
+  UnorderedListProps,
+  LiProps,
+} from "react-markdown/lib/ast-to-react"
 import { Text, List, OrderedList, ListItem, Box } from "@chakra-ui/react"
 import Link from "./link"
-import { ReactMarkdownProps } from "react-markdown/lib/complex-types"
-
 export const components = () => ({
   h2: ({ ...props }) => <Text as="h2" textStyle="h3" pt={20} {...props} />,
   p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
@@ -13,11 +16,15 @@ export const components = () => ({
   ),
   em: ({ ...props }) => <Text as="em" {...props} fontStyle="italic" />,
   a: ({ ...props }) => <Link variant="inline" {...props} />,
-  ul: ({ ...props }) => <List listStyleType="disc" pl={4} {...props} />,
-  ol: ({ ...props }) => (
-    <List as="ol" listStyleType="decimal" pl={4} {...props} />
+  ul: ({ ordered, ...props }: UnorderedListProps) => (
+    <List listStyleType="disc" pl={4} {...props} />
   ),
-  li: ({ ...props }) => <ListItem mb={2} {...props} />,
+  ol: ({ ordered, ...props }: OrderedListProps) => (
+    <OrderedList listStyleType="decimal" pl={4} {...props} />
+  ),
+  li: ({ ordered, ...props }: LiProps) => (
+    <ListItem as="li" mb={2} {...props} />
+  ),
   pre: ({ ...props }) => (
     <Box
       as="pre"

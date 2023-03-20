@@ -36,8 +36,8 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         ]}
       />
 
-      <Section minH="70vh" justifyContent="center">
-        <Text as="h1" textStyle="h1">
+      <Section minH="70vh">
+        <Text as="h1" textStyle="h1" pt={32}>
           {page.title}
         </Text>
         <Text as="h2" textStyle="h4" mt={8}>
@@ -47,7 +47,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
 
       <Section id="projects">
         <Text as="h2" textStyle="uppercase" mb={2} pt={12}>
-          selected works
+          Selected works
         </Text>
         <List>
           {projects.map((project) => (

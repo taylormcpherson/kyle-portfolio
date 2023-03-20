@@ -21,11 +21,11 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           },
         ]}
       />
-      <Section minH="70vh" justifyContent="center">
-        <Text as="h1" textStyle="h2">
+      <Section minH="90vh">
+        <Text as="h1" textStyle="h2" pt={32}>
           {page.title}
         </Text>
-        <Text textStyle="h3" mt={4}>
+        <Text textStyle="h4" mt={8}>
           {page.subtitle}
         </Text>
       </Section>

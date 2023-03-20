@@ -70,6 +70,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
           <Image
             src={project.imageUrl}
             alt={project.imageAlt ?? project.title}
+            priority
             sizes="100%"
             width={1}
             height={1}
