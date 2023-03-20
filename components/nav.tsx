@@ -1,94 +1,107 @@
-import { useState } from "react"
-import NextLink from "next/link"
+import { FC, useState } from "react"
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faBars, faClose } from "@fortawesome/free-solid-svg-icons"
 import styles from "../styles/Nav.module.css"
+import Link from "./link"
+import {
+  Box,
+  Button,
+  ButtonProps,
+  Flex,
+  List,
+  ListItem,
+} from "@chakra-ui/react"
+import Section from "./section"
 
-export const NavBar = () => {
+const Nav: FC = () => {
   const [isOpen, setOpen] = useState<boolean>(false)
+
   return (
-    <header className={styles.header}>
-      <NextLink href="/" className={styles.link}>
-        kyle zweng
-      </NextLink>
+    <Box
+      as="header"
+      pos="sticky"
+      top={0}
+      py={4}
+      bg="white"
+      borderBottom="1px solid"
+      borderBottomColor="gray.300"
+      zIndex={10}
+    >
+      <Section
+        as="nav"
+        aria-label="Primary"
+        pos="relative"
+        flexDirection="row"
+        gap={12}
+        justifyContent="space-between"
+        alignItems="center"
+      >
+        <Link href="/">kyle zweng</Link>
 
-      <nav aria-label="Primary">
-        <ul className={styles.list}>
-          <li>
-            <NextLink className={styles.link} href="/">
-              projects
-            </NextLink>
-          </li>
-          <li>
-            <NextLink className={styles.link} href="/about/">
-              about
-            </NextLink>
-          </li>
-          <li>
-            <NextLink
-              className={styles.link}
-              href="https://drive.google.com/file/d/1AGOSDubE4JUKPQNkMQ9xXoYC78PuUrgI/view?usp=share_link"
-              rel="noreferrer"
-              target="_blank"
-            >
-              resume
-            </NextLink>
-          </li>
-        </ul>
-        <button
-          aria-label="Open navigation menu"
-          className={`${styles.button} ${!isOpen ? styles.isVisible : ""}`}
-          data-state="open"
-          onClick={() => setOpen(true)}
-        >
-          <FontAwesomeIcon className={styles.icon} icon={faBars} />
-        </button>
-        <button
-          aria-label="Close navigation menu"
-          className={`${styles.button} ${isOpen ? styles.isVisible : ""}`}
-          data-state="close"
-          onClick={() => setOpen(false)}
-        >
-          <FontAwesomeIcon className={styles.icon} icon={faClose} />
-        </button>
+        <Flex display={{ base: "none", md: "flex" }} gap={8}>
+          <Link href="/">projects</Link>
 
-        <nav
+          <Link href="/about/">about</Link>
+        </Flex>
+
+        <Flex
+          as="nav"
           aria-label="Mobile primary"
           aria-hidden={!isOpen}
-          className={`${styles.mobileContainer} ${
-            isOpen ? styles.isVisible : ""
-          }`}
+          display={{ base: "flex", md: "none" }}
+          pos="absolute"
+          inset={0}
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          bg={isOpen ? "white" : "transparent"}
+          height={isOpen ? "100vh" : "auto"}
         >
-          <ul className={styles.mobileList}>
-            <li>
-              <NextLink
-                className={`${styles.link} ${styles.mobileLink}`}
-                href="/"
-              >
+          <MobileToggle
+            aria-label="Open navigation menu"
+            display={isOpen ? "none" : "flex"}
+            onClick={() => setOpen(true)}
+          >
+            <FontAwesomeIcon className={styles.icon} icon={faBars} />
+          </MobileToggle>
+          <MobileToggle
+            aria-label="Close navigation menu"
+            display={isOpen ? "flex" : "none"}
+            onClick={() => setOpen(false)}
+          >
+            <FontAwesomeIcon className={styles.icon} icon={faClose} />
+          </MobileToggle>
+          <List
+            display={isOpen ? "flex" : "none"}
+            flexDirection="column"
+            gap={8}
+            zIndex={20}
+          >
+            <ListItem>
+              <Link className={`${styles.link} ${styles.mobileLink}`} href="/">
                 projects
-              </NextLink>
-            </li>
-            <li>
-              <NextLink
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link
                 className={`${styles.link} ${styles.mobileLink}`}
                 href="/about/"
               >
                 about
-              </NextLink>
-            </li>
-            <li>
-              <NextLink
-                className={`${styles.link} ${styles.mobileLink}`}
-                href="https://drive.google.com/file/d/1AGOSDubE4JUKPQNkMQ9xXoYC78PuUrgI/view?usp=share_link"
-                rel="noreferrer"
-                target="_blank"
-              >
-                resume
-              </NextLink>
-            </li>
-          </ul>
-        </nav>
-      </nav>
-    </header>
+              </Link>
+            </ListItem>
+          </List>
+        </Flex>
+      </Section>
+    </Box>
   )
 }
+
+const MobileToggle: FC<Readonly<ButtonProps>> = ({ children, ...props }) => (
+  <Button pos="absolute" top={-2} right={2} p={2} {...props}>
+    {children}
+  </Button>
+)
+
+export default Nav

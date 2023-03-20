@@ -1,16 +1,8 @@
 import { Helmet } from "react-helmet"
-import { useState } from "react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons"
-
 import { Layout } from "../components/layout"
 import { Card } from "../components/card"
-
-import HightouchImage from "../public/images/hightouch.png"
-
-import styles from "../styles/Home.module.css"
-import textStyles from "../styles/Typography.module.css"
 import cardStyles from "../styles/Card.module.css"
+
 import {
   getAllProjects,
   getPage,
@@ -19,16 +11,8 @@ import {
   ProjectPreview,
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"
-
-const projects = [
-  {
-    title: "Hightouch",
-    description: "Marketing site for a high-growth, B2B SaaS startup.",
-    url: "https://hightouch.com/",
-    img: HightouchImage,
-    imgAlt: "Hightouch.",
-  },
-]
+import { Heading, Text } from "@chakra-ui/react"
+import Section from "@/components/section"
 
 interface PageProps {
   page: SanityPage
@@ -36,8 +20,6 @@ interface PageProps {
 }
 
 const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
-  const [isPaused, setPausedState] = useState<boolean>(false)
-
   return (
     <Layout>
       <Helmet
@@ -54,21 +36,25 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         ]}
       />
 
-      <section
-        className={`${styles.container} ${isPaused ? styles.isPaused : ""}`}
-      >
-        <h1 className={textStyles.title}>{page.title}</h1>
-        <h2 className={textStyles.description}>{page.subtitle}</h2>
-      </section>
+      <Section minH="70vh" justifyContent="center">
+        <Text as="h1" textStyle="h1">
+          {page.title}
+        </Text>
+        <Text as="h2" textStyle="h3" mt={8}>
+          {page.subtitle}
+        </Text>
+      </Section>
 
-      <section>
-        <h2 className={textStyles.leadIn}>selected works</h2>
+      <Section>
+        <Text as="h2" textStyle="uppercase" mb={2}>
+          selected works
+        </Text>
         <ul className={cardStyles.cardsList}>
           {projects.map((project) => (
             <Card key={project.slug} {...project} />
           ))}
         </ul>
-      </section>
+      </Section>
     </Layout>
   )
 }

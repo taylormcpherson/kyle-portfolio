@@ -1,9 +1,9 @@
+import Section from "@/components/section"
 import { getPage, Page as SanityPage } from "@/lib/sanity/queries"
+import { Text } from "@chakra-ui/react"
 import { NextPage } from "next"
 import { Helmet } from "react-helmet"
 import { Layout } from "../components/layout"
-import styles from "../styles/About.module.css"
-import textStyles from "../styles/Typography.module.css"
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
@@ -21,10 +21,14 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           },
         ]}
       />
-      <section className={styles.container}>
-        <h1 className={textStyles.title}>{page.title}</h1>
-        <p className={textStyles.paragraph}>{page.subtitle}</p>
-      </section>
+      <Section minH="70vh" justifyContent="center">
+        <Text as="h1" textStyle="h2">
+          {page.title}
+        </Text>
+        <Text textStyle="h3" mt={4}>
+          {page.subtitle}
+        </Text>
+      </Section>
     </Layout>
   )
 }

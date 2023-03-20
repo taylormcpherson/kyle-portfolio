@@ -15,7 +15,7 @@ import { serialize } from "next-mdx-remote/serialize"
 import { Layout } from "../components/layout"
 import { components } from "../components/markdown"
 import styles from "../styles/Project.module.css"
-import textStyles from "../styles/Typography.module.css"
+import { Text } from "@chakra-ui/react"
 
 interface Heading {
   title: string
@@ -51,8 +51,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
 
       <section className={styles.hero}>
         <div>
-          <h1 className={textStyles.title}>{project.title}</h1>
-          <p className={textStyles.paragraph}>{project.subtitle}</p>
+          <Text as="h1" textStyle="h1">
+            {project.title}
+          </Text>
+          <Text mt={4}>{project.subtitle}</Text>
         </div>
         <div className={styles.imageContainer}>
           <NextImage
