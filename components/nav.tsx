@@ -39,7 +39,7 @@ const Nav: FC = () => {
         <Link href="/">kyle zweng</Link>
 
         <Flex display={{ base: "none", md: "flex" }} gap={8}>
-          <Link href="/">projects</Link>
+          <Link href="/#projects">projects</Link>
 
           <Link href="/about/">about</Link>
         </Flex>
@@ -80,7 +80,7 @@ const Nav: FC = () => {
             zIndex={20}
           >
             <ListItem>
-              <Link href="/">projects</Link>
+              <Link href="/#projects">projects</Link>
             </ListItem>
 
             <ListItem>

@@ -25,7 +25,6 @@ const Link: ComponentStyleConfig = {
       color: "inherit",
       fontSize: "inherit",
       fontWeight: "400",
-      scrollBehavior: "smooth",
       _hover: {
         textDecoration: "none",
         color: "blue.500",
@@ -35,7 +34,6 @@ const Link: ComponentStyleConfig = {
       color: "inherit",
       fontFamily: "inherit",
       fontSize: "inherit",
-      scrollBehavior: "smooth",
       textDecoration: "underline",
       textUnderlineOffset: 3,
       _hover: {
