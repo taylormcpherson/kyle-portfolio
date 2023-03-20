@@ -4,8 +4,7 @@ import Link from "./link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
-
-import { Box, Flex, List, Text } from "@chakra-ui/react"
+import { Box, Flex, Text } from "@chakra-ui/react"
 
 const Footer: FC = () => (
   <Box as="footer" bg="gray.50" borderTop="1px solid" borderColor="gray.300">

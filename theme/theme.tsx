@@ -99,7 +99,7 @@ const textStyles = {
     },
   },
   uppercase: {
-    fontWeight: "md",
+    fontWeight: "400",
     textTransform: "uppercase",
     letterSpacing: 1,
   },

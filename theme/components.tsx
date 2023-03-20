@@ -30,6 +30,15 @@ const Link: ComponentStyleConfig = {
         color: "blue.500",
       },
     },
+    green: {
+      color: "inherit",
+      fontSize: "inherit",
+      fontWeight: "400",
+      _hover: {
+        textDecoration: "none",
+        color: "green.500",
+      },
+    },
     inline: {
       color: "inherit",
       fontFamily: "inherit",
