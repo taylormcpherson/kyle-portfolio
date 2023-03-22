@@ -64,7 +64,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         _groupHover={{ opacity: 1 }}
       >
         <Image
-          src={imageUrl}
+          src={imageUrl + "?w=800"}
           alt={imageAlt ?? title}
           sizes="100%"
           width={1}

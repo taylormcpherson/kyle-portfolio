@@ -11,8 +11,6 @@ import GithubSlugger from "github-slugger"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
 import { visit } from "unist-util-visit"
-import { MDXRemoteSerializeResult } from "next-mdx-remote"
-import { serialize } from "next-mdx-remote/serialize"
 import { Layout } from "../components/layout"
 import { components } from "../components/markdown"
 import { Text, Box, Flex } from "@chakra-ui/react"
@@ -26,15 +24,10 @@ interface Heading {
 
 interface PageProps {
   project: Project
-  mdx: MDXRemoteSerializeResult
   headings: Heading[]
 }
 
-const ProjectPage: NextPage<Readonly<PageProps>> = ({
-  project,
-  mdx,
-  headings,
-}) => {
+const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
   return (
     <Layout>
       <Helmet
@@ -69,7 +62,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
 
         <Box pos="relative" flex={1} w={{ base: "100%", lg: "auto" }}>
           <Image
-            src={project.imageUrl}
+            src={project.imageUrl + "?w=1000"}
             alt={project.imageAlt ?? project.title}
             priority
             sizes="100%"
@@ -169,18 +162,6 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
   )
 }
 
-const serializeArticle = async (content: string) => {
-  const mdx = await serialize(content, {
-    mdxOptions: {
-      rehypePlugins: [rehypeSlug],
-      remarkPlugins: [remarkGfm],
-      format: "mdx",
-    },
-  })
-
-  return mdx
-}
-
 interface Heading {
   title: string
   href: string
@@ -220,7 +201,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   const slug = String(params?.slug) ?? ""
   const project = await getProject(slug)
-  const mdx = await serializeArticle(project?.body ?? "")
 
   if (!project) {
     return {
@@ -231,7 +211,6 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
   return {
     props: {
       project,
-      mdx,
       headings: getArticleHeadings(project.body),
     },
     revalidate: 60,
