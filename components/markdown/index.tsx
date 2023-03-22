@@ -5,8 +5,21 @@ import {
   OrderedListProps,
   UnorderedListProps,
   LiProps,
+  ReactMarkdownProps,
 } from "react-markdown/lib/ast-to-react"
-import { Text, List, OrderedList, ListItem, Box } from "@chakra-ui/react"
+import {
+  Text,
+  List,
+  OrderedList,
+  ListItem,
+  Box,
+  Table,
+  TableContainer,
+  Thead,
+  Th,
+  Tr,
+  Td,
+} from "@chakra-ui/react"
 import Link from "../link"
 import { MdxImage } from "./image"
 
@@ -83,4 +96,23 @@ export const components = () => ({
   }) => {
     return <MdxImage src={src} alt={alt} title={title} />
   },
+  table: ({ children }: ReactMarkdownProps) => (
+    <TableContainer maxW="3xl" my={10}>
+      <Table>{children}</Table>
+    </TableContainer>
+  ),
+  thead: ({ children }: ReactMarkdownProps) => (
+    <Thead borderColor="gray.300" bg="gray.100">
+      {children}
+    </Thead>
+  ),
+  th: ({ children }: ReactMarkdownProps) => (
+    <Th borderColor="gray.300">{children}</Th>
+  ),
+  tr: ({ children }: ReactMarkdownProps) => (
+    <Tr borderColor="gray.300">{children}</Tr>
+  ),
+  td: ({ children }: ReactMarkdownProps) => (
+    <Td borderColor="gray.300">{children}</Td>
+  ),
 })
