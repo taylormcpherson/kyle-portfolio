@@ -24,7 +24,9 @@ import Link from "../link"
 import { MdxImage } from "./image"
 
 export const components = () => ({
-  h2: ({ ...props }) => <Text as="h2" textStyle="h3" pt={20} {...props} />,
+  h2: ({ ...props }) => (
+    <Text as="h2" textStyle="h3" pt={20} _first={{ pt: 0 }} {...props} />
+  ),
   p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
   strong: ({ ...props }) => (
     <Text as="strong" fontWeight="semibold" {...props} />

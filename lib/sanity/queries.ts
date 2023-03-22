@@ -7,7 +7,6 @@ export interface Project {
   imageUrl: string
   imageAlt?: string
   publishedAt?: string
-  intro: string
   body: string
   metaTitle: string
   metaDescription: string
@@ -22,7 +21,6 @@ export const getProject = async (slug: string): Promise<Project> => {
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       publishedAt,
-      intro,
       body,
       metaTitle,
       metaDescription,
