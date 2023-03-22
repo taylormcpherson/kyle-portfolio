@@ -11,9 +11,9 @@ import GithubSlugger from "github-slugger"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
 import { visit } from "unist-util-visit"
-import { Layout } from "../components/layout"
-import { components } from "../components/markdown"
 import { Text, Box, Flex } from "@chakra-ui/react"
+import { Layout } from "@/components/layout"
+import { components } from "@/components/markdown"
 import Section from "@/components/section"
 import Link from "@/components/link"
 
@@ -39,6 +39,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           },
           {
             property: "og:description",
+            content: project.metaDescription,
+          },
+          {
+            property: "description",
             content: project.metaDescription,
           },
         ]}

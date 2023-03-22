@@ -1,10 +1,10 @@
-import Link from "@/components/link"
-import Section from "@/components/section"
-import { getPage, Page as SanityPage } from "@/lib/sanity/queries"
 import { Badge, Box, Flex, Text } from "@chakra-ui/react"
+import { getPage, Page as SanityPage } from "@/lib/sanity/queries"
 import { NextPage } from "next"
 import { Helmet } from "react-helmet"
-import { Layout } from "../components/layout"
+import { Layout } from "@/components/layout"
+import Link from "@/components/link"
+import Section from "@/components/section"
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
@@ -18,6 +18,10 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           },
           {
             property: "og:description",
+            content: page.metaDescription,
+          },
+          {
+            property: "description",
             content: page.metaDescription,
           },
         ]}

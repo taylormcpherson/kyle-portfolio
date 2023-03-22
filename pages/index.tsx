@@ -1,7 +1,4 @@
 import { Helmet } from "react-helmet"
-import { Layout } from "../components/layout"
-import { Card } from "../components/card"
-
 import {
   getAllProjects,
   getPage,
@@ -9,7 +6,9 @@ import {
   ProjectPreview,
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"
-import { Heading, List, Text } from "@chakra-ui/react"
+import { List, Text } from "@chakra-ui/react"
+import { Layout } from "@/components/layout"
+import { Card } from "@/components/card"
 import Section from "@/components/section"
 
 interface PageProps {
@@ -29,6 +28,10 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
           },
           {
             property: "og:description",
+            content: page.metaDescription,
+          },
+          {
+            property: "description",
             content: page.metaDescription,
           },
         ]}
