@@ -13,7 +13,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
 }) => (
   <ListItem
     pos="relative"
-    py={4}
+    py={{ base: 8, md: 4 }}
     role="group"
     borderTop="1px solid"
     borderTopColor="gray.300"
@@ -31,6 +31,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         <Text as="h3" textStyle={{ base: "h3", md: "h2" }}>
           {title}
         </Text>
+
         <Text
           mt={6}
           fontSize={{ base: "base", md: "lg" }}
@@ -40,6 +41,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         >
           {subtitle}
         </Text>
+
         <Text
           mt={6}
           fontSize={{ base: "base", md: "lg" }}
@@ -56,6 +58,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
       <Box
         pos="relative"
         flex={1}
+        w={{ base: "100%", md: "auto" }}
         opacity={{ base: 1, md: 0 }}
         transition=".25s opacity ease-in-out"
         _groupHover={{ opacity: 1 }}

@@ -34,10 +34,11 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         ]}
       />
 
-      <Section minH="70vh">
-        <Text as="h1" textStyle="h1" pt={32}>
+      <Section minH={{ base: "auto", md: "70vh" }}>
+        <Text as="h1" textStyle="h1" pt={{ base: 10, md: 32 }}>
           {page.title}
         </Text>
+
         <Text as="h2" textStyle="h4" mt={8}>
           {page.subtitle}
         </Text>
@@ -47,6 +48,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         <Text as="h2" textStyle="uppercase" mb={2} pt={12}>
           Selected works
         </Text>
+
         <List>
           {projects.map((project) => (
             <Card key={project.slug} {...project} />

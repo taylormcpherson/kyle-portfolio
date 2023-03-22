@@ -22,21 +22,27 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           },
         ]}
       />
-      <Section minH="90vh">
-        <Text as="h1" textStyle="h2" pt={32}>
+
+      <Section minH={{ base: "auto", md: "90vh" }} pb={32}>
+        <Text as="h1" textStyle="h2" pt={{ base: 10, md: 32 }}>
           {page.title}
         </Text>
+
         <Text as="h2" textStyle="h4" mt={8}>
           {page.subtitle}
         </Text>
 
-        <Flex mt={32} gap={16} direction="row">
+        <Flex
+          pt={{ base: 16, md: 32 }}
+          gap={{ base: 12, md: 16 }}
+          direction={{ base: "column", md: "row" }}
+        >
           <Box>
             <Text textStyle="uppercase" fontSize="sm">
               Skills
             </Text>
 
-            <Flex gap={2} mt={4}>
+            <Flex align="center" gap={2} mt={4}>
               <Badge colorScheme="green" fontSize="base">
                 Excel
               </Badge>
@@ -54,13 +60,19 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               Certifications
             </Text>
 
-            <Flex gap={2} mt={4}>
+            <Flex
+              align={{ base: "start", md: "center" }}
+              direction={{ base: "column", md: "row" }}
+              gap={{ base: 4, md: 2 }}
+              mt={4}
+            >
               <Badge colorScheme="teal" variant="outline" fontSize="base">
                 Google Data Analytics
               </Badge>
               <Badge colorScheme="yellow" variant="outline" fontSize="base">
                 CoRise SQL Crash Course
               </Badge>
+
               <Link
                 href="https://www.linkedin.com/in/kyle-zweng-1b9333150/details/certifications/"
                 variant="green"
