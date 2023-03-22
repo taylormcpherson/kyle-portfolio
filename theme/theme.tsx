@@ -92,6 +92,7 @@ const textStyles = {
   },
   article: {
     p: {
+      fontSize: { base: "md", lg: "lg" },
       marginTop: 8,
       marginBottom: 4,
       textAlign: "justify",

@@ -136,7 +136,6 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
                 p: ({ ...props }) => (
                   <Text
                     textStyle="article.p"
-                    fontSize="lg"
                     mt={0}
                     mb={8}
                     _last={{ mb: 0 }}
