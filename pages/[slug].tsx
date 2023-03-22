@@ -51,12 +51,12 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
       />
 
       <Section
-        flexDirection={{ base: "column", md: "row" }}
+        flexDirection={{ base: "column", lg: "row" }}
         minHeight="70vh"
-        alignItems="center"
+        alignItems={{ base: "start", lg: "center" }}
         gap={8}
       >
-        <Box flex={2}>
+        <Box flex={{ base: 1, lg: 1.75 }}>
           <Text as="h1" textStyle="h1">
             {project.title}
           </Text>
@@ -66,7 +66,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
           </Text>
         </Box>
 
-        <Box pos="relative" flex={1} borderRadius="md" overflow="hidden">
+        <Box pos="relative" flex={1} w={{ base: "100%", lg: "auto" }}>
           <Image
             src={project.imageUrl}
             alt={project.imageAlt ?? project.title}
@@ -78,8 +78,9 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
               objectFit: "cover",
               width: "100%",
               height: "auto",
-              maxWidth: "400px",
+              maxWidth: "500px",
               maxHeight: "300px",
+              borderRadius: "6px",
             }}
           />
         </Box>
@@ -89,13 +90,13 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
         pos="relative"
         flexDirection="row"
         alignItems="start"
-        gap={12}
+        gap={8}
         pb={40}
       >
         {headings.length > 0 && (
           <Box
             as="aside"
-            display={{ base: "none", md: "block" }}
+            display={{ base: "none", lg: "block" }}
             flex={0.25}
             top={20}
             pos="sticky"

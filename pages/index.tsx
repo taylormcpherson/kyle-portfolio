@@ -1,13 +1,11 @@
 import { Helmet } from "react-helmet"
 import { Layout } from "../components/layout"
 import { Card } from "../components/card"
-import cardStyles from "../styles/Card.module.css"
 
 import {
   getAllProjects,
   getPage,
   Page as SanityPage,
-  Project,
   ProjectPreview,
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"

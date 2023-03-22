@@ -7,7 +7,9 @@ import {
   LiProps,
 } from "react-markdown/lib/ast-to-react"
 import { Text, List, OrderedList, ListItem, Box } from "@chakra-ui/react"
-import Link from "./link"
+import Link from "../link"
+import { MdxImage } from "./image"
+
 export const components = () => ({
   h2: ({ ...props }) => <Text as="h2" textStyle="h3" pt={20} {...props} />,
   p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
@@ -69,5 +71,16 @@ export const components = () => ({
         {children}
       </Box>
     )
+  },
+  img: ({
+    src,
+    alt,
+    title,
+  }: {
+    src?: string
+    alt?: string
+    title?: string
+  }) => {
+    return <MdxImage src={src} alt={alt} title={title} />
   },
 })

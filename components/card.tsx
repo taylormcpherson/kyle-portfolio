@@ -56,8 +56,6 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
       <Box
         pos="relative"
         flex={1}
-        borderRadius="md"
-        overflow="hidden"
         opacity={{ base: 1, md: 0 }}
         transition=".25s opacity ease-in-out"
         _groupHover={{ opacity: 1 }}
@@ -74,6 +72,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
             height: "auto",
             maxWidth: "400px",
             maxHeight: "300px",
+            borderRadius: "6px",
           }}
         />
       </Box>
