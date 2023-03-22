@@ -6,6 +6,7 @@ import ReactMarkdown from "react-markdown"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import rehypeRaw from "rehype-raw"
+import remarkUnwrapImages from "remark-unwrap-images"
 import GithubSlugger from "github-slugger"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
@@ -158,7 +159,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({
           <ReactMarkdown
             components={components()}
             rehypePlugins={[rehypeRaw, rehypeSlug]}
-            remarkPlugins={[remarkGfm]}
+            remarkPlugins={[remarkGfm, remarkUnwrapImages]}
             linkTarget="_blank"
           >
             {project.body}
