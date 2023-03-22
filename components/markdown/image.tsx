@@ -104,7 +104,6 @@ export const MdxImage: FC<Readonly<MdxImageProps>> = ({ src, alt, title }) => {
                 width: "100%",
                 height: "auto",
                 maxHeight: "88vh",
-                borderRadius: "6px",
                 padding: 12,
               }}
             />
