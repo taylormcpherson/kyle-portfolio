@@ -25,7 +25,13 @@ import { MdxImage } from "./image"
 
 export const components = () => ({
   h2: ({ ...props }) => (
-    <Text as="h2" textStyle="h3" pt={20} _first={{ pt: 0 }} {...props} />
+    <Text
+      as="h2"
+      textStyle="h2"
+      pt={{ base: 12, md: 20 }}
+      _first={{ pt: 0 }}
+      {...props}
+    />
   ),
   p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
   strong: ({ ...props }) => (
@@ -99,9 +105,20 @@ export const components = () => ({
     return <MdxImage src={src} alt={alt} title={title} />
   },
   table: ({ children }: ReactMarkdownProps) => (
-    <TableContainer maxW="3xl" my={10}>
-      <Table>{children}</Table>
-    </TableContainer>
+    <>
+      <TableContainer maxW="3xl" my={10}>
+        <Table size={{ base: "sm", md: "md" }}>{children}</Table>
+      </TableContainer>
+      <Text
+        fontSize="xs"
+        fontWeight="400"
+        textAlign="center"
+        display={{ base: "block", md: "none" }}
+        mt={-6}
+      >
+        Scroll horizontally to view the full table.
+      </Text>
+    </>
   ),
   thead: ({ children }: ReactMarkdownProps) => (
     <Thead borderColor="gray.300" bg="gray.100">

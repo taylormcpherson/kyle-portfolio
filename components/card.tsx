@@ -28,7 +28,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
       direction={{ base: "column", md: "row" }}
     >
       <Box flex={{ base: 1, md: 2 }}>
-        <Text as="h3" textStyle={{ base: "h3", md: "h2" }}>
+        <Text as="h3" textStyle="h2">
           {title}
         </Text>
 

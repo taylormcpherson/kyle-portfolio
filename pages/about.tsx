@@ -32,7 +32,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           {page.title}
         </Text>
 
-        <Text as="h2" textStyle="h4" mt={8}>
+        <Text as="h2" textStyle="h3" mt={8}>
           {page.subtitle}
         </Text>
 

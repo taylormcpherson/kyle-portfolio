@@ -48,7 +48,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
       </Section>
 
       <Section id="projects">
-        <Text as="h2" textStyle="uppercase" mb={2} pt={12}>
+        <Text as="h2" textStyle="uppercase" fontSize="sm" mb={2} pt={12}>
           Selected works
         </Text>
 

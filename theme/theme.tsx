@@ -69,17 +69,17 @@ const textStyles = {
   },
   h1: {
     fontFamily: "heading",
-    fontSize: { base: "3xl", md: "4xl", lg: "6xl" },
+    fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
     lineHeight: "1.25",
   },
   h2: {
     fontFamily: "heading",
-    fontSize: { base: "2xl", md: "3xl", lg: "5xl" },
+    fontSize: { base: "2xl", md: "3xl" },
     lineHeight: "1.25",
   },
   h3: {
     fontFamily: "heading",
-    fontSize: { base: "xl", md: "2xl", lg: "4xl" },
+    fontSize: { base: "xl", md: "2xl" },
     lineHeight: "1.25",
   },
   h4: {
@@ -87,6 +87,7 @@ const textStyles = {
     fontSize: { base: "lg", md: "xl", lg: "2xl" },
     lineHeight: "1.25",
   },
+
   p: {
     marginBottom: 4,
   },
