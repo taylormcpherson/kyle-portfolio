@@ -1,19 +1,21 @@
-import { FC, useState } from "react"
+import { FC } from "react"
 import {
   Box,
   Button,
-  ButtonProps,
   Flex,
-  List,
-  ListItem,
+  Modal,
+  ModalCloseButton,
+  ModalContent,
+  ModalHeader,
+  useDisclosure,
 } from "@chakra-ui/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faClose } from "@fortawesome/free-solid-svg-icons"
+import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import Link from "./link"
 import Section from "./section"
 
 const Nav: FC = () => {
-  const [isOpen, setOpen] = useState<boolean>(false)
+  const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
     <Box
@@ -36,67 +38,95 @@ const Nav: FC = () => {
         alignItems="center"
         py={4}
       >
-        <Link href="/">kyle zweng</Link>
+        <Link
+          href="/"
+          fontSize={{ base: "sm", md: "base" }}
+          textStyle="uppercase"
+        >
+          Kyle Zweng
+        </Link>
 
         <Flex display={{ base: "none", md: "flex" }} gap={8}>
-          <Link href="/#projects">projects</Link>
+          <Link href="/#projects">Projects</Link>
 
-          <Link href="/about/">about</Link>
+          <Link href="/about/">About</Link>
         </Flex>
 
-        <Flex
+        <Box
           as="nav"
           aria-label="Mobile primary"
           aria-hidden={!isOpen}
           display={{ base: "flex", md: "none" }}
-          pos="absolute"
-          inset={0}
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="center"
-          bg={isOpen ? "white" : "transparent"}
-          height={isOpen ? "100vh" : "auto"}
         >
-          <MobileToggle
+          <Button
             aria-label="Open navigation menu"
-            display={isOpen ? "none" : "flex"}
-            onClick={() => setOpen(true)}
+            pos="absolute"
+            top={2}
+            right={2}
+            p={2}
+            bg="transparent"
+            onClick={onOpen}
           >
             <FontAwesomeIcon icon={faBars} />
-          </MobileToggle>
+          </Button>
 
-          <MobileToggle
-            aria-label="Close navigation menu"
-            display={isOpen ? "flex" : "none"}
-            onClick={() => setOpen(false)}
+          <Modal
+            closeOnOverlayClick={true}
+            isOpen={isOpen}
+            motionPreset="scale"
+            size="full"
+            onClose={onClose}
           >
-            <FontAwesomeIcon icon={faClose} />
-          </MobileToggle>
+            <ModalContent bg="gray.50">
+              <ModalHeader>
+                <Link href="/" fontSize="sm" textStyle="uppercase">
+                  Kyle Zweng
+                </Link>
+              </ModalHeader>
+              <ModalCloseButton mt={2} />
 
-          <List
-            display={isOpen ? "flex" : "none"}
-            flexDirection="column"
-            gap={8}
-            zIndex={20}
-          >
-            <ListItem>
-              <Link href="/#projects">projects</Link>
-            </ListItem>
+              <Flex direction="column">
+                <Link
+                  justifyContent="space-between"
+                  fontSize="lg"
+                  href="/#projects"
+                  py={6}
+                  px={6}
+                  borderBottom="1px solid"
+                  borderTop="1px solid"
+                  borderColor="gray.200"
+                  _hover={{
+                    bg: "blue.50",
+                  }}
+                  onClick={onClose}
+                >
+                  Projects
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </Link>
 
-            <ListItem>
-              <Link href="/about/">about</Link>
-            </ListItem>
-          </List>
-        </Flex>
+                <Link
+                  justifyContent="space-between"
+                  fontSize="lg"
+                  href="/about/"
+                  py={6}
+                  px={6}
+                  borderBottom="1px solid"
+                  borderColor="gray.200"
+                  _hover={{
+                    bg: "blue.50",
+                  }}
+                  onClick={onClose}
+                >
+                  About
+                  <FontAwesomeIcon icon={faChevronRight} />
+                </Link>
+              </Flex>
+            </ModalContent>
+          </Modal>
+        </Box>
       </Section>
     </Box>
   )
 }
-
-const MobileToggle: FC<Readonly<ButtonProps>> = ({ children, ...props }) => (
-  <Button pos="absolute" top={2} right={2} p={2} {...props}>
-    {children}
-  </Button>
-)
 
 export default Nav
