@@ -22,7 +22,7 @@ export const Tag: FC<Readonly<TagProps>> = ({ name, ...props }) => {
   }
   if (name === "r") {
     return (
-      <Badge key={name} colorScheme="green" fontSize="sm" {...props}>
+      <Badge key={name} colorScheme="orange" fontSize="sm" {...props}>
         R
       </Badge>
     )

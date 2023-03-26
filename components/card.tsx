@@ -49,7 +49,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
           mt={6}
           fontSize={{ base: "base", md: "lg" }}
           opacity={{ base: 1, md: 0 }}
-          transition=".25s opacity ease-in-out"
+          transition=".15s opacity ease-in-out"
           _groupHover={{ opacity: 1 }}
         >
           {subtitle}
@@ -60,8 +60,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
           fontSize={{ base: "base", md: "lg" }}
           fontWeight="400"
           opacity={{ base: 1, md: 0 }}
-          color={{ base: "green.500", md: "inherit" }}
-          transition=".25s all ease-in-out"
+          transition=".15s all ease-in-out"
           _groupHover={{ color: "green.500", opacity: 1 }}
         >
           View project →
@@ -72,7 +71,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         pos="relative"
         flex={1}
         w={{ base: "100%", md: "auto" }}
-        transition=".25s opacity ease-in-out"
+        transition=".15s opacity ease-in-out"
         _groupHover={{ opacity: 1 }}
       >
         <Image

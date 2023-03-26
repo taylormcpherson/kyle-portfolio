@@ -3,8 +3,7 @@ import type { ComponentStyleConfig } from "@chakra-ui/theme"
 const Link: ComponentStyleConfig = {
   baseStyle: {
     textDecoration: "none",
-    display: "inline-flex",
-    alignItems: "center",
+    transition: ".15s all ease-in-out",
   },
   sizes: {
     sm: {

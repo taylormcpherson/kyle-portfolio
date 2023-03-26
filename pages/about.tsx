@@ -67,7 +67,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               gap={{ base: 4, md: 2 }}
               mt={4}
             >
-              <Badge colorScheme="teal" variant="outline" fontSize="base">
+              <Badge colorScheme="blue" variant="outline" fontSize="base">
                 Google Data Analytics
               </Badge>
               <Badge colorScheme="yellow" variant="outline" fontSize="base">
@@ -76,7 +76,6 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
 
               <Link
                 href="https://www.linkedin.com/in/kyle-zweng-1b9333150/details/certifications/"
-                variant="green"
                 fontSize="sm"
               >
                 view all →
