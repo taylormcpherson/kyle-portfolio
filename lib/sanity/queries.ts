@@ -4,6 +4,7 @@ export interface Project {
   slug: string
   title: string
   subtitle: string
+  tags: string[]
   imageUrl: string
   imageAlt?: string
   publishedAt?: string
@@ -18,6 +19,7 @@ export const getProject = async (slug: string): Promise<Project> => {
       'slug': slug.current,
       title,
       subtitle,
+      tags,
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       publishedAt,
@@ -35,6 +37,7 @@ export interface ProjectPreview {
   slug: string
   title: string
   subtitle: string
+  tags: string[]
   imageUrl: string
   imageAlt?: string
   publishedAt?: string
@@ -46,6 +49,7 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
       'slug': slug.current,
       title,
       subtitle,
+      tags,
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       publishedAt,

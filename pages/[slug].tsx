@@ -16,6 +16,7 @@ import { Layout } from "@/components/layout"
 import { components } from "@/components/markdown"
 import Section from "@/components/section"
 import Link from "@/components/link"
+import { Tag } from "@/components/tags"
 
 interface Heading {
   title: string
@@ -72,6 +73,14 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         gap={8}
       >
         <Box flex={{ base: 1, lg: 1.75 }}>
+          {project.tags.length > 0 && (
+            <Flex gap={2} mb={3}>
+              {project.tags.map((tag) => (
+                <Tag key={tag} name={tag} />
+              ))}
+            </Flex>
+          )}
+
           <Text as="h1" textStyle="h1">
             {project.title}
           </Text>

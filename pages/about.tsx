@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet"
 import { Layout } from "@/components/layout"
 import Link from "@/components/link"
 import Section from "@/components/section"
+import { Tag } from "@/components/tags"
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
@@ -47,15 +48,11 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
             </Text>
 
             <Flex align="center" gap={2} mt={4}>
-              <Badge colorScheme="green" fontSize="base">
-                Excel
-              </Badge>
-              <Badge colorScheme="blue" fontSize="base">
-                SQL
-              </Badge>
-              <Badge colorScheme="pink" fontSize="base">
-                R
-              </Badge>
+              <Tag name="excel" fontSize="base" />
+
+              <Tag name="sql" fontSize="base" />
+
+              <Tag name="r" fontSize="base" />
             </Flex>
           </Box>
 

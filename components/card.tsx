@@ -3,6 +3,7 @@ import Image from "next/image"
 import { ProjectPreview } from "@/lib/sanity/queries"
 import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
 import Link from "./link"
+import { Tag } from "./tags"
 
 export const Card: FC<Readonly<ProjectPreview>> = ({
   title,
@@ -10,6 +11,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
   slug,
   imageUrl,
   imageAlt,
+  tags,
 }) => (
   <ListItem
     pos="relative"
@@ -30,7 +32,15 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
       py={{ base: 8, md: 4 }}
       px={{ base: 4, md: 6, lg: "auto" }}
     >
-      <Box flex={{ base: 1, md: 2 }}>
+      <Box flex={{ base: 1, md: 2 }} my={4}>
+        {tags.length > 0 && (
+          <Flex gap={2} mb={3}>
+            {tags.map((tag) => (
+              <Tag key={tag} name={tag} />
+            ))}
+          </Flex>
+        )}
+
         <Text as="h3" textStyle="h2">
           {title}
         </Text>
