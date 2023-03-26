@@ -57,6 +57,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
 
         <Text
           mt={6}
+          color="green.500"
           fontSize={{ base: "base", md: "lg" }}
           fontWeight="400"
           opacity={{ base: 1, md: 0 }}
