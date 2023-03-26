@@ -65,9 +65,9 @@ export const components = () => ({
     />
   ),
   code: ({ node, inline, className, children, style, ...props }: CodeProps) => {
-    // multi-line code blocks
     return node.position &&
       node.position.start.line !== node.position.end.line ? (
+      // multi-line code blocks
       <MdxCode
         node={node}
         inline={inline}
@@ -78,16 +78,17 @@ export const components = () => ({
         {children}
       </MdxCode>
     ) : (
+      // inline code
       <Box
         as="code"
         fontFamily="mono"
-        fontWeight="semibold"
-        bg="offWhite"
+        fontWeight="normal"
+        fontSize="md"
+        bg="gray.100"
         color="gray.700"
-        border="1px solid"
-        borderColor="gray.100"
+        borderRadius="md"
         py={1}
-        px={2}
+        px={1}
         wordBreak="keep-all"
         {...props}
       >
