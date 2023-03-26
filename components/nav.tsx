@@ -79,7 +79,12 @@ const Nav: FC = () => {
           >
             <ModalContent bg="gray.50">
               <ModalHeader>
-                <Link href="/" fontSize="sm" textStyle="uppercase">
+                <Link
+                  href="/"
+                  fontSize="sm"
+                  textStyle="uppercase"
+                  onClick={onClose}
+                >
                   Kyle Zweng
                 </Link>
               </ModalHeader>

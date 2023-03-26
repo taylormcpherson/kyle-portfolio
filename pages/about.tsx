@@ -78,7 +78,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
                 href="https://www.linkedin.com/in/kyle-zweng-1b9333150/details/certifications/"
                 fontSize="sm"
               >
-                view all →
+                View all →
               </Link>
             </Flex>
           </Box>
