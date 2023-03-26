@@ -6,7 +6,7 @@ import {
   ProjectPreview,
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"
-import { List, Text } from "@chakra-ui/react"
+import { Box, List, Text } from "@chakra-ui/react"
 import { Layout } from "@/components/layout"
 import { Card } from "@/components/card"
 import Section from "@/components/section"
@@ -37,8 +37,8 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         ]}
       />
 
-      <Section minH={{ base: "auto", md: "70vh" }}>
-        <Text as="h1" textStyle="h1" pt={{ base: 10, md: 32 }}>
+      <Section py={{ base: 10, md: 32 }}>
+        <Text as="h1" textStyle="h1">
           {page.title}
         </Text>
 
@@ -47,10 +47,12 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         </Text>
       </Section>
 
-      <Section id="projects">
-        <Text as="h2" textStyle="uppercase" fontSize="sm" mb={2} pt={12}>
-          Selected works
-        </Text>
+      <Section id="projects" fullWidth>
+        <Section as={Box} py={0}>
+          <Text as="h2" textStyle="uppercase" fontSize="sm" mb={2} pt={12}>
+            Selected works
+          </Text>
+        </Section>
 
         <List>
           {projects.map((project) => (

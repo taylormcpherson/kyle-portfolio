@@ -13,7 +13,7 @@ const styles = {
       textRendering: "optimizeLegibility",
       WebkitFontSmoothing: "antialiased",
       MozOsxFontSmoothing: "grayscale",
-      color: "gray.900"
+      color: "gray.900",
     },
   },
 }

@@ -1,13 +1,21 @@
 import { Container, ContainerProps } from "@chakra-ui/react"
 import { FC } from "react"
 
-const Section: FC<Readonly<ContainerProps>> = ({ children, ...props }) => (
+interface SectionProps extends ContainerProps {
+  fullWidth?: boolean
+}
+
+const Section: FC<Readonly<SectionProps>> = ({
+  fullWidth = false,
+  children,
+  ...props
+}) => (
   <Container
     as="section"
-    maxW="container.section"
     display="flex"
     flexDirection="column"
-    px={{ base: 4, md: 6, lg: "auto" }}
+    maxW={fullWidth ? "100%" : "container.section"}
+    px={fullWidth ? 0 : { base: 4, md: 6, lg: "auto" }}
     py={{ base: 8, md: 12 }}
     {...props}
   >

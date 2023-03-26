@@ -13,7 +13,6 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
 }) => (
   <ListItem
     pos="relative"
-    py={{ base: 8, md: 4 }}
     role="group"
     borderTop="1px solid"
     borderTopColor="gray.300"
@@ -23,9 +22,13 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
     </Link>
 
     <Flex
-      gap={{ base: 8, md: 20 }}
       align={{ base: "start", md: "center" }}
       direction={{ base: "column", md: "row" }}
+      gap={{ base: 8, md: 20 }}
+      maxW="container.section"
+      mx="auto"
+      py={{ base: 8, md: 4 }}
+      px={{ base: 4, md: 6, lg: "auto" }}
     >
       <Box flex={{ base: 1, md: 2 }}>
         <Text as="h3" textStyle="h2">
@@ -59,7 +62,6 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
         pos="relative"
         flex={1}
         w={{ base: "100%", md: "auto" }}
-        opacity={{ base: 1, md: 0 }}
         transition=".25s opacity ease-in-out"
         _groupHover={{ opacity: 1 }}
       >

@@ -105,7 +105,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         pos="relative"
         flexDirection="row"
         alignItems="start"
-        gap={8}
+        gap={{ base: 6, xl: 8 }}
         pb={40}
       >
         {headings.length > 0 && (
