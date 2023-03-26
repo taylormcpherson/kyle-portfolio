@@ -87,6 +87,7 @@ const Nav: FC = () => {
 
               <Flex direction="column">
                 <Link
+                  w="100%"
                   justifyContent="space-between"
                   fontSize="lg"
                   href="/#projects"
@@ -105,6 +106,7 @@ const Nav: FC = () => {
                 </Link>
 
                 <Link
+                  w="100%"
                   justifyContent="space-between"
                   fontSize="lg"
                   href="/about/"
