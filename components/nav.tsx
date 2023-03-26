@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Flex,
+  LinkProps,
   Modal,
   ModalCloseButton,
   ModalContent,
@@ -73,7 +74,7 @@ const Nav: FC = () => {
           <Modal
             closeOnOverlayClick={true}
             isOpen={isOpen}
-            motionPreset="scale"
+            motionPreset="none"
             size="full"
             onClose={onClose}
           >
@@ -88,45 +89,17 @@ const Nav: FC = () => {
                   Kyle Zweng
                 </Link>
               </ModalHeader>
+              
               <ModalCloseButton mt={2} />
 
               <Flex direction="column">
-                <Link
-                  w="100%"
-                  justifyContent="space-between"
-                  fontSize="lg"
-                  href="/#projects"
-                  py={6}
-                  px={6}
-                  borderBottom="1px solid"
-                  borderTop="1px solid"
-                  borderColor="gray.200"
-                  _hover={{
-                    bg: "blue.50",
-                  }}
-                  onClick={onClose}
-                >
+                <MobileLink href="/#projects" onClick={onClose}>
                   Projects
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </Link>
+                </MobileLink>
 
-                <Link
-                  w="100%"
-                  justifyContent="space-between"
-                  fontSize="lg"
-                  href="/about/"
-                  py={6}
-                  px={6}
-                  borderBottom="1px solid"
-                  borderColor="gray.200"
-                  _hover={{
-                    bg: "blue.50",
-                  }}
-                  onClick={onClose}
-                >
+                <MobileLink href="/about/" onClick={onClose}>
                   About
-                  <FontAwesomeIcon icon={faChevronRight} />
-                </Link>
+                </MobileLink>
               </Flex>
             </ModalContent>
           </Modal>
@@ -135,5 +108,27 @@ const Nav: FC = () => {
     </Box>
   )
 }
+
+const MobileLink: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
+  <Link
+    href={href}
+    display="flex"
+    w="100%"
+    justifyContent="space-between"
+    fontSize="lg"
+    py={6}
+    px={6}
+    borderTop="1px solid"
+    borderColor="gray.300"
+    _last={{ borderBottom: "1px solid", borderColor: "gray.300" }}
+    _hover={{
+      bg: "blue.50",
+    }}
+    {...props}
+  >
+    {children}
+    <FontAwesomeIcon icon={faChevronRight} />
+  </Link>
+)
 
 export default Nav
