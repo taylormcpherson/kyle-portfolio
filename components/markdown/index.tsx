@@ -19,9 +19,13 @@ import {
   Th,
   Tr,
   Td,
+  Button,
 } from "@chakra-ui/react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCopy } from "@fortawesome/free-solid-svg-icons"
 import Link from "../link"
 import { MdxImage } from "./image"
+import { MdxCode } from "./code"
 
 export const components = () => ({
   h2: ({ ...props }) => (
@@ -29,7 +33,7 @@ export const components = () => ({
       as="h2"
       textStyle="h2"
       mt={{ base: 12, md: 20 }}
-      _first={{ pt: 0 }}
+      _first={{ mt: 0 }}
       {...props}
     />
   ),
@@ -64,17 +68,15 @@ export const components = () => ({
     // multi-line code blocks
     return node.position &&
       node.position.start.line !== node.position.end.line ? (
-      <Box as="code" m={0}>
-        <SyntaxHighlighter
-          language="sql"
-          showLineNumbers
-          wrapLongLines
-          style={base16AteliersulphurpoolLight}
-          {...props}
-        >
-          {String(children).replace(/\n$/, "")}
-        </SyntaxHighlighter>
-      </Box>
+      <MdxCode
+        node={node}
+        inline={inline}
+        className={className}
+        style={style}
+        {...props}
+      >
+        {children}
+      </MdxCode>
     ) : (
       <Box
         as="code"
