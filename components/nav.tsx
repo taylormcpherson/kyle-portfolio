@@ -89,7 +89,7 @@ const Nav: FC = () => {
                   Kyle Zweng
                 </Link>
               </ModalHeader>
-              
+
               <ModalCloseButton mt={2} />
 
               <Flex direction="column">

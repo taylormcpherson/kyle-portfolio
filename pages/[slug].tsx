@@ -85,7 +85,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             {project.title}
           </Text>
 
-          <Text mt={4} fontSize="xl">
+          <Text mt={4} fontSize={{ base: "md", md: "xl" }}>
             {project.subtitle}
           </Text>
         </Box>
