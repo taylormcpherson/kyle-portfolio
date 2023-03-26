@@ -17,7 +17,7 @@ const Footer: FC = () => (
     >
       <Text flex={1} fontSize="sm">
         © {new Date().getFullYear()} Kyle Zweng. Built by{" "}
-        <Link href="https://taylormcpherson.dev">Taylor McPherson</Link>
+        <Link href="https://taylormcpherson.dev">Taylor McPherson</Link>.
       </Text>
 
       <Flex
