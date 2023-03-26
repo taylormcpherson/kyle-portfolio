@@ -28,7 +28,7 @@ export const components = () => ({
     <Text
       as="h2"
       textStyle="h2"
-      pt={{ base: 12, md: 20 }}
+      mt={{ base: 12, md: 20 }}
       _first={{ pt: 0 }}
       {...props}
     />

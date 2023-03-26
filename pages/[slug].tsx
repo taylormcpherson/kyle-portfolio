@@ -28,6 +28,23 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
+  const scrollToLink = (href: string) => {
+    let scrollElement: HTMLElement | null = null
+    if (typeof window !== "undefined") {
+      scrollElement = document.querySelector(href)
+    }
+
+    if (scrollElement) {
+      const elementPosition = scrollElement.getBoundingClientRect().top
+      const offsetPosition = elementPosition + window.pageYOffset - 80
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      })
+    }
+  }
+
   return (
     <Layout>
       <Helmet
@@ -110,8 +127,11 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
                     key={href}
                     href={href}
                     fontSize="sm"
-                    fontWeight="base"
                     _hover={{ color: "green.500" }}
+                    onClick={(event) => {
+                      event.preventDefault()
+                      scrollToLink(href)
+                    }}
                   >
                     {title}
                   </Link>
