@@ -30,7 +30,7 @@ export const MdxCode: FC<Readonly<CodeProps>> = ({
         pos="absolute"
         top={2}
         right={0}
-        color={hasCopied ? "green.500" : "gray.500"}
+        color={hasCopied ? "green.500" : "gray.400"}
         onClick={onCopy}
       >
         <Tooltip
