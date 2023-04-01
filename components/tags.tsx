@@ -15,7 +15,7 @@ export const Tag: FC<Readonly<TagProps>> = ({ name, ...props }) => {
   }
   if (name === "excel") {
     return (
-      <Badge key={name} colorScheme="cyan" fontSize="sm" {...props}>
+      <Badge key={name} colorScheme="green" fontSize="sm" {...props}>
         Excel
       </Badge>
     )
@@ -24,6 +24,13 @@ export const Tag: FC<Readonly<TagProps>> = ({ name, ...props }) => {
     return (
       <Badge key={name} colorScheme="orange" fontSize="sm" {...props}>
         R
+      </Badge>
+    )
+  }
+  if (name === "tableau") {
+    return (
+      <Badge key={name} colorScheme="cyan" fontSize="sm" {...props}>
+        Tableau
       </Badge>
     )
   }

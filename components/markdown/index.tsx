@@ -109,7 +109,7 @@ export const components = () => ({
   },
   table: ({ children }: ReactMarkdownProps) => (
     <>
-      <TableContainer maxW="3xl" my={10}>
+      <TableContainer my={10}>
         <Table size={{ base: "sm", md: "md" }}>{children}</Table>
       </TableContainer>
       <Text

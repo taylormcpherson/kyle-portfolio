@@ -53,6 +53,8 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               <Tag name="sql" fontSize="base" />
 
               <Tag name="r" fontSize="base" />
+
+              <Tag name="tableau" fontSize="base" />
             </Flex>
           </Box>
 
