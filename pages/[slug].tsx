@@ -11,12 +11,13 @@ import GithubSlugger from "github-slugger"
 import { unified } from "unified"
 import remarkParse from "remark-parse"
 import { visit } from "unist-util-visit"
-import { Text, Box, Flex } from "@chakra-ui/react"
+import { Text, Box, Flex, Divider } from "@chakra-ui/react"
 import { Layout } from "@/components/layout"
 import { components } from "@/components/markdown"
 import Section from "@/components/section"
 import Link from "@/components/link"
 import { Tag } from "@/components/tags"
+import { ProjectLink } from "@/components/project-link"
 
 interface Heading {
   title: string
@@ -88,6 +89,19 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           <Text mt={4} fontSize={{ base: "md", md: "xl" }}>
             {project.subtitle}
           </Text>
+
+          {project.links?.length && (
+            <Flex
+              color="gray.600"
+              wrap="wrap"
+              gap={{ base: 4, md: 6 }}
+              mt={{ base: 10, md: 20 }}
+            >
+              {project.links.map((link) => (
+                <ProjectLink key={link.url} showText {...link} />
+              ))}
+            </Flex>
+          )}
         </Box>
 
         <Box pos="relative" flex={1} w={{ base: "100%", lg: "auto" }}>
@@ -121,7 +135,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           <Box
             as="aside"
             display={{ base: "none", lg: "block" }}
-            flex={0.25}
+            flex={0.225}
             top={20}
             pos="sticky"
           >
@@ -146,6 +160,25 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
                   </Link>
                 ))}
               </Flex>
+
+              {project.links?.length && (
+                <Box mt={8} pt={8} borderTop="1px solid" borderColor="gray.300">
+                  <Text fontSize="md" fontWeight="400">
+                    Project links
+                  </Text>
+
+                  <Flex
+                    color="gray.600"
+                    wrap="wrap"
+                    gap={{ base: 4, md: 6 }}
+                    mt={4}
+                  >
+                    {project.links.map((link) => (
+                      <ProjectLink key={link.url} {...link} />
+                    ))}
+                  </Flex>
+                </Box>
+              )}
             </Box>
           </Box>
         )}

@@ -1,5 +1,3 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism"
 import {
   CodeProps,
   OrderedListProps,
@@ -19,23 +17,14 @@ import {
   Th,
   Tr,
   Td,
-  Button,
 } from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faCopy } from "@fortawesome/free-solid-svg-icons"
 import Link from "../link"
 import { MdxImage } from "./image"
 import { MdxCode } from "./code"
 
 export const components = () => ({
   h2: ({ ...props }) => (
-    <Text
-      as="h2"
-      textStyle="h2"
-      mt={{ base: 12, md: 20 }}
-      _first={{ mt: 0 }}
-      {...props}
-    />
+    <Text as="h2" textStyle="h2" mt={12} _first={{ mt: 0 }} {...props} />
   ),
   p: ({ ...props }) => <Text textStyle="article.p" {...props} />,
   strong: ({ ...props }) => (

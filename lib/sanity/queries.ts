@@ -1,10 +1,17 @@
 import { client } from "./sanity"
 
+export interface ProjectLinkProps {
+  host: string
+  url: string
+  text?: string
+}
+
 export interface Project {
   slug: string
   title: string
   subtitle: string
   tags: string[]
+  links: ProjectLinkProps[]
   imageUrl: string
   imageAlt?: string
   publishedAt?: string
@@ -20,6 +27,7 @@ export const getProject = async (slug: string): Promise<Project> => {
       title,
       subtitle,
       tags,
+      links,
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       publishedAt,
@@ -40,7 +48,6 @@ export interface ProjectPreview {
   tags: string[]
   imageUrl: string
   imageAlt?: string
-  publishedAt?: string
 }
 
 export const getAllProjects = async (): Promise<ProjectPreview[]> => {
@@ -52,7 +59,6 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
       tags,
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
-      publishedAt,
       _updatedAt
     } | order(_updatedAt desc)
   `
