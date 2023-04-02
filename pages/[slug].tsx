@@ -90,7 +90,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             {project.subtitle}
           </Text>
 
-          {project.links?.length && (
+          {project.links && project.links.length > 0 && (
             <Flex
               color="gray.600"
               wrap="wrap"
@@ -161,7 +161,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
                 ))}
               </Flex>
 
-              {project.links?.length && (
+              {project.links && project.links.length > 0 && (
                 <Box mt={8} pt={8} borderTop="1px solid" borderColor="gray.300">
                   <Text fontSize="md" fontWeight="400">
                     Project links
