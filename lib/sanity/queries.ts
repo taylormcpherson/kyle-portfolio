@@ -46,6 +46,7 @@ export interface ProjectPreview {
   title: string
   subtitle: string
   tags: string[]
+  publishedAt?: string
   imageUrl: string
   imageAlt?: string
 }
@@ -57,10 +58,11 @@ export const getAllProjects = async (): Promise<ProjectPreview[]> => {
       title,
       subtitle,
       tags,
+      publishedAt,
       'imageUrl': image.asset->url,
       'imageAlt': image.asset->alt,
       _updatedAt
-    } | order(_updatedAt desc)
+    } | order(publishedAt desc)
   `
 
   const allProjects = await client.fetch(query)

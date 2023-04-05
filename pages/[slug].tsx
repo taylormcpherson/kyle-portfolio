@@ -95,7 +95,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
               color="gray.600"
               wrap="wrap"
               gap={{ base: 4, md: 6 }}
-              mt={{ base: 10, md: 20 }}
+              mt={{ base: 6, md: 12 }}
             >
               {project.links.map((link) => (
                 <ProjectLink key={link.url} showText {...link} />
@@ -168,9 +168,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
                   </Text>
 
                   <Flex
+                    align="center"
                     color="gray.600"
                     wrap="wrap"
-                    gap={{ base: 4, md: 6 }}
+                    gap={{ base: 4, md: 5 }}
                     mt={4}
                   >
                     {project.links.map((link) => (

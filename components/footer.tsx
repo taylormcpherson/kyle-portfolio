@@ -34,6 +34,14 @@ const Footer: FC = () => (
         >
           <FontAwesomeIcon icon={faLinkedinIn} />
         </Link>
+        <Link
+          href="https://github.com/kylejzweng"
+          rel="noreferrer"
+          target="_blank"
+          aria-label="GitHhub."
+        >
+          <FontAwesomeIcon icon={faGithub} />
+        </Link>
       </Flex>
     </Section>
   </Box>

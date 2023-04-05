@@ -8,34 +8,42 @@ interface TagProps extends BadgeProps {
 export const Tag: FC<Readonly<TagProps>> = ({ name, ...props }) => {
   if (name === "sql") {
     return (
-      <Badge key={name} colorScheme="purple" fontSize="sm" {...props}>
+      <Badge
+        colorScheme="purple"
+        fontSize={{ base: "xs", md: "sm" }}
+        {...props}
+      >
         SQL
       </Badge>
     )
   }
   if (name === "excel") {
     return (
-      <Badge key={name} colorScheme="green" fontSize="sm" {...props}>
+      <Badge colorScheme="green" fontSize={{ base: "xs", md: "sm" }} {...props}>
         Excel
       </Badge>
     )
   }
   if (name === "r") {
     return (
-      <Badge key={name} colorScheme="orange" fontSize="sm" {...props}>
+      <Badge
+        colorScheme="orange"
+        fontSize={{ base: "xs", md: "sm" }}
+        {...props}
+      >
         R
       </Badge>
     )
   }
   if (name === "tableau") {
     return (
-      <Badge key={name} colorScheme="cyan" fontSize="sm" {...props}>
+      <Badge colorScheme="cyan" fontSize={{ base: "xs", md: "sm" }} {...props}>
         Tableau
       </Badge>
     )
   }
   return (
-    <Badge key={name} fontSize="sm" {...props}>
+    <Badge fontSize={{ base: "xs", md: "sm" }} {...props}>
       {name}
     </Badge>
   )

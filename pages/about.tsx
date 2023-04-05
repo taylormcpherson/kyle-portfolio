@@ -48,13 +48,13 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
             </Text>
 
             <Flex align="center" gap={2} mt={4}>
-              <Tag name="excel" fontSize="base" />
+              <Tag name="excel" fontSize={{ base: "sm", md: "md" }} />
 
-              <Tag name="sql" fontSize="base" />
+              <Tag name="sql" fontSize={{ base: "sm", md: "md" }} />
 
-              <Tag name="r" fontSize="base" />
+              <Tag name="r" fontSize={{ base: "sm", md: "md" }} />
 
-              <Tag name="tableau" fontSize="base" />
+              <Tag name="tableau" fontSize={{ base: "sm", md: "md" }} />
             </Flex>
           </Box>
 
@@ -69,10 +69,18 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               gap={{ base: 4, md: 2 }}
               mt={4}
             >
-              <Badge colorScheme="blue" variant="outline" fontSize="base">
+              <Badge
+                colorScheme="blue"
+                variant="outline"
+                fontSize={{ base: "sm", md: "md" }}
+              >
                 Google Data Analytics
               </Badge>
-              <Badge colorScheme="yellow" variant="outline" fontSize="base">
+              <Badge
+                colorScheme="yellow"
+                variant="outline"
+                fontSize={{ base: "sm", md: "md" }}
+              >
                 CoRise SQL Crash Course
               </Badge>
 

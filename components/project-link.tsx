@@ -29,11 +29,12 @@ export const ProjectLink: FC<
       href={url}
       variant="green"
       display="flex"
-      gap={1}
       alignItems="center"
+      fontSize="sm"
+      gap={1}
       {...props}
     >
-      <Icon as={FontAwesomeIcon} boxSize={4} icon={icon} />
+      <Icon as={FontAwesomeIcon} boxSize={5} icon={icon} />
       {showText && linkText}
     </Link>
   )
