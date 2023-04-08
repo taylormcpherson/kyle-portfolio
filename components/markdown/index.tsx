@@ -21,6 +21,7 @@ import {
 import Link from "../link"
 import { MdxImage } from "./image"
 import { MdxCode } from "./code"
+import { MdxTable } from "./table"
 
 export const components = () => ({
   h2: ({ ...props }) => (
@@ -96,29 +97,18 @@ export const components = () => ({
   }) => {
     return <MdxImage src={src} alt={alt} title={title} />
   },
-  table: ({ children }: ReactMarkdownProps) => (
-    <>
-      <TableContainer my={10}>
-        <Table size={{ base: "sm", md: "md" }}>{children}</Table>
-      </TableContainer>
-      <Text
-        fontSize="xs"
-        fontWeight="400"
-        textAlign="center"
-        display={{ base: "block", md: "none" }}
-        mt={-6}
-      >
-        Scroll horizontally to view the full table.
-      </Text>
-    </>
+  table: ({ children, ...props }: ReactMarkdownProps) => (
+    <MdxTable {...props}>{children}</MdxTable>
   ),
   thead: ({ children }: ReactMarkdownProps) => (
-    <Thead borderColor="gray.300" bg="gray.100">
+    <Thead borderColor="gray.300" bg="gray.100" pos="sticky" top={0}>
       {children}
     </Thead>
   ),
   th: ({ children }: ReactMarkdownProps) => (
-    <Th borderColor="gray.300">{children}</Th>
+    <Th borderColor="gray.300" whiteSpace="break-spaces">
+      {children}
+    </Th>
   ),
   tr: ({ children }: ReactMarkdownProps) => (
     <Tr borderColor="gray.300">{children}</Tr>
