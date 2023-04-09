@@ -22,8 +22,8 @@ const colors = {
 }
 
 const fonts = {
-  heading: `'Sharp Sans Display No 1', sans-serif`,
-  body: `'Sharp Sans Display No 1', sans-serif`,
+  heading: "sans-serif",
+  body: "sans-serif",
 }
 
 const sizes = {
