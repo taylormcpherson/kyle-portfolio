@@ -11,8 +11,6 @@ import {
   OrderedList,
   ListItem,
   Box,
-  Table,
-  TableContainer,
   Thead,
   Th,
   Tr,
@@ -73,10 +71,10 @@ export const components = () => ({
         as="code"
         fontFamily="mono"
         fontWeight="normal"
-        fontSize="md"
-        bg="gray.100"
-        color="gray.700"
-        borderRadius="md"
+        fontSize="sm"
+        bg="gray.200"
+        color="gray.800"
+        borderRadius="4px"
         py={1}
         px={1}
         wordBreak="keep-all"
@@ -114,6 +112,8 @@ export const components = () => ({
     <Tr borderColor="gray.300">{children}</Tr>
   ),
   td: ({ children }: ReactMarkdownProps) => (
-    <Td borderColor="gray.300">{children}</Td>
+    <Td borderColor="gray.300" whiteSpace="break-spaces" wordBreak="pre-line">
+      {children}
+    </Td>
   ),
 })

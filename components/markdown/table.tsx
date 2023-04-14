@@ -53,7 +53,9 @@ export const MdxTable: FC<Readonly<ReactMarkdownProps>> = ({ children }) => {
             }
           }}
         >
-          <Table size={{ base: "sm", md: "md" }}>{children}</Table>
+          <Table size={{ base: "sm", md: "md" }} w="100%">
+            {children}
+          </Table>
         </TableContainer>
       </Box>
 

@@ -30,6 +30,8 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
+  const sidebarMinWidth = 200
+
   const scrollToLink = (href: string) => {
     let scrollElement: HTMLElement | null = null
     if (typeof window !== "undefined") {
@@ -136,6 +138,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             as="aside"
             display={{ base: "none", lg: "block" }}
             flex={0.225}
+            minW={`${sidebarMinWidth}px`}
             top={20}
             pos="sticky"
           >
@@ -184,7 +187,14 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           </Box>
         )}
 
-        <Box flex={1} maxW="100%">
+        <Box
+          flex={1}
+          maxW={{
+            base: "100%",
+            lg: `calc(100vw - (${sidebarMinWidth}px + 80px))`,
+            xl: `calc(var(--chakra-sizes-container-section) - (${sidebarMinWidth}px + 80px))`,
+          }}
+        >
           <ReactMarkdown
             components={components()}
             rehypePlugins={[rehypeRaw, rehypeSlug]}
