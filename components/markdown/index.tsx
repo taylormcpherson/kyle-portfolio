@@ -112,7 +112,7 @@ export const components = () => ({
     <Tr borderColor="gray.300">{children}</Tr>
   ),
   td: ({ children }: ReactMarkdownProps) => (
-    <Td borderColor="gray.300" whiteSpace="break-spaces" wordBreak="pre-line">
+    <Td borderColor="gray.300" whiteSpace="break-spaces" wordBreak="break-all">
       {children}
     </Td>
   ),
