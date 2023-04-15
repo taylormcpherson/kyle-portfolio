@@ -138,7 +138,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             as="aside"
             display={{ base: "none", lg: "block" }}
             flex={0.225}
-            minW={`${sidebarMinWidth}px`}
+            w={`${sidebarMinWidth}px`}
             top={20}
             pos="sticky"
           >
