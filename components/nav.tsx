@@ -74,7 +74,7 @@ const Nav: FC = () => {
             bg="transparent"
             onClick={onOpen}
           >
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon icon={faBars} width="14px" />
           </Button>
 
           <Modal
