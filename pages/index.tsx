@@ -19,8 +19,8 @@ interface PageProps {
 const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
   return (
     <Page title={page.metaTitle} description={page.metaDescription}>
-      <Section py={{ base: 10, md: 32 }}>
-        <Text as="h1" textStyle="h1">
+      <Section py={{ base: 10, md: 24 }} textAlign="center">
+        <Text as="h1" textStyle="h1Xl">
           {page.title}
         </Text>
 
@@ -29,7 +29,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         </Text>
       </Section>
 
-      <Section id="projects" fullWidth>
+      <Section id="projects" fullWidth mt={0}>
         <Section as={Box} py={0}>
           <Text as="h2" textStyle="uppercase" fontSize="sm" mb={2} pt={12}>
             Selected works

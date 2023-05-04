@@ -68,6 +68,11 @@ const textStyles = {
   defaultProps: {
     fontWeight: "base",
   },
+  h1Xl: {
+    fontFamily: "heading",
+    fontSize: { base: "5xl", md: "6xl", lg: "8xl" },
+    lineHeight: "1.25",
+  },
   h1: {
     fontFamily: "heading",
     fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
@@ -81,16 +86,15 @@ const textStyles = {
   h3: {
     fontFamily: "heading",
     fontSize: { base: "xl", md: "2xl" },
-    lineHeight: "1.25",
+    lineHeight: "1.5",
   },
   h4: {
     fontFamily: "heading",
-    fontSize: { base: "lg", md: "xl", lg: "2xl" },
-    lineHeight: "1.25",
+    fontSize: { base: "lg", md: "xl" },
+    lineHeight: "1.5",
   },
-
   p: {
-    marginBottom: 4,
+    fontSize: { base: "md", md: "lg" },
   },
   article: {
     p: {

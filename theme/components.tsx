@@ -48,6 +48,14 @@ const Link: ComponentStyleConfig = {
         color: "green.500",
       },
     },
+    nav: {
+      fontSize: { base: "sm", md: "base" },
+      textStyle: "uppercase",
+      _hover: {
+        textDecoration: "none",
+        color: "blue.500",
+      },
+    },
     overlay: {
       position: "absolute",
       inset: 0,

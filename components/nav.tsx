@@ -39,18 +39,18 @@ const Nav: FC = () => {
         alignItems="center"
         py={4}
       >
-        <Link
-          href="/"
-          fontSize={{ base: "sm", md: "base" }}
-          textStyle="uppercase"
-        >
+        <Link href="/" variant="nav">
           Kyle Zweng
         </Link>
 
         <Flex display={{ base: "none", md: "flex" }} gap={8}>
-          <Link href="/#projects">Projects</Link>
+          <Link href="/#projects" variant="nav">
+            Projects
+          </Link>
 
-          <Link href="/about/">About</Link>
+          <Link href="/about/" variant="nav">
+            About
+          </Link>
         </Flex>
 
         <Box

@@ -15,7 +15,7 @@ export const Page: FC<Readonly<PageProps>> = ({
 }) => (
   <>
     <Head>
-      <title key="title">{title} | Kyle Zweng</title>
+      <title key="title">{`${title} | Kyle Zweng`}</title>
       <meta
         property="og:title"
         content={`${title} | Kyle Zweng`}
