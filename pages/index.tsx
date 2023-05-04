@@ -1,4 +1,3 @@
-import { Helmet } from "react-helmet"
 import {
   getAllProjects,
   getPage,
@@ -7,9 +6,10 @@ import {
 } from "@/lib/sanity/queries"
 import { NextPage } from "next"
 import { Box, List, Text } from "@chakra-ui/react"
-import { Layout } from "@/components/layout"
+
 import { Card } from "@/components/card"
 import Section from "@/components/section"
+import { Page } from "@/components/page"
 
 interface PageProps {
   page: SanityPage
@@ -18,25 +18,7 @@ interface PageProps {
 
 const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
   return (
-    <Layout>
-      <Helmet
-        title={`${page.metaTitle} | Kyle Zweng`}
-        meta={[
-          {
-            property: "og:title",
-            content: page.metaTitle + " | Kyle Zweng",
-          },
-          {
-            property: "og:description",
-            content: page.metaDescription,
-          },
-          {
-            property: "description",
-            content: page.metaDescription,
-          },
-        ]}
-      />
-
+    <Page title={page.metaTitle} description={page.metaDescription}>
       <Section py={{ base: 10, md: 32 }}>
         <Text as="h1" textStyle="h1">
           {page.title}
@@ -60,7 +42,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
           ))}
         </List>
       </Section>
-    </Layout>
+    </Page>
   )
 }
 

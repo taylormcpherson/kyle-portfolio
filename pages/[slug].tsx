@@ -1,7 +1,6 @@
 import { getProject, getProjectSlugs, Project } from "@/lib/sanity/queries"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
-import { Helmet } from "react-helmet"
 import ReactMarkdown from "react-markdown"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
@@ -12,12 +11,13 @@ import { unified } from "unified"
 import remarkParse from "remark-parse"
 import { visit } from "unist-util-visit"
 import { Text, Box, Flex, Divider } from "@chakra-ui/react"
-import { Layout } from "@/components/layout"
+
 import { components } from "@/components/markdown"
 import Section from "@/components/section"
 import Link from "@/components/link"
 import { Tag } from "@/components/tags"
 import { ProjectLink } from "@/components/project-link"
+import { Page } from "@/components/page"
 
 interface Heading {
   title: string
@@ -50,25 +50,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
   }
 
   return (
-    <Layout>
-      <Helmet
-        title={`${project.metaTitle} | Kyle Zweng`}
-        meta={[
-          {
-            property: "og:title",
-            content: project.metaTitle + " | Kyle Zweng",
-          },
-          {
-            property: "og:description",
-            content: project.metaDescription,
-          },
-          {
-            property: "description",
-            content: project.metaDescription,
-          },
-        ]}
-      />
-
+    <Page title={project.metaTitle} description={project.metaDescription}>
       <Section
         flexDirection={{ base: "column", lg: "row" }}
         minHeight="70vh"
@@ -205,7 +187,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           </ReactMarkdown>
         </Box>
       </Section>
-    </Layout>
+    </Page>
   )
 }
 

@@ -1,33 +1,15 @@
 import { Badge, Box, Flex, Text } from "@chakra-ui/react"
 import { getPage, Page as SanityPage } from "@/lib/sanity/queries"
 import { NextPage } from "next"
-import { Helmet } from "react-helmet"
-import { Layout } from "@/components/layout"
+
 import Link from "@/components/link"
 import Section from "@/components/section"
 import { Tag } from "@/components/tags"
+import { Page } from "@/components/page"
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
-    <Layout>
-      <Helmet
-        title={`${page.metaTitle} | Kyle Zweng`}
-        meta={[
-          {
-            property: "og:title",
-            content: page.metaTitle + " | Kyle Zweng",
-          },
-          {
-            property: "og:description",
-            content: page.metaDescription,
-          },
-          {
-            property: "description",
-            content: page.metaDescription,
-          },
-        ]}
-      />
-
+    <Page title={page.metaTitle} description={page.metaDescription}>
       <Section minH={{ base: "auto", md: "90vh" }} pb={32}>
         <Text as="h1" textStyle="h2" pt={{ base: 10, md: 32 }}>
           {page.title}
@@ -94,7 +76,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
           </Box>
         </Flex>
       </Section>
-    </Layout>
+    </Page>
   )
 }
 
