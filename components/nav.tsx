@@ -16,6 +16,8 @@ import Link from "./link"
 import Section from "./section"
 
 const Nav: FC = () => {
+  const resumeHref =
+    "https://drive.google.com/file/d/10Xt-QgGdxvQHrqQnmxj6VuCXvqprAMUy/view?usp=sharing"
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   return (
@@ -43,13 +45,17 @@ const Nav: FC = () => {
           Kyle Zweng
         </Link>
 
-        <Flex display={{ base: "none", md: "flex" }} gap={8}>
+        <Flex display={{ base: "none", md: "flex" }} gap={12}>
           <Link href="/#projects" variant="nav">
             Projects
           </Link>
 
-          <Link href="/about/" variant="nav">
+          <Link href="/about" variant="nav">
             About
+          </Link>
+
+          <Link href={resumeHref} variant="nav" target="_blank">
+            Resume
           </Link>
         </Flex>
 
@@ -97,8 +103,12 @@ const Nav: FC = () => {
                   Projects
                 </MobileLink>
 
-                <MobileLink href="/about/" onClick={onClose}>
+                <MobileLink href="/about" onClick={onClose}>
                   About
+                </MobileLink>
+
+                <MobileLink href={resumeHref} target="_blank" onClick={onClose}>
+                  Resume
                 </MobileLink>
               </Flex>
             </ModalContent>

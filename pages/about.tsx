@@ -11,7 +11,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
     <Page title={page.metaTitle} description={page.metaDescription}>
       <Section maxW="4xl">
-        <Box my={12} textAlign="justify">
+        <Box mt={8} mb={32} textAlign="justify">
           <Text as="h1" textStyle="h2">
             {page.title}
           </Text>
