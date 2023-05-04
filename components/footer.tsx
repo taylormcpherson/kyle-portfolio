@@ -3,7 +3,6 @@ import Section from "./section"
 import Link from "./link"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faLinkedinIn, faGithub } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { Box, Flex, Text } from "@chakra-ui/react"
 
 const Footer: FC = () => (
@@ -24,15 +23,16 @@ const Footer: FC = () => (
         flex={1}
         justify={{ base: "start", md: "end " }}
         boxSize={6}
-        gap={4}
+        gap={8}
+        color="gray.900"
       >
         <Link
-          href="https://www.linkedin.com/in/kyle-zweng-1b9333150/"
+          href="https://www.linkedin.com/in/kzweng01/"
           rel="noreferrer"
           target="_blank"
           aria-label="LinkedIn."
         >
-          <FontAwesomeIcon icon={faLinkedinIn} />
+          <FontAwesomeIcon icon={faLinkedinIn} width="14px" />
         </Link>
         <Link
           href="https://github.com/kylejzweng"
@@ -40,7 +40,7 @@ const Footer: FC = () => (
           target="_blank"
           aria-label="GitHhub."
         >
-          <FontAwesomeIcon icon={faGithub} />
+          <FontAwesomeIcon icon={faGithub} width="14px" />
         </Link>
       </Flex>
     </Section>

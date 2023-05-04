@@ -114,6 +114,7 @@ const MobileLink: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
     href={href}
     display="flex"
     w="100%"
+    alignItems="start"
     justifyContent="space-between"
     fontSize="lg"
     py={6}
@@ -127,7 +128,7 @@ const MobileLink: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
     {...props}
   >
     {children}
-    <FontAwesomeIcon icon={faChevronRight} />
+    <FontAwesomeIcon icon={faChevronRight} width="14px" />
   </Link>
 )
 

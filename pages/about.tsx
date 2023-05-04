@@ -31,13 +31,13 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               </Text>
 
               <Flex align="center" gap={2} mt={4}>
-                <Tag name="excel" fontSize={{ base: "sm", md: "md" }} />
-
                 <Tag name="sql" fontSize={{ base: "sm", md: "md" }} />
 
-                <Tag name="r" fontSize={{ base: "sm", md: "md" }} />
+                <Tag name="excel" fontSize={{ base: "sm", md: "md" }} />
 
                 <Tag name="tableau" fontSize={{ base: "sm", md: "md" }} />
+
+                <Tag name="r" fontSize={{ base: "sm", md: "md" }} />
               </Flex>
             </Box>
 
