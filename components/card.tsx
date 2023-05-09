@@ -5,7 +5,7 @@ import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
 import Link from "./link"
 import { Tag } from "./tags"
 
-export const Card: FC<Readonly<ProjectPreview & { priority?: boolean; }>> = ({
+export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
   title,
   subtitle,
   slug,
