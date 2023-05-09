@@ -37,8 +37,8 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
         </Section>
 
         <List>
-          {projects.map((project) => (
-            <Card key={project.slug} {...project} />
+          {projects.map((project, index) => (
+            <Card key={project.slug} priority={index === 0} {...project} />
           ))}
         </List>
       </Section>

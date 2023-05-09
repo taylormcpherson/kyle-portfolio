@@ -5,13 +5,14 @@ import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
 import Link from "./link"
 import { Tag } from "./tags"
 
-export const Card: FC<Readonly<ProjectPreview>> = ({
+export const Card: FC<Readonly<ProjectPreview & { priority?: boolean; }>> = ({
   title,
   subtitle,
   slug,
   imageUrl,
   imageAlt,
   tags,
+  priority,
 }) => (
   <ListItem
     pos="relative"
@@ -81,6 +82,7 @@ export const Card: FC<Readonly<ProjectPreview>> = ({
           sizes="100%"
           width={1}
           height={1}
+          priority={priority}
           style={{
             objectFit: "cover",
             width: "100%",
