@@ -50,7 +50,11 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
   }
 
   return (
-    <Page title={project.metaTitle} description={project.metaDescription}>
+    <Page
+      title={project.metaTitle}
+      description={project.metaDescription}
+      image={project.imageUrl + "?w=1200"}
+    >
       <Section
         flexDirection={{ base: "column", lg: "row" }}
         minHeight="70vh"
@@ -101,7 +105,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
               width: "100%",
               height: "auto",
               maxWidth: "500px",
-              maxHeight: "300px",
+              // maxHeight: "300px",
               borderRadius: "6px",
             }}
           />
