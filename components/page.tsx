@@ -20,7 +20,7 @@ export const Page: FC<Readonly<PageProps>> = ({
   children,
 }) => {
   const pathname = usePathname()
-  console.log(pathname)
+  
   return (
     <>
       <Head>
