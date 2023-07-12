@@ -34,7 +34,7 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
       px={{ base: 4, md: 6, lg: "auto" }}
     >
       <Box flex={{ base: 1, md: 2 }} my={4}>
-        {tags.length > 0 && (
+        {tags && tags.length > 0 && (
           <Flex gap={2} mb={3}>
             {tags.map((tag) => (
               <Tag key={tag} name={tag} />

@@ -42,6 +42,18 @@ export const Tag: FC<Readonly<TagProps>> = ({ name, ...props }) => {
       </Badge>
     )
   }
+
+  if (name === "python") {
+    return (
+      <Badge
+        colorScheme="yellow"
+        fontSize={{ base: "xs", md: "sm" }}
+        {...props}
+      >
+        Python
+      </Badge>
+    )
+  }
   return (
     <Badge fontSize={{ base: "xs", md: "sm" }} {...props}>
       {name}

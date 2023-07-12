@@ -62,7 +62,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         gap={8}
       >
         <Box flex={{ base: 1, lg: 1.75 }}>
-          {project.tags.length > 0 && (
+          {project.tags && project.tags.length > 0 && (
             <Flex gap={2} mb={3}>
               {project.tags.map((tag) => (
                 <Tag key={tag} name={tag} />

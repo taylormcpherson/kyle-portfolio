@@ -31,6 +31,8 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               </Text>
 
               <Flex align="center" gap={2} mt={4}>
+                <Tag name="python" fontSize={{ base: "sm", md: "md" }} />
+
                 <Tag name="sql" fontSize={{ base: "sm", md: "md" }} />
 
                 <Tag name="excel" fontSize={{ base: "sm", md: "md" }} />
@@ -48,9 +50,10 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
 
               <Flex
                 align={{ base: "start", md: "center" }}
-                direction={{ base: "column", md: "row" }}
+                // direction={{ base: "column", md: "row" }}
                 gap={{ base: 4, md: 2 }}
                 mt={4}
+                wrap="wrap"
               >
                 <Badge
                   colorScheme="facebook"
@@ -70,6 +73,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
                 <Link
                   href="https://www.linkedin.com/in/kyle-zweng-1b9333150/details/certifications/"
                   variant="green"
+                  target="_blank"
                 >
                   View all →
                 </Link>
