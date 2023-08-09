@@ -31,15 +31,15 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
               </Text>
 
               <Flex align="center" gap={2} mt={4}>
-                <Tag name="python" fontSize={{ base: "sm", md: "md" }} />
+                <Tag variant="python">Python</Tag>
 
-                <Tag name="sql" fontSize={{ base: "sm", md: "md" }} />
+                <Tag variant="sql">SQL</Tag>
 
-                <Tag name="excel" fontSize={{ base: "sm", md: "md" }} />
+                <Tag variant="excel">Excel</Tag>
 
-                <Tag name="tableau" fontSize={{ base: "sm", md: "md" }} />
+                <Tag variant="tableau">Tableau</Tag>
 
-                <Tag name="r" fontSize={{ base: "sm", md: "md" }} />
+                <Tag variant="r">R</Tag>
               </Flex>
             </Box>
 
@@ -50,22 +50,24 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
 
               <Flex
                 align={{ base: "start", md: "center" }}
-                // direction={{ base: "column", md: "row" }}
                 gap={{ base: 4, md: 2 }}
+                fontSize="sm"
                 mt={4}
                 wrap="wrap"
               >
                 <Badge
                   colorScheme="facebook"
                   variant="outline"
-                  fontSize={{ base: "sm", md: "md" }}
+                  bg="white"
+                  size="sm"
                 >
                   Google Data Analytics
                 </Badge>
                 <Badge
                   colorScheme="orange"
                   variant="outline"
-                  fontSize={{ base: "sm", md: "md" }}
+                  bg="white"
+                  size="sm"
                 >
                   CoRise SQL Crash Course
                 </Badge>
@@ -73,6 +75,7 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
                 <Link
                   href="https://www.linkedin.com/in/kyle-zweng-1b9333150/details/certifications/"
                   variant="green"
+                  size="xs"
                   target="_blank"
                 >
                   View all →

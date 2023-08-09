@@ -2,6 +2,7 @@ import { FC } from "react"
 import Image from "next/image"
 import { ProjectPreview } from "@/lib/sanity/queries"
 import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
+import Balancer from "react-wrap-balancer"
 import Link from "./link"
 import { Tag } from "./tags"
 
@@ -37,30 +38,33 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
         {tags && tags.length > 0 && (
           <Flex gap={2} mb={3}>
             {tags.map((tag) => (
-              <Tag key={tag} name={tag} />
+              <Tag key={tag} variant={tag}>
+                {tag}
+              </Tag>
             ))}
           </Flex>
         )}
 
         <Text as="h3" textStyle="h2">
-          {title}
+          <Balancer>{title}</Balancer>
         </Text>
 
         <Text
-          mt={6}
+          color="gray.600"
           fontSize={{ base: "base", md: "lg" }}
+          mt={6}
           opacity={{ base: 1, md: 0 }}
           transition=".15s opacity ease-in-out"
           _groupHover={{ opacity: 1 }}
         >
-          {subtitle}
+          <Balancer>{subtitle}</Balancer>
         </Text>
 
         <Text
-          mt={6}
           color="green.500"
           fontSize={{ base: "base", md: "lg" }}
           fontWeight="400"
+          mt={6}
           opacity={{ base: 1, md: 0 }}
           transition=".15s all ease-in-out"
           _groupHover={{ color: "green.500", opacity: 1 }}

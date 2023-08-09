@@ -6,6 +6,9 @@ const Link: ComponentStyleConfig = {
     transition: ".15s all ease-in-out",
   },
   sizes: {
+    xs: {
+      fontSize: "xs",
+    },
     sm: {
       fontSize: "sm",
     },
@@ -94,4 +97,53 @@ const List: ComponentStyleConfig = {
   },
 }
 
-export const components = { Link, List }
+const Badge: ComponentStyleConfig = {
+  baseStyle: {
+    border: "1px solid",
+    bg: "white",
+    borderRadius: "xl",
+    color: "gray.600",
+    px: 3,
+    py: 1,
+  },
+  sizes: {
+    sm: {
+      fontSize: { base: "xxs", md: "xs" },
+    },
+    md: {
+      fontSize: { base: "xs", md: "sm" },
+    },
+  },
+  variants: {
+    sql: {
+      bg: "purple.50",
+      borderColor: "purple.200",
+      color: "purple.800",
+    },
+    excel: {
+      bg: "green.50",
+      borderColor: "green.200",
+      color: "green.800",
+    },
+    r: {
+      bg: "orange.50",
+      borderColor: "orange.200",
+      color: "orange.800",
+    },
+    tableau: {
+      bg: "cyan.50",
+      borderColor: "cyan.200",
+      color: "cyan.800",
+    },
+    python: {
+      bg: "yellow.50",
+      borderColor: "yellow.200",
+      color: "yellow.800",
+    },
+  },
+  defaultProps: {
+    size: "sm",
+  },
+}
+
+export const components = { Link, List, Badge }

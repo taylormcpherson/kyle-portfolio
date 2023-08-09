@@ -13,16 +13,19 @@ const styles = {
       textRendering: "optimizeLegibility",
       WebkitFontSmoothing: "antialiased",
       MozOsxFontSmoothing: "grayscale",
-      color: "gray.900",
+      color: "gray.800",
     },
   },
 }
 const colors = {
   offWhite: "rgb(245, 247, 255)",
+  text: {
+    primary: "gray.800",
+    secondary: "gray.600",
+  },
 }
 
 const fonts = {
-  heading: "sans-serif",
   body: "sans-serif",
 }
 
@@ -50,6 +53,7 @@ const sizes = {
 }
 
 const fontSizes = {
+  xxs: "0.65rem",
   xs: "0.75rem",
   sm: "0.875rem",
   md: "1rem",
@@ -69,40 +73,46 @@ const textStyles = {
     fontWeight: "base",
   },
   h1Xl: {
-    fontFamily: "heading",
+    color: "gray.900",
+    fontWeight: "medium",
     fontSize: { base: "5xl", md: "6xl", lg: "8xl" },
     lineHeight: "1.25",
   },
   h1: {
-    fontFamily: "heading",
+    color: "gray.900",
+    fontWeight: "semibold",
     fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
     lineHeight: "1.25",
   },
   h2: {
-    fontFamily: "heading",
+    color: "gray.900",
+    fontWeight: "semibold",
     fontSize: { base: "2xl", md: "3xl" },
     lineHeight: "1.25",
   },
   h3: {
-    fontFamily: "heading",
+    color: "gray.900",
+    fontWeight: "semibold",
     fontSize: { base: "xl", md: "2xl" },
     lineHeight: "1.5",
   },
   h4: {
-    fontFamily: "heading",
+    color: "gray.900",
     fontSize: { base: "lg", md: "xl" },
     lineHeight: "1.5",
   },
   p: {
-    fontSize: { base: "md", md: "lg" },
+    color: "gray.700",
+    fontSize: { base: "sm", md: "md" },
+    lineHeight: 1.66,
   },
   article: {
     p: {
-      fontSize: { base: "md", lg: "lg" },
+      fontSize: { base: "sm", lg: "md" },
+      lineHeight: 1.66,
       marginTop: 8,
       marginBottom: 4,
       textAlign: "justify",
-      lineHeight: 1.5,
     },
   },
   uppercase: {

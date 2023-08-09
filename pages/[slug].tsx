@@ -2,6 +2,7 @@ import { getProject, getProjectSlugs, Project } from "@/lib/sanity/queries"
 import { GetStaticPaths, GetStaticProps, NextPage } from "next"
 import Image from "next/image"
 import ReactMarkdown from "react-markdown"
+import Balancer from "react-wrap-balancer"
 import rehypeSlug from "rehype-slug"
 import remarkGfm from "remark-gfm"
 import rehypeRaw from "rehype-raw"
@@ -65,17 +66,24 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
           {project.tags && project.tags.length > 0 && (
             <Flex gap={2} mb={3}>
               {project.tags.map((tag) => (
-                <Tag key={tag} name={tag} />
+                <Tag key={tag} variant={tag}>
+                  {tag}
+                </Tag>
               ))}
             </Flex>
           )}
 
           <Text as="h1" textStyle="h1">
-            {project.title}
+            <Balancer> {project.title}</Balancer>
           </Text>
 
-          <Text mt={4} fontSize={{ base: "md", md: "xl" }}>
-            {project.subtitle}
+          <Text
+            mt={4}
+            fontSize={{ base: "md", md: "xl" }}
+            color="gray.600"
+            lineHeight={1.6}
+          >
+            <Balancer> {project.subtitle}</Balancer>
           </Text>
 
           {project.links && project.links.length > 0 && (
@@ -129,7 +137,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             pos="sticky"
           >
             <Box as="nav" aria-label="Table of Contents" fontWeight="base">
-              <Text fontSize="md" fontWeight="400">
+              <Text fontSize="md" fontWeight="semibold">
                 Table of contents
               </Text>
 

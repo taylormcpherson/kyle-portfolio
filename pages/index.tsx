@@ -32,7 +32,7 @@ const Home: NextPage<Readonly<PageProps>> = ({ page, projects }) => {
       <Section id="projects" fullWidth mt={0}>
         <Section as={Box} py={0}>
           <Text as="h2" textStyle="uppercase" fontSize="sm" mb={2} pt={12}>
-            Selected works
+            Selected projects
           </Text>
         </Section>
 

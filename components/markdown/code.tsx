@@ -1,6 +1,10 @@
 import { FC, useEffect } from "react"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import { base16AteliersulphurpoolLight } from "react-syntax-highlighter/dist/esm/styles/prism"
+import {
+  base16AteliersulphurpoolLight,
+  prism,
+} from "react-syntax-highlighter/dist/esm/styles/prism"
+import a11yDark from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark"
 import { CodeProps } from "react-markdown/lib/ast-to-react"
 import { Box, Button, Tooltip } from "@chakra-ui/react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -16,6 +20,8 @@ export const MdxCode: FC<Readonly<CodeProps>> = ({
   ...props
 }) => {
   const codeSnippet = String(children).replace(/\n$/, "")
+  const match = /language-(\w+)/.exec(className || "")
+  const language = match?.[1]
   const { onCopy, setValue, hasCopied } = useClipboard("")
 
   useEffect(() => {
@@ -23,32 +29,38 @@ export const MdxCode: FC<Readonly<CodeProps>> = ({
   }, [codeSnippet, setValue])
 
   return (
-    <Box as="code" pos="relative" m={0}>
-      <Button
-        aria-label="Copy code to clipboard"
-        variant="unstyled"
-        pos="absolute"
-        top={2}
-        right={0}
-        color={hasCopied ? "green.500" : "gray.400"}
-        onClick={onCopy}
-      >
-        <Tooltip
-          aria-label="Tooltip."
-          label="Copy code snippet"
-          placement="top-start"
-        >
-          {hasCopied ? (
-            <FontAwesomeIcon icon={faCheck} width="16px" />
-          ) : (
-            <FontAwesomeIcon icon={faCopy} width="16px" />
-          )}
+    <Box pos="relative" m={0} maxH="60vh" w="100%" overflow="auto">
+      <Box pos="sticky" top={3} right={3}>
+        <Tooltip aria-label="Tooltip." label="Copy" gutter={4}>
+          <Button
+            aria-label="Copy code to clipboard"
+            variant="unstyled"
+            pos="absolute"
+            top={0}
+            right={0}
+            mr={3}
+            bg="gray.100"
+            color={hasCopied ? "green.500" : "gray.400"}
+            display="flex"
+            alignItems="center"
+            justifyContent="center"
+            onClick={onCopy}
+            _hover={{
+              bg: "gray.200",
+            }}
+          >
+            {hasCopied ? (
+              <FontAwesomeIcon icon={faCheck} width="16px" />
+            ) : (
+              <FontAwesomeIcon icon={faCopy} width="16px" />
+            )}
+          </Button>
         </Tooltip>
-      </Button>
+      </Box>
+
       <SyntaxHighlighter
-        language="sql"
+        language={language ?? "sql"}
         showLineNumbers
-        wrapLongLines
         style={base16AteliersulphurpoolLight}
         {...props}
       >

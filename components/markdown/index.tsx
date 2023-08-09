@@ -40,18 +40,20 @@ export const components = () => ({
   li: ({ ordered, ...props }: LiProps) => (
     <ListItem as="li" mb={2} {...props} />
   ),
-  pre: ({ ...props }) => (
-    <Box
-      as="pre"
-      borderRadius="md"
-      bg="offWhite"
-      border="1px solid"
-      borderColor="gray.200"
-      fontFamily="mono"
-      my={8}
-      {...props}
-    />
-  ),
+  pre: ({ ...props }) => {
+    return (
+      <Box
+        as="div"
+        borderRadius="md"
+        bg="offWhite"
+        border="1px solid"
+        borderColor="gray.200"
+        fontFamily="mono"
+        my={8}
+        {...props}
+      />
+    )
+  },
   code: ({ node, inline, className, children, style, ...props }: CodeProps) => {
     return node.position &&
       node.position.start.line !== node.position.end.line ? (
