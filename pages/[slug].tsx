@@ -57,10 +57,10 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
       image={project.imageUrl + "?w=1200"}
     >
       <Section
+        alignItems="center"
         flexDirection={{ base: "column", lg: "row" }}
-        minHeight="70vh"
-        alignItems={{ base: "start", lg: "center" }}
         gap={8}
+        pb={{ base: 16, lg: 24 }}
       >
         <Box flex={{ base: 1, lg: 1.75 }}>
           {project.tags && project.tags.length > 0 && (
@@ -137,7 +137,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             pos="sticky"
           >
             <Box as="nav" aria-label="Table of Contents" fontWeight="base">
-              <Text fontSize="md" fontWeight="semibold">
+              <Text fontSize="md" fontWeight="medium">
                 Table of contents
               </Text>
 

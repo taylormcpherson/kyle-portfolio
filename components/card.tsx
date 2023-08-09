@@ -45,25 +45,18 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
           </Flex>
         )}
 
-        <Text as="h3" textStyle="h2">
+        <Text as="h3" textStyle="h2" fontWeight="medium">
           <Balancer>{title}</Balancer>
         </Text>
 
-        <Text
-          color="gray.600"
-          fontSize={{ base: "base", md: "lg" }}
-          mt={6}
-          opacity={{ base: 1, md: 0 }}
-          transition=".15s opacity ease-in-out"
-          _groupHover={{ opacity: 1 }}
-        >
+        <Text color="gray.600" fontSize={{ base: "base", md: "lg" }} mt={6}>
           <Balancer>{subtitle}</Balancer>
         </Text>
 
         <Text
           color="green.500"
           fontSize={{ base: "base", md: "lg" }}
-          fontWeight="400"
+          fontWeight="medium"
           mt={6}
           opacity={{ base: 1, md: 0 }}
           transition=".15s all ease-in-out"
@@ -77,8 +70,10 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
         pos="relative"
         flex={1}
         w={{ base: "100%", md: "auto" }}
-        transition=".15s opacity ease-in-out"
-        _groupHover={{ opacity: 1 }}
+        filter="brightness(0.8) invert(0.01)"
+        blur={0.5}
+        transition=".15s all ease-in-out"
+        _groupHover={{ filter: "brightness(1) invert(0)" }}
       >
         <Image
           src={imageUrl + "?w=800"}

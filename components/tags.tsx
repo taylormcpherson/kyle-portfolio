@@ -3,7 +3,7 @@ import { Badge, BadgeProps } from "@chakra-ui/react"
 import { FC } from "react"
 
 interface TagProps extends BadgeProps {
-  variant: SanityTagVariants;
+  variant: SanityTagVariants
   size?: "sm" | "md"
 }
 

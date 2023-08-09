@@ -6,7 +6,7 @@ export interface ProjectLinkProps {
   text?: string
 }
 
-export type SanityTagVariants = "sql" | "excel" | "r" | "tableau" | "python";
+export type SanityTagVariants = "sql" | "excel" | "r" | "tableau" | "python"
 
 export interface Project {
   slug: string

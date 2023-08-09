@@ -80,19 +80,19 @@ const textStyles = {
   },
   h1: {
     color: "gray.900",
-    fontWeight: "semibold",
+    fontWeight: "medium",
     fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
     lineHeight: "1.25",
   },
   h2: {
     color: "gray.900",
-    fontWeight: "semibold",
+    fontWeight: "medium",
     fontSize: { base: "2xl", md: "3xl" },
     lineHeight: "1.25",
   },
   h3: {
     color: "gray.900",
-    fontWeight: "semibold",
+    fontWeight: "medium",
     fontSize: { base: "xl", md: "2xl" },
     lineHeight: "1.5",
   },
