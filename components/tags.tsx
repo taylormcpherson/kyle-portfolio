@@ -1,9 +1,9 @@
-import { SanityTagProps } from "@/lib/sanity/queries"
+import { SanityTagVariants } from "@/lib/sanity/queries"
 import { Badge, BadgeProps } from "@chakra-ui/react"
 import { FC } from "react"
 
 interface TagProps extends BadgeProps {
-  variant: SanityTagProps["variant"]
+  variant: SanityTagVariants;
   size?: "sm" | "md"
 }
 

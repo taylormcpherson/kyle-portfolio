@@ -6,15 +6,13 @@ export interface ProjectLinkProps {
   text?: string
 }
 
-export interface SanityTagProps {
-  variant: "sql" | "excel" | "r" | "tableau" | "python"
-}
+export type SanityTagVariants = "sql" | "excel" | "r" | "tableau" | "python";
 
 export interface Project {
   slug: string
   title: string
   subtitle: string
-  tags: SanityTagProps[]
+  tags: SanityTagVariants[]
   links: ProjectLinkProps[]
   imageUrl: string
   imageAlt?: string
@@ -49,7 +47,7 @@ export interface ProjectPreview {
   slug: string
   title: string
   subtitle: string
-  tags: SanityTagProps[]
+  tags: SanityTagVariants[]
   publishedAt?: string
   imageUrl: string
   imageAlt?: string
