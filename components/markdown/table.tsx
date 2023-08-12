@@ -1,15 +1,15 @@
-import { FC, useRef, useState } from "react"
-import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react"
-import { Box, Text, Table, TableContainer, Flex } from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faInfoCircle, faInfo } from "@fortawesome/free-solid-svg-icons"
+import { FC, useRef, useState } from "react";
+import { ReactMarkdownProps } from "react-markdown/lib/ast-to-react";
+import { Box, Text, Table, TableContainer, Flex } from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faInfoCircle, faInfo } from "@fortawesome/free-solid-svg-icons";
 
 export const MdxTable: FC<Readonly<ReactMarkdownProps>> = ({ children }) => {
-  const [scrolledToBottom, setScrolledToBottom] = useState(false)
-  const [overflowing, setOverflowing] = useState(false)
+  const [scrolledToBottom, setScrolledToBottom] = useState(false);
+  const [overflowing, setOverflowing] = useState(false);
 
-  const blurHeight = 24
-  const itemHeight = 12
+  const blurHeight = 24;
+  const itemHeight = 12;
 
   return (
     <>
@@ -33,7 +33,7 @@ export const MdxTable: FC<Readonly<ReactMarkdownProps>> = ({ children }) => {
           ref={(element) => {
             if (element) {
               if (element.clientHeight < element.scrollHeight) {
-                setOverflowing(true)
+                setOverflowing(true);
               }
             }
           }}
@@ -42,14 +42,14 @@ export const MdxTable: FC<Readonly<ReactMarkdownProps>> = ({ children }) => {
           maxH="52vh"
           overflowY="auto"
           onScroll={(event) => {
-            const element = event.target as HTMLDivElement
+            const element = event.target as HTMLDivElement;
             if (
               element.scrollHeight - element.scrollTop <=
               element.clientHeight + itemHeight
             ) {
-              setScrolledToBottom(true)
+              setScrolledToBottom(true);
             } else {
-              setScrolledToBottom(false)
+              setScrolledToBottom(false);
             }
           }}
         >
@@ -76,5 +76,5 @@ export const MdxTable: FC<Readonly<ReactMarkdownProps>> = ({ children }) => {
         Scroll to view the full table.
       </Flex>
     </>
-  )
-}
+  );
+};

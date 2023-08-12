@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { FC, ReactNode } from "react"
-import { Layout } from "./layout"
-import Head from "next/head"
-import { usePathname } from "next/navigation"
-import Script from "next/script"
+import { FC, ReactNode } from "react";
+import { Layout } from "./layout";
+import Head from "next/head";
+import { usePathname } from "next/navigation";
+import Script from "next/script";
 
 interface PageProps {
-  title: string
-  description: string
-  image?: string
-  children: ReactNode
+  title: string;
+  description: string;
+  image?: string;
+  children: ReactNode;
 }
 
 export const Page: FC<Readonly<PageProps>> = ({
@@ -19,7 +19,7 @@ export const Page: FC<Readonly<PageProps>> = ({
   image,
   children,
 }) => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <>
@@ -55,5 +55,5 @@ export const Page: FC<Readonly<PageProps>> = ({
 
       <Layout>{children}</Layout>
     </>
-  )
-}
+  );
+};

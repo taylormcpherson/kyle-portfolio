@@ -1,6 +1,6 @@
-import { Link as ChakraLink, LinkProps } from "@chakra-ui/react"
-import NextLink from "next/link"
-import { FC } from "react"
+import { Link as ChakraLink, LinkProps } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { FC } from "react";
 
 const Link: FC<Readonly<LinkProps>> = ({
   href,
@@ -17,6 +17,6 @@ const Link: FC<Readonly<LinkProps>> = ({
   >
     {children}
   </ChakraLink>
-)
+);
 
-export default Link
+export default Link;

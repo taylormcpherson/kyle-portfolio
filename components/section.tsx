@@ -1,8 +1,8 @@
-import { Container, ContainerProps } from "@chakra-ui/react"
-import { FC } from "react"
+import { Container, ContainerProps } from "@chakra-ui/react";
+import { FC } from "react";
 
 interface SectionProps extends ContainerProps {
-  fullWidth?: boolean
+  fullWidth?: boolean;
 }
 
 const Section: FC<Readonly<SectionProps>> = ({
@@ -21,6 +21,6 @@ const Section: FC<Readonly<SectionProps>> = ({
   >
     {children}
   </Container>
-)
+);
 
-export default Section
+export default Section;

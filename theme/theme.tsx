@@ -1,11 +1,11 @@
-import { extendTheme } from "@chakra-ui/react"
+import { extendTheme } from "@chakra-ui/react";
 
-import { components } from "./components"
+import { components } from "./components";
 
 const config = {
   initialColorMode: "light",
   useSystemColorMode: false,
-}
+};
 
 const styles = {
   global: {
@@ -16,18 +16,48 @@ const styles = {
       color: "gray.800",
     },
   },
-}
+};
 const colors = {
   offWhite: "rgb(245, 247, 255)",
-  text: {
-    primary: "gray.800",
-    secondary: "gray.600",
-  },
-}
+  // text: {
+  //   primary: "gray.800",
+  //   secondary: "gray.600",
+  // },
+  // sql: {
+  //   background: "purple.50",
+  //   border: "purple.200",
+  //   text: "purple.800",
+  // },
+  // excel: {
+  //   background: "green.50",
+  //   border: "green.200",
+  //   text: "green.800",
+  // },
+  // r: {
+  //   background: "orange.50",
+  //   border: "orange.200",
+  //   text: "orange.800",
+  // },
+  // tableau: {
+  //   background: "cyan.50",
+  //   border: "cyan.200",
+  //   text: "cyan.800",
+  // },
+  // python: {
+  //   background: "yellow.50",
+  //   border: "yellow.200",
+  //   text: "yellow.800",
+  // },
+  // subtle: {
+  //   background: "gray.50",
+  //   border: "gray.200",
+  //   text: "gray.800",
+  // }
+};
 
 const fonts = {
   body: "sans-serif",
-}
+};
 
 const sizes = {
   max: "max-content",
@@ -50,7 +80,7 @@ const sizes = {
     section: "1300px",
     page: "1600px",
   },
-}
+};
 
 const fontSizes = {
   xxs: "0.65rem",
@@ -66,7 +96,7 @@ const fontSizes = {
   "6xl": "3.5rem",
   "7xl": "4rem",
   "8xl": "5rem",
-}
+};
 
 const textStyles = {
   defaultProps: {
@@ -120,7 +150,7 @@ const textStyles = {
     textTransform: "uppercase",
     letterSpacing: 1,
   },
-}
+};
 
 export const theme = extendTheme({
   styles,
@@ -131,4 +161,4 @@ export const theme = extendTheme({
   textStyles,
   components,
   config,
-})
+});

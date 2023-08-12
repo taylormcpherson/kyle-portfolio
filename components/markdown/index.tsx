@@ -4,7 +4,7 @@ import {
   UnorderedListProps,
   LiProps,
   ReactMarkdownProps,
-} from "react-markdown/lib/ast-to-react"
+} from "react-markdown/lib/ast-to-react";
 import {
   Text,
   List,
@@ -15,11 +15,11 @@ import {
   Th,
   Tr,
   Td,
-} from "@chakra-ui/react"
-import Link from "../link"
-import { MdxImage } from "./image"
-import { MdxCode } from "./code"
-import { MdxTable } from "./table"
+} from "@chakra-ui/react";
+import Link from "../link";
+import { MdxImage } from "./image";
+import { MdxCode } from "./code";
+import { MdxTable } from "./table";
 
 export const components = () => ({
   h2: ({ ...props }) => (
@@ -52,7 +52,7 @@ export const components = () => ({
         my={8}
         {...props}
       />
-    )
+    );
   },
   code: ({ node, inline, className, children, style, ...props }: CodeProps) => {
     return node.position &&
@@ -84,18 +84,18 @@ export const components = () => ({
       >
         {children}
       </Box>
-    )
+    );
   },
   img: ({
     src,
     alt,
     title,
   }: {
-    src?: string
-    alt?: string
-    title?: string
+    src?: string;
+    alt?: string;
+    title?: string;
   }) => {
-    return <MdxImage src={src} alt={alt} title={title} />
+    return <MdxImage src={src} alt={alt} title={title} />;
   },
   table: ({ children, ...props }: ReactMarkdownProps) => (
     <MdxTable {...props}>{children}</MdxTable>
@@ -118,4 +118,4 @@ export const components = () => ({
       {children}
     </Td>
   ),
-})
+});

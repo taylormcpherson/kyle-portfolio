@@ -1,54 +1,54 @@
-import { getProject, getProjectSlugs, Project } from "@/lib/sanity/queries"
-import { GetStaticPaths, GetStaticProps, NextPage } from "next"
-import Image from "next/image"
-import ReactMarkdown from "react-markdown"
-import Balancer from "react-wrap-balancer"
-import rehypeSlug from "rehype-slug"
-import remarkGfm from "remark-gfm"
-import rehypeRaw from "rehype-raw"
-import remarkUnwrapImages from "remark-unwrap-images"
-import GithubSlugger from "github-slugger"
-import { unified } from "unified"
-import remarkParse from "remark-parse"
-import { visit } from "unist-util-visit"
-import { Text, Box, Flex, Divider } from "@chakra-ui/react"
+import { getProject, getProjectSlugs, Project } from "@/lib/sanity/queries";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import Balancer from "react-wrap-balancer";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import remarkUnwrapImages from "remark-unwrap-images";
+import GithubSlugger from "github-slugger";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import { visit } from "unist-util-visit";
+import { Text, Box, Flex, Divider } from "@chakra-ui/react";
 
-import { components } from "@/components/markdown"
-import Section from "@/components/section"
-import Link from "@/components/link"
-import { Tag } from "@/components/tags"
-import { ProjectLink } from "@/components/project-link"
-import { Page } from "@/components/page"
+import { components } from "@/components/markdown";
+import Section from "@/components/section";
+import Link from "@/components/link";
+import { Tag } from "@/components/tag";
+import { ProjectLink } from "@/components/project-link";
+import { Page } from "@/components/page";
 
 interface Heading {
-  title: string
-  href: string
+  title: string;
+  href: string;
 }
 
 interface PageProps {
-  project: Project
-  headings: Heading[]
+  project: Project;
+  headings: Heading[];
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
-  const sidebarMinWidth = 200
+  const sidebarMinWidth = 200;
 
   const scrollToLink = (href: string) => {
-    let scrollElement: HTMLElement | null = null
+    let scrollElement: HTMLElement | null = null;
     if (typeof window !== "undefined") {
-      scrollElement = document.querySelector(href)
+      scrollElement = document.querySelector(href);
     }
 
     if (scrollElement) {
-      const elementPosition = scrollElement.getBoundingClientRect().top
-      const offsetPosition = elementPosition + window.pageYOffset - 80
+      const elementPosition = scrollElement.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - 80;
 
       window.scrollTo({
         top: offsetPosition,
         behavior: "smooth",
-      })
+      });
     }
-  }
+  };
 
   return (
     <Page
@@ -62,7 +62,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         gap={8}
         pb={{ base: 16, lg: 24 }}
       >
-        <Box flex={{ base: 1, lg: 1.75 }}>
+        <Box flex={{ base: 1, lg: 1.75 }} pb={8}>
           {project.tags && project.tags.length > 0 && (
             <Flex gap={2} mb={3}>
               {project.tags.map((tag) => (
@@ -113,7 +113,6 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
               width: "100%",
               height: "auto",
               maxWidth: "500px",
-              // maxHeight: "300px",
               borderRadius: "6px",
             }}
           />
@@ -149,8 +148,8 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
                     fontSize="sm"
                     _hover={{ color: "green.500" }}
                     onClick={(event) => {
-                      event.preventDefault()
-                      scrollToLink(href)
+                      event.preventDefault();
+                      scrollToLink(href);
                     }}
                   >
                     {title}
@@ -200,53 +199,53 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         </Box>
       </Section>
     </Page>
-  )
-}
+  );
+};
 
 interface Heading {
-  title: string
-  href: string
+  title: string;
+  href: string;
 }
 
 const getArticleHeadings = (blogContent: string): Heading[] => {
-  const slugger = new GithubSlugger()
-  const tree = unified().use(remarkParse).parse(blogContent)
-  const headings: Heading[] = []
+  const slugger = new GithubSlugger();
+  const tree = unified().use(remarkParse).parse(blogContent);
+  const headings: Heading[] = [];
 
   visit(tree, "heading", (node) => {
     if (node.depth === 2) {
       const title = blogContent
         .slice(node.position?.start.offset ?? 0, node.position?.end.offset ?? 0)
         .replace(/^#+/g, "")
-        .trim()
+        .trim();
 
       headings.push({
         title,
         href: `#${slugger.slug(title)}`,
-      })
+      });
     }
-  })
+  });
 
-  return headings
-}
+  return headings;
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const slugs = await getProjectSlugs()
+  const slugs = await getProjectSlugs();
 
   return {
     paths: slugs.map(({ slug }: { slug: string }) => ({ params: { slug } })),
     fallback: "blocking",
-  }
-}
+  };
+};
 
 export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
-  const slug = String(params?.slug) ?? ""
-  const project = await getProject(slug)
+  const slug = String(params?.slug) ?? "";
+  const project = await getProject(slug);
 
   if (!project) {
     return {
       notFound: true,
-    }
+    };
   }
 
   return {
@@ -255,7 +254,7 @@ export const getStaticProps: GetStaticProps<PageProps> = async ({ params }) => {
       headings: getArticleHeadings(project.body),
     },
     revalidate: 60,
-  }
-}
+  };
+};
 
-export default ProjectPage
+export default ProjectPage;

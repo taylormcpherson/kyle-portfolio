@@ -1,10 +1,10 @@
-import { SanityTagVariants } from "@/lib/sanity/queries"
-import { Badge, BadgeProps } from "@chakra-ui/react"
-import { FC } from "react"
+import { SanityTagVariants } from "@/lib/sanity/queries";
+import { Badge, BadgeProps } from "@chakra-ui/react";
+import { FC } from "react";
 
 interface TagProps extends BadgeProps {
-  variant: SanityTagVariants
-  size?: "sm" | "md"
+  variant: SanityTagVariants | "subtle";
+  size?: "sm" | "md";
 }
 
 export const Tag: FC<Readonly<TagProps>> = ({
@@ -17,5 +17,5 @@ export const Tag: FC<Readonly<TagProps>> = ({
     <Badge variant={variant} size={size} {...props}>
       {children}
     </Badge>
-  )
-}
+  );
+};

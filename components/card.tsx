@@ -1,24 +1,24 @@
-import { FC } from "react"
-import Image from "next/image"
-import { ProjectPreview } from "@/lib/sanity/queries"
-import { Box, Flex, ListItem, Text } from "@chakra-ui/react"
-import Balancer from "react-wrap-balancer"
-import Link from "./link"
-import { Tag } from "./tags"
+import { FC } from "react";
+import Image from "next/image";
+import { ProjectPreview } from "@/lib/sanity/queries";
+import { Box, Flex, ListItem, Text } from "@chakra-ui/react";
+import Balancer from "react-wrap-balancer";
+import Link from "./link";
+import { Tag } from "./tag";
 
-export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
+export const Card: FC<Readonly<ProjectPreview & { isFirst?: boolean }>> = ({
+  isFirst,
   title,
   subtitle,
   slug,
   imageUrl,
   imageAlt,
   tags,
-  priority,
 }) => (
-  <ListItem
+  <Box
     pos="relative"
     role="group"
-    borderTop="1px solid"
+    borderTop={isFirst ? "none" : "1px solid"}
     borderTopColor="gray.300"
   >
     <Link aria-label={title} variant="overlay" href={slug}>
@@ -70,18 +70,18 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
         pos="relative"
         flex={1}
         w={{ base: "100%", md: "auto" }}
-        filter="brightness(0.8) invert(0.01)"
+        // filter="brightness(0.8) invert(0.01)"
         blur={0.5}
         transition=".15s all ease-in-out"
-        _groupHover={{ filter: "brightness(1) invert(0)" }}
+        _groupHover={{ filter: "brightness(0.8) invert(0.01)" }}
       >
         <Image
+          priority
           src={imageUrl + "?w=800"}
           alt={imageAlt ?? title}
           sizes="100%"
-          width={1}
-          height={1}
-          priority={priority}
+          width={350}
+          height={125}
           style={{
             objectFit: "cover",
             width: "100%",
@@ -93,5 +93,5 @@ export const Card: FC<Readonly<ProjectPreview & { priority?: boolean }>> = ({
         />
       </Box>
     </Flex>
-  </ListItem>
-)
+  </Box>
+);

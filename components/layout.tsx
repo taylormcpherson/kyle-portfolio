@@ -1,7 +1,7 @@
-import { Box } from "@chakra-ui/react"
-import { FC, ReactNode } from "react"
-import Nav from "../components/nav"
-import Footer from "./footer"
+import { Box } from "@chakra-ui/react";
+import { FC, ReactNode } from "react";
+import Nav from "../components/nav";
+import Footer from "./footer";
 
 export const Layout: FC<Readonly<{ children: ReactNode }>> = ({ children }) => (
   <>
@@ -12,4 +12,4 @@ export const Layout: FC<Readonly<{ children: ReactNode }>> = ({ children }) => (
 
     <Footer />
   </>
-)
+);

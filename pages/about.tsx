@@ -1,11 +1,11 @@
-import { Badge, Box, Flex, Text } from "@chakra-ui/react"
-import { getPage, Page as SanityPage } from "@/lib/sanity/queries"
-import { NextPage } from "next"
+import { Badge, Box, Flex, Text } from "@chakra-ui/react";
+import { getPage, Page as SanityPage } from "@/lib/sanity/queries";
+import { NextPage } from "next";
 
-import Link from "@/components/link"
-import Section from "@/components/section"
-import { Tag } from "@/components/tags"
-import { Page } from "@/components/page"
+import Link from "@/components/link";
+import Section from "@/components/section";
+import { Tag } from "@/components/tag";
+import { Page } from "@/components/page";
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
@@ -86,18 +86,18 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
         </Box>
       </Section>
     </Page>
-  )
-}
+  );
+};
 
 export async function getStaticProps() {
-  const page = await getPage("/about")
+  const page = await getPage("/about");
 
   return {
     props: {
       page,
     },
     revalidate: 60,
-  }
+  };
 }
 
-export default About
+export default About;

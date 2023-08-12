@@ -10,18 +10,18 @@ import {
   ModalBody,
   ModalHeader,
   ModalCloseButton,
-} from "@chakra-ui/react"
-import Image from "next/image"
-import { FC } from "react"
+} from "@chakra-ui/react";
+import Image from "next/image";
+import { FC } from "react";
 
 interface MdxImageProps {
-  src?: string
-  alt?: string
-  title?: string
+  src?: string;
+  alt?: string;
+  title?: string;
 }
 
 export const MdxImage: FC<Readonly<MdxImageProps>> = ({ src, alt, title }) => {
-  const { isOpen, onOpen, onClose } = useDisclosure()
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <>
@@ -78,6 +78,7 @@ export const MdxImage: FC<Readonly<MdxImageProps>> = ({ src, alt, title }) => {
       </Flex>
 
       <Modal
+        isCentered
         closeOnOverlayClick={true}
         isOpen={isOpen}
         onClose={onClose}
@@ -111,5 +112,5 @@ export const MdxImage: FC<Readonly<MdxImageProps>> = ({ src, alt, title }) => {
         </ModalContent>
       </Modal>
     </>
-  )
-}
+  );
+};

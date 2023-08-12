@@ -1,4 +1,4 @@
-import type { ComponentStyleConfig } from "@chakra-ui/theme"
+import type { ComponentStyleConfig } from "@chakra-ui/theme";
 
 const Link: ComponentStyleConfig = {
   baseStyle: {
@@ -81,7 +81,29 @@ const Link: ComponentStyleConfig = {
     variant: "default",
     size: "md",
   },
-}
+};
+
+const Button: ComponentStyleConfig = {
+  // baseStyle: {
+  //   border: "1px solid",
+  //     borderColor: "gray.300",
+  //     borderRadius: "md",
+  //     color: "gray.600",
+  //     px: 3,
+  //     _hover: {
+  //       bg: "gray.100"
+  //     }
+  // },
+  variants: {
+    unstyled: {
+      p: 0,
+      bg: "none",
+    },
+  },
+  defaultProps: {
+    variant: "unstyled",
+  },
+};
 
 const List: ComponentStyleConfig = {
   variants: {
@@ -95,7 +117,7 @@ const List: ComponentStyleConfig = {
   defaultProps: {
     variant: "unstyled",
   },
-}
+};
 
 const Badge: ComponentStyleConfig = {
   baseStyle: {
@@ -140,10 +162,15 @@ const Badge: ComponentStyleConfig = {
       borderColor: "yellow.200",
       color: "yellow.800",
     },
+    subtle: {
+      bg: "gray.50",
+      borderColor: "gray.300",
+      color: "gray.700",
+    },
   },
   defaultProps: {
     size: "sm",
   },
-}
+};
 
-export const components = { Link, List, Badge }
+export const components = { Link, Button, List, Badge };

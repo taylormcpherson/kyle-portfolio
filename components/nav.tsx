@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC } from "react";
 import {
   Box,
   Button,
@@ -9,16 +9,16 @@ import {
   ModalContent,
   ModalHeader,
   useDisclosure,
-} from "@chakra-ui/react"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons"
-import Link from "./link"
-import Section from "./section"
+} from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Link from "./link";
+import Section from "./section";
 
 const Nav: FC = () => {
   const resumeHref =
-    "https://drive.google.com/file/d/10Xt-QgGdxvQHrqQnmxj6VuCXvqprAMUy/view?usp=sharing"
-  const { isOpen, onOpen, onClose } = useDisclosure()
+    "https://drive.google.com/file/d/10Xt-QgGdxvQHrqQnmxj6VuCXvqprAMUy/view?usp=sharing";
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box
@@ -116,8 +116,8 @@ const Nav: FC = () => {
         </Box>
       </Section>
     </Box>
-  )
-}
+  );
+};
 
 const MobileLink: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
   <Link
@@ -140,6 +140,6 @@ const MobileLink: FC<Readonly<LinkProps>> = ({ href, children, ...props }) => (
     {children}
     <FontAwesomeIcon icon={faChevronRight} width="14px" />
   </Link>
-)
+);
 
-export default Nav
+export default Nav;
