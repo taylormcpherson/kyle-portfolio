@@ -49,13 +49,12 @@ export const Card: FC<Readonly<ProjectPreview & { isFirst?: boolean }>> = ({
           <Balancer>{title}</Balancer>
         </Text>
 
-        <Text color="gray.600" fontSize={{ base: "base", md: "lg" }} mt={6}>
+        <Text color="gray.600" mt={6}>
           <Balancer>{subtitle}</Balancer>
         </Text>
 
         <Text
           color="green.500"
-          fontSize={{ base: "base", md: "lg" }}
           fontWeight="medium"
           mt={6}
           opacity={{ base: 1, md: 0 }}
@@ -70,10 +69,9 @@ export const Card: FC<Readonly<ProjectPreview & { isFirst?: boolean }>> = ({
         pos="relative"
         flex={1}
         w={{ base: "100%", md: "auto" }}
-        // filter="brightness(0.8) invert(0.01)"
         blur={0.5}
         transition=".15s all ease-in-out"
-        _groupHover={{ filter: "brightness(0.8) invert(0.01)" }}
+        _groupHover={{ filter: "brightness(0.7) invert(0.01)" }}
       >
         <Image
           priority

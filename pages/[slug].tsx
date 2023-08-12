@@ -31,7 +31,7 @@ interface PageProps {
 }
 
 const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
-  const sidebarMinWidth = 200;
+  const sidebarMinWidth = 260;
 
   const scrollToLink = (href: string) => {
     let scrollElement: HTMLElement | null = null;
@@ -59,10 +59,12 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
       <Section
         alignItems="center"
         flexDirection={{ base: "column", lg: "row" }}
-        gap={8}
-        pb={{ base: 16, lg: 24 }}
+        gap={{ base: 8, lg: 12 }}
+        borderBottom="1px solid"
+        borderColor="gray.300"
+        pb={{ base: 12, lg: 16 }}
       >
-        <Box flex={{ base: 1, lg: 1.75 }} pb={8}>
+        <Box flex={{ base: 1, lg: 1.5 }}>
           {project.tags && project.tags.length > 0 && (
             <Flex gap={2} mb={3}>
               {project.tags.map((tag) => (
@@ -77,12 +79,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             <Balancer> {project.title}</Balancer>
           </Text>
 
-          <Text
-            mt={4}
-            fontSize={{ base: "md", md: "xl" }}
-            color="gray.600"
-            lineHeight={1.6}
-          >
+          <Text mt={4} color="gray.600" lineHeight={1.6}>
             <Balancer> {project.subtitle}</Balancer>
           </Text>
 
@@ -106,8 +103,8 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
             alt={project.imageAlt ?? project.title}
             priority
             sizes="100%"
-            width={1}
-            height={1}
+            width={400}
+            height={200}
             style={{
               objectFit: "cover",
               width: "100%",
@@ -123,7 +120,7 @@ const ProjectPage: NextPage<Readonly<PageProps>> = ({ project, headings }) => {
         pos="relative"
         flexDirection="row"
         alignItems="start"
-        gap={{ base: 6, xl: 8 }}
+        gap={{ base: 8, xl: 16 }}
         pb={40}
       >
         {headings.length > 0 && (
