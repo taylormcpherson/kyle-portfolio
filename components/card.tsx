@@ -1,7 +1,7 @@
 import { FC } from "react";
 import Image from "next/image";
 import { ProjectPreview } from "@/lib/sanity/queries";
-import { Box, Flex, ListItem, Text } from "@chakra-ui/react";
+import { AspectRatio, Box, Flex, Text } from "@chakra-ui/react";
 import Balancer from "react-wrap-balancer";
 import Link from "./link";
 import { Tag } from "./tag";
@@ -34,7 +34,7 @@ export const Card: FC<Readonly<ProjectPreview & { isFirst?: boolean }>> = ({
       py={{ base: 8, md: 4 }}
       px={{ base: 4, md: 6, lg: "auto" }}
     >
-      <Box flex={{ base: 1, md: 2 }} my={4}>
+      <Box flex={{ base: 1, lg: 2 }} my={4}>
         {tags && tags.length > 0 && (
           <Flex gap={2} mb={3}>
             {tags.map((tag) => (
@@ -65,31 +65,29 @@ export const Card: FC<Readonly<ProjectPreview & { isFirst?: boolean }>> = ({
         </Text>
       </Box>
 
-      <Box
+      <AspectRatio
         pos="relative"
+        ratio={16 / 9}
         flex={1}
         w={{ base: "100%", md: "auto" }}
+        maxW="400px"
+        borderRadius="md"
+        overflow="hidden"
         blur={0.5}
         transition=".15s all ease-in-out"
         _groupHover={{ filter: "brightness(0.7) invert(0.01)" }}
       >
         <Image
           priority
+          fill
           src={imageUrl + "?w=800"}
           alt={imageAlt ?? title}
           sizes="100%"
-          width={350}
-          height={125}
           style={{
             objectFit: "cover",
-            width: "100%",
-            height: "auto",
-            maxWidth: "400px",
-            maxHeight: "300px",
-            borderRadius: "6px",
           }}
         />
-      </Box>
+      </AspectRatio>
     </Flex>
   </Box>
 );

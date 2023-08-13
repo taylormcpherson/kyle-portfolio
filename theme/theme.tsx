@@ -19,40 +19,6 @@ const styles = {
 };
 const colors = {
   offWhite: "rgb(245, 247, 255)",
-  // text: {
-  //   primary: "gray.800",
-  //   secondary: "gray.600",
-  // },
-  // sql: {
-  //   background: "purple.50",
-  //   border: "purple.200",
-  //   text: "purple.800",
-  // },
-  // excel: {
-  //   background: "green.50",
-  //   border: "green.200",
-  //   text: "green.800",
-  // },
-  // r: {
-  //   background: "orange.50",
-  //   border: "orange.200",
-  //   text: "orange.800",
-  // },
-  // tableau: {
-  //   background: "cyan.50",
-  //   border: "cyan.200",
-  //   text: "cyan.800",
-  // },
-  // python: {
-  //   background: "yellow.50",
-  //   border: "yellow.200",
-  //   text: "yellow.800",
-  // },
-  // subtle: {
-  //   background: "gray.50",
-  //   border: "gray.200",
-  //   text: "gray.800",
-  // }
 };
 
 const fonts = {
@@ -76,7 +42,7 @@ const sizes = {
   "7xl": "80rem",
   "8xl": "90rem",
   container: {
-    article: "900px",
+    article: "840px",
     section: "1300px",
     page: "1600px",
   },
@@ -105,13 +71,13 @@ const textStyles = {
   h1Xl: {
     color: "gray.900",
     fontWeight: "medium",
-    fontSize: { base: "5xl", md: "6xl", lg: "8xl" },
+    fontSize: { base: "5xl", md: "6xl", lg: "7xl" },
     lineHeight: "1.25",
   },
   h1: {
     color: "gray.900",
     fontWeight: "medium",
-    fontSize: { base: "3xl", md: "4xl", lg: "5xl" },
+    fontSize: { base: "3xl", md: "4xl" },
     lineHeight: "1.25",
   },
   h2: {
