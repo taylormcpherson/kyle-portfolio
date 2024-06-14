@@ -3,7 +3,13 @@ const nextConfig = {
   reactStrictMode: false,
   transpilePackages: ["react-syntax-highlighter"],
   images: {
-    domains: ["cdn.sanity.io"],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: "cdn.sanity.io",
+        port: '',
+      },
+    ],
   },
   i18n: {
     locales: ["en"],
