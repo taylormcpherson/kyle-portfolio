@@ -17,7 +17,7 @@ import Section from "./section";
 
 const Nav: FC = () => {
   const resumeHref =
-    "https://drive.google.com/file/d/10Xt-QgGdxvQHrqQnmxj6VuCXvqprAMUy/view?usp=sharing";
+    "https://cdn.sanity.io/files/38t6rk2v/production/e84ba1e48ff1570be325bb3ae30bfebeba363a65.pdf";
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (

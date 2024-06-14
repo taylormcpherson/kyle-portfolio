@@ -6,6 +6,13 @@ import Link from "@/components/link";
 import Section from "@/components/section";
 import { Tag } from "@/components/tag";
 import { Page } from "@/components/page";
+import { components } from "@/components/markdown";
+
+import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
+import remarkUnwrapImages from "remark-unwrap-images";
 
 const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
   return (
@@ -16,12 +23,14 @@ const About: NextPage<Readonly<{ page: SanityPage }>> = ({ page }) => {
             {page.title}
           </Text>
 
-          <Text as="h2" textStyle="p" mt={8}>
-            {page.subtitle}
-          </Text>
+          <Box textStyle="p" mt={8}>
+            <ReactMarkdown components={components()} linkTarget="_blank">
+              {page.subtitle}
+            </ReactMarkdown>
+          </Box>
 
           <Flex
-            pt={{ base: 16, md: 32 }}
+            pt={{ base: 16, md: 20 }}
             gap={{ base: 12, md: 16 }}
             direction={{ base: "column", md: "row" }}
           >
